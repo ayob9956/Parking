@@ -8,13 +8,22 @@ Welcome to our Parking Space Booking System's frontend website! This platform is
 
 
 **React-Powered Interface**: Leverage the power of React for dynamic and responsive user interactions.
+
 **Tailwind CSS Styling**: Enjoy a sleek, modern design with Tailwind CSS for an intuitive and aesthetically pleasing user experience.
+
 **Real-Time Parking Availability**: Access up-to-date information on available parking spots.
+
 **Secure Online Payment**: Conduct transactions securely through our integrated payment system.
+
 **Responsive and Mobile-Friendly**: The website is fully responsive, providing a seamless experience on all devices.
-How to Use the Website
+
+
+**How to Use the Website**
+
 **1-Visit the Website**: Navigate to our Parking Space Booking System's in your preferred web browser.
+
 **2-Choose a Location**: Select from a range of available parking locations.
+
 **3-Determine Parking Duration**: Specify your required parking duration.
 
 
