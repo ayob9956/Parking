@@ -4,7 +4,7 @@
 
 Welcome to our Parking Space Booking System's frontend website! This platform is built using React, Tailwind CSS, and HTML, ensuring a modern, responsive, and user-friendly interface for booking and paying for parking spaces online.
 
-**Features**
+**Features**:
 
 
 **React-Powered Interface**: Leverage the power of React for dynamic and responsive user interactions.
@@ -13,9 +13,9 @@ Welcome to our Parking Space Booking System's frontend website! This platform is
 **Secure Online Payment**: Conduct transactions securely through our integrated payment system.
 **Responsive and Mobile-Friendly**: The website is fully responsive, providing a seamless experience on all devices.
 How to Use the Website
-1-Visit the Website: Navigate to our Parking Space Booking System's in your preferred web browser.
-2-Choose a Location: Select from a range of available parking locations.
-3-Determine Parking Duration: Specify your required parking duration.
+**1-Visit the Website**: Navigate to our Parking Space Booking System's in your preferred web browser.
+**2-Choose a Location**: Select from a range of available parking locations.
+**3-Determine Parking Duration**: Specify your required parking duration.
 
 
 
@@ -25,4 +25,4 @@ How to Use the Website
 **Markup Language**: HTML is used to structure the web content.
 **Compatibility**: Best experienced in modern browsers like Chrome, Firefox, and Safari.
 
-Prototybing in Figma :   https://www.figma.com/file/Z4fNKmNRZc5zZB949cLErf/Untitled?type=design&node-id=0%3A1&mode=design&t=7BDKx5ZjrSDXHcxX-1
+**Prototybing in Figma** :   https://www.figma.com/file/Z4fNKmNRZc5zZB949cLErf/Untitled?type=design&node-id=0%3A1&mode=design&t=7BDKx5ZjrSDXHcxX-1
