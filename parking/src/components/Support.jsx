@@ -5,8 +5,8 @@ function Support() {
   
   <div className="bg-gray-100 min-h-screen flex flex-col justify-between">
 
-  <main className="container mx-auto px-4 py-8 ">
-    <div className="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-sm">
+  <main className="container mx-auto px-4 py-8 shadow-2xl">
+    <div className="max-w-lg mx-auto bg-white p-6 rounded-lg shadow">
       <h2 className="text-2xl font-semibold mb-4">تواصل معنا</h2>
       <form>
         <div className="mb-4">
@@ -21,7 +21,7 @@ function Support() {
           <label className="block text-gray-700 text-sm font-bold mb-2" for="message">الرسالة</label>
           <textarea className="border border-gray-300 rounded-md px-4 py-2 w-full h-32" id="message" placeholder="اكتب رسالتك هنا"></textarea>
         </div>
-        <button className="bg-[#efe827] text-black font-bold px-4 py-2 rounded-md " type="submit">إرسال</button>
+        <button className="bg-blue-500 text-white px-4 py-2 rounded-md font-semibold" type="submit">إرسال</button>
       </form>
     </div>
   </main>

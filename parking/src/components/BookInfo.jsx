@@ -1,91 +1,84 @@
-"use client";
-
 import { useState } from "react";
-import {
-  APIProvider,
-  Map,
-  AdvancedMarker,
-  Pin,
-  InfoWindow,
-} from "@vis.gl/react-google-maps";
 
 function BookInfo() {
-    const position = { lat: 24.85357907176668, lng: 46.71208704698528 };
-    const [open, setOpen] = useState(false);
+  const [bookingData, setBookingData] = useState({
+    name: "",
+    email: "",
+    date: "",
+    // ... أضف المزيد من حقول الحجز اللازمة هنا
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setBookingData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    // قم بمعالجة بيانات الحجز هنا (مثلاً إرسالها إلى الخادم أو تنفيذ إجراء معين)
+    console.log(bookingData);
+  };
+
   return (
-    <div className="flex  ">
-   
-
-
-
-    {/* <!-- component --> */}
-<div class="flex h-screen w-full max-md:flex-wrap  justify-center">
-
-	<div className="card shrink-0 w-full max-md:w-72 max-sm:w-full  max-w-sm shadow-2xl bg-base-100">
-      <form className="card-body">
+    <div className="card p-6">
+      <h3 className="text-2xl font-bold mb-4">احجز موقفك</h3>
+      <form onSubmit={handleFormSubmit}>
         <div className="form-control">
-            <p className="text-center font-bold">معلومات الحجز </p>
-          <label className="label">
-            <span className="label-text">اختر يوم الحجز </span>
+          <label htmlFor="name" className="label">
+            الاسم:
           </label>
-          <input type="email" placeholder="اختر يوم الحجز " className="input input-bordered" required />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={bookingData.name}
+            onChange={handleInputChange}
+            className="input input-bordered"
+            required
+          />
         </div>
+
         <div className="form-control">
-          <label className="label">
-            <span className="label-text">اختر وقت الحجز</span>
+          <label htmlFor="email" className="label">
+            البريد الإلكتروني:
           </label>
-          <input type="email" placeholder="اختر وقت الحجز" className="input input-bordered" required />
-        </div> <div className="form-control">
-          <label className="label">
-            <span className="label-text">اختر مدة الحجز </span>
-          </label>
-          <input type="email" placeholder="اختر مدة الحجز " className="input input-bordered" required />
-        </div> <div className="form-control">
-          <label className="label">
-            <span className="label-text">رقم الموقف ( حدد موقفك من الخريطة )</span>
-          </label>
-          <input type="email" placeholder="رقم الموقف ( حدد موقفك من الخريطة )" className="input input-bordered" required />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={bookingData.email}
+            onChange={handleInputChange}
+            className="input input-bordered"
+            required
+          />
         </div>
+
         <div className="form-control">
-          <label className="label">
-            <span className="label-text">التكلفة الإجمالية (لكل ساعة 8 ريال سعودي) </span>
+          <label htmlFor="date" className="label">
+            تاريخ الحجز:
           </label>
-          <input type="password" placeholder="(لكل ساعة 8 ريال سعودي)" className="input input-bordered max-sm:w-full" required />
-          <label className="label">
-            
-          </label>
+          <input
+            type="date"
+            id="date"
+            name="date"
+            value={bookingData.date}
+            onChange={handleInputChange}
+            className="input input-bordered"
+            required
+          />
         </div>
-        <div className="form-control mt-6">
-          <button className="btn btn-primary">التالي</button>
-        </div>
+
+        {/* ... أضف المزيد من حقول الحجز هنا */}
+
+        <button type="submit" className="btn btn-primary mt-4">
+          حجز الموقف
+        </button>
       </form>
     </div>
-    <div className="w-full h-full  items-center justify-center content-center ">
-	 <APIProvider apiKey="AIzaSyCOEE04AQC7gzfcMrUrmYoHiULXK7yJaeA">
-      <div className="w-full h-full">
-        <Map zoom={20} center={position} mapId="AIzaSyCOEE04AQC7gzfcMrUrmYoHiULXK7yJaeA" mapTypeId="satellite">
-          <AdvancedMarker position={position} onClick={() => setOpen(true)}>
-            <Pin
-              background={"grey"}
-              borderColor={"green"}
-              glyphColor={"purple"}
-            />
-          </AdvancedMarker>
-
-          {open && (
-            <InfoWindow position={position} onCloseClick={() => setOpen(false)}>
-              <p className="text-center items-center">انا في اكادمية طويق</p>
-            </InfoWindow>
-          )}
-        </Map>
-      </div>
-    </APIProvider>
-
-
-	</div>
-    </div>
-    </div>
-  )
+  );
 }
 
-export default BookInfo
+export default BookInfo;
