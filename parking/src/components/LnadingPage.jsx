@@ -29,6 +29,7 @@ const [open, setOpen] = useState(false);
 
 
   return (
+
     <>
     <Nav/>
     <div className='h-screen'>
@@ -187,4 +188,8 @@ const [open, setOpen] = useState(false);
     </div>
     </>
   );
+
+    <div>LnadingPage </div>
+  )
+
 }
