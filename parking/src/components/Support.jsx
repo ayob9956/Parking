@@ -1,14 +1,13 @@
 import React from "react";
+import Nav from "./Nav";
 
 function Support() {
   return (<>
-  
-  <div className="bg-gray-100 min-h-screen flex flex-col justify-between">
-
-  <main className="container mx-auto px-4 py-8 shadow-2xl">
+  <Nav/>
+  <div className="bg-gray-100 min-h-[88vh] flex items-center">
+  <main className="container mx-auto px-4 py-8 ">
     <div className="max-w-lg mx-auto bg-white p-6 rounded-lg shadow">
       <h2 className="text-2xl font-semibold mb-4">تواصل معنا</h2>
-      <form>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" for="name">الاسم</label>
           <input className="border border-gray-300 rounded-md px-4 py-2 w-full" type="text"  placeholder="ادخل اسمك" />
@@ -21,15 +20,11 @@ function Support() {
           <label className="block text-gray-700 text-sm font-bold mb-2" for="message">الرسالة</label>
           <textarea className="border border-gray-300 rounded-md px-4 py-2 w-full h-32" id="message" placeholder="اكتب رسالتك هنا"></textarea>
         </div>
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-md font-semibold" type="submit">إرسال</button>
-      </form>
+        <button className="bg-[#f5d329] text-[#00000088]  px-4 py-2 rounded-md font-semibold" type="submit">إرسال</button>
+     
     </div>
   </main>
-  <footer className="bg-gray-200 py-5  border-[1px] border-[#120e0e44] rounded-lg ">
-    <div className="container mx-auto px-4 text-center text-gray-600">
-      جميع الحقوق محفوظة &copy; 2023
-    </div>
-  </footer>
+ 
 </div>
   
   </>)

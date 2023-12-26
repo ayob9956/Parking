@@ -33,11 +33,13 @@ export default function Rout() {
     {/* <Support/> */}
     {/* <UserData/> */}
     {/* <Test/> */}
-    <Nav/>
-    <LnadingPage/>
+     {/* <Nav/> */}
+
+   
     
-    {/* <BookInfo/> */}
+    <BookInfo/>
  
+ {/* <LnadingPage/>  */}
 
     </>
   )

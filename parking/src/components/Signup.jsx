@@ -4,7 +4,7 @@ import google from "../google.png"
 function Signup() {
   return (<>
   {/* the Page container */}
-  <div className="w-full h-[90vh] flex justify-center items-center bg-[#e5e5e645]  ">
+  <div className="w-full h-[100vh] flex justify-center items-center bg-[#e5e5e645]  ">
     {/* the Contents container */}
     <div className="w-[75%] h-[80vh] flex bg-gradient-to-b from-[#d9d9d90f] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px]  shadow-md border-[#d1d1d1]">
       {/* the Image contents */}
@@ -47,11 +47,7 @@ function Signup() {
     </div>
 
 </div>
- <footer className="bg-gray-200 py-5  border-[1px] border-[#120e0e44] rounded-lg">
-    <div className="container mx-auto px-4 text-center text-gray-600">
-      جميع الحقوق محفوظة &copy; 2023
-    </div>
-  </footer>
+
   
   
   </>)
