@@ -1,5 +1,6 @@
 import React from "react";
 import google from "../google.png"
+import { Link } from 'react-router-dom'
 
 function Signup() {
   return (<>
