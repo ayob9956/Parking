@@ -12,6 +12,7 @@ import Singnin from './Singnin'
 import Support from './Support'
 import UserData from './UserData'
 import Test from './Test'
+import Nav from './Nav'
 
 
 
@@ -32,8 +33,10 @@ export default function Rout() {
     {/* <Support/> */}
     {/* <UserData/> */}
     {/* <Test/> */}
-    {/* <LnadingPage/> */}
-    <BookInfo/>
+    <Nav/>
+    <LnadingPage/>
+    
+    {/* <BookInfo/> */}
  
 
     </>
