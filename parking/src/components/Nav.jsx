@@ -8,52 +8,62 @@ export default function Nav() {
   return (
     <>
 
-   
-  <div dir='rtl' className='w-full'>
+{/* <div className="navbar bg-base-100 shadow-md  rounded-md">
 
-
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-
-    <img src={react} className='h-20 mr-4'></img>
-
-    {/* <a class="navbar-brand" href="#">Navbar w/ text</a> */}
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div className=''>
-
-    <div class="collapse navbar-collapse w-[80vw] justify-between" id="navbarText">
-        <div className='mr-4'>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 font-bold">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">الرئيسية</a>
+  <div className="flex-1 items-center justify-end">
+    <a className="btn btn-ghost text-xl"><img className='h-8' src={react} alt="" /></a>
+    
+  </div>
+  <div className='flex-1 justify-start gap-4'>
+    <p  className="btn btn-ghost text-base">الرئيسية</p>
+    <p  className="btn btn-ghost text-base">من نحن</p>
+    <p  className="btn btn-ghost text-base">الدعم</p>
+  </div>
+  
+  <div className="dropdown" dir='ltr'>
+      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+      </div>
+      <ul dir='rtl' tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+        <li><a>الرئيسية</a></li>
+        <li><a>من نحن</a></li>
+        <li><a>الدعم</a></li>
+      </ul></div>
+</div> */}
+  
+  <div className="navbar bg-base-100">
+  <div className="navbar-start">
+    <div className="dropdown">
+      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+      </div>
+      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+        <li><a>الرئيسية</a></li>
+        <li>
+          <a>من نحن</a>
+          
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">من نحن</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">الدعم</a>
-        </li>
+        <li><a>الدعم</a></li>
       </ul>
-      </div>
-
-      <div>
-      <span className="">
-        <button className='bg-[#ede74d] text-black font-bold ml-12 pl-4 pr-4 py-2 rounded-md '>
-        تسجيل دخول
-        </button>
-      </span>
-      </div>
-
-
     </div>
-    </div>
+    <a className="btn btn-ghost text-xl"><img className='h-8' src={react} alt="" /></a>
+  </div>
+  <div className="navbar-center hidden lg:flex">
+    <ul className="menu menu-horizontal px-1">
+    <li><a>الرئيسية</a></li>
+        <li>
+          <a>من نحن</a>
+          
+        </li>
+        <li><a>الدعم</a></li>
+    </ul>
+  </div>
+  <div className="navbar-end gap-2">
+    <a className="btn btn-primary max-sm:btn-sm">دخول</a>
+    <a className="btn btn-primary max-sm:btn-sm">تسجيل </a>
 
   </div>
-</nav>
-
-  </div>
+</div>
     
     </>
   )
