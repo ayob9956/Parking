@@ -50,12 +50,11 @@ const digitalPosition = {lat: 24.740567130959125, lng: 46.63443627239909};
   return (
 
     <>
-    <Nav/>
 
     <div className='h-screen w-full'>
 
 
-    <div className='h-[15vh] flex justify-center items-center mb-2'>
+    <div className=' flex justify-center items-center mb-2'>
         <div className='flex justify-center items-center gap-3 border shadow-sm p-3 rounded-md max-sm:[10vw] max-sm:mt-20 max-sm:mr-5 max-sm: flex-wrap'>
         <div className='flex justify-center items-center gap-1'>
         <p>دخولك</p>
