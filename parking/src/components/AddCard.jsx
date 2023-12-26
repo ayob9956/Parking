@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom/dist'
 
 function AddCard() {
   return (
@@ -33,23 +34,7 @@ function AddCard() {
             <li>CVV</li>
             <li>البنك</li>
             <li className=''>
-            <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                class="flex-grow-0 flex-shrink-0 w-6 h-6 relative"
-                preserveAspectRatio="none"
-              >
-                <circle cx="12" cy="12" r="12" fill="#1BB66E"></circle>
-                <path
-                  d="M16.8002 9L10.2003 15.6L7.2002 12.6"
-                  stroke="white"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path></svg> 
+            <input type="checkbox" className="checkbox checkbox-success" />
                 </li>  
         </ul>
     
@@ -86,23 +71,7 @@ function AddCard() {
             <li>CVV</li>
             <li>البنك</li>
             <li className=''>
-            <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                class="flex-grow-0 flex-shrink-0 w-6 h-6 relative"
-                preserveAspectRatio="none"
-              >
-                <circle cx="12" cy="12" r="12" fill="#1BB66E"></circle>
-                <path
-                  d="M16.8002 9L10.2003 15.6L7.2002 12.6"
-                  stroke="white"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path></svg> 
+            <input type="checkbox" className="checkbox checkbox-success" /> 
                 </li>  
         </ul>
     
@@ -205,7 +174,10 @@ function AddCard() {
             </div>
         </div>
         <div>
-            <button class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"><i class="mdi mdi-lock-outline mr-1"></i> PAY NOW</button>
+            <Link to="/ticket">
+            <button class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700  text-white rounded-lg px-3 py-3 font-semibold"> شراء الآن</button>
+
+            </Link>
         </div>
     </div>
 </div>

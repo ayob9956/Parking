@@ -8,6 +8,7 @@ import {
   Pin,
   InfoWindow,
 } from "@vis.gl/react-google-maps";
+import { Link } from "react-router-dom/dist";
 
 function BookInfo() {
     const position = { lat: 24.85357907176668, lng: 46.71208704698528 };
@@ -28,35 +29,38 @@ function BookInfo() {
           <label className="label">
             <span className="label-text">اختر يوم الحجز </span>
           </label>
-          <input type="email" placeholder="اختر يوم الحجز " className="input input-bordered" required />
+          <input type="text" placeholder="اختر يوم الحجز " className="input input-bordered" required />
         </div>
         <div className="form-control border-none">
           <label className="label">
             <span className="label-text">اختر بداية الحجز</span>
           </label>
-          <input type="email" placeholder="اختر بداية الحجز" className="input input-bordered" required />
+          <input type="text" placeholder="اختر بداية الحجز" className="input input-bordered" required />
         </div> <div className="form-control border-none">
           <label className="label">
             <span className="label-text">اختر نهاية الحجز </span>
           </label>
-          <input type="email" placeholder="اختر نهاية الحجز " className="input input-bordered" required />
+          <input type="text" placeholder="اختر نهاية الحجز " className="input input-bordered" required />
         </div> <div className="form-control border-none">
           <label className="label">
             <span className="label-text">رقم الموقف ( حدد موقفك من الخريطة )</span>
           </label>
-          <input type="email" placeholder="رقم الموقف ( حدد موقفك من الخريطة )" className="input input-bordered" required />
+          <input type="text" placeholder="رقم الموقف ( حدد موقفك من الخريطة )" className="input input-bordered" required />
         </div>
         <div className="form-control border-none">
           <label className="label">
             <span className="label-text">التكلفة الإجمالية (لكل ساعة 8 ريال سعودي) </span>
           </label>
-          <input type="password" placeholder="(لكل ساعة 8 ريال سعودي)" className="input input-bordered max-sm:w-full" required />
+          <input type="text" placeholder="(لكل ساعة 8 ريال سعودي)" className="input input-bordered max-sm:w-full" required />
           <label className="label">
             
           </label>
         </div>
         <div className="form-control mt-6 border-none">
-          <button className="btn btn-primary">التالي</button>
+           <Link className="btn btn-primary" to='/userdata'>
+           <button className="btn btn-primary">التالي</button>
+
+            </Link> 
         </div>
       </form>
     </div>
