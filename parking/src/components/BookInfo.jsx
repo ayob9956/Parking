@@ -19,7 +19,7 @@ function BookInfo() {
 
 
     {/* <!-- component --> */}
-<div class="flex h-screen w-full max-md:flex-wrap  justify-center">
+<div class="flex h-screen w-full max-md:flex-wrap  justify-center  place-items-center">
 
 	<div className="card shrink-0 w-full max-md:w-72 max-sm:w-full  max-w-sm shadow-2xl bg-base-100">
       <form className="card-body">
@@ -63,20 +63,27 @@ function BookInfo() {
     <div className="w-full h-full  items-center justify-center content-center ">
 	 <APIProvider apiKey="AIzaSyCOEE04AQC7gzfcMrUrmYoHiULXK7yJaeA">
       <div className="w-full h-full">
+
         <Map zoom={20} center={position} mapId="AIzaSyCOEE04AQC7gzfcMrUrmYoHiULXK7yJaeA" mapTypeId="satellite">
+                              <div className=" w-56 h-12 bg-white border text-black">متاح غير متاح</div>
+
           <AdvancedMarker position={position} onClick={() => setOpen(true)}>
+
             <Pin
               background={"grey"}
               borderColor={"green"}
               glyphColor={"purple"}
             />
+
           </AdvancedMarker>
+          <div className=" w-56 h-12 bg-white border text-black">متاح غير متاح</div>
 
           {open && (
             <InfoWindow position={position} onCloseClick={() => setOpen(false)}>
               <p className="text-center items-center">انا في اكادمية طويق</p>
             </InfoWindow>
           )}
+          
         </Map>
       </div>
     </APIProvider>
