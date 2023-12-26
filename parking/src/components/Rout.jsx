@@ -1,7 +1,7 @@
 import React from 'react'
 import {Routes,Route} from 'react-router-dom'
 
-import Nav from './Nav'
+
 import LnadingPage from './LnadingPage'
 import TestEvreyThing from './TestEvreyThing'
 import BookInfo from './BookInfo'
@@ -10,6 +10,7 @@ import Singnin from './Singnin'
 import Support from './Support'
 import UserData from './UserData'
 import Test from './Test'
+
 
 
 export default function Rout() {
@@ -22,10 +23,12 @@ export default function Rout() {
     </Routes>   */}
 
     {/* <Singnin/> */}
-    <Signup/>
+    {/* <Signup/> */}
     {/* <Support/> */}
     {/* <UserData/> */}
     {/* <Test/> */}
+    <LnadingPage/>
+ 
 
     </>
   )

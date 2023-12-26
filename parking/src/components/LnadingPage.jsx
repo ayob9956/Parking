@@ -32,7 +32,7 @@ const [open, setOpen] = useState(false);
 
     <>
     <Nav/>
-    <div className='h-screen'>
+    <div className='w-[100%] h-screen'>
 
     <div dir="rtl" className='h-[15vh] flex justify-center items-center'>
         <div className='flex justify-center items-center gap-4 border p-3 rounded-md'>
@@ -190,6 +190,6 @@ const [open, setOpen] = useState(false);
   );
 
     <div>LnadingPage </div>
-  )
+  
 
 }
