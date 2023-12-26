@@ -10,12 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@glidejs/glide": "^3.6.0",
-=======
     "@googlemaps/js-api-loader": "^1.16.2",
     "@react-google-maps/api": "^2.19.2",
->>>>>>> 9f133039dbc4f74086f55bce197119edd10f2e01
     "@vis.gl/react-google-maps": "^0.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
