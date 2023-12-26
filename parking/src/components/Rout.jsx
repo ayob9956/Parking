@@ -27,7 +27,8 @@ export default function Rout() {
     {/* <Support/> */}
     {/* <UserData/> */}
     {/* <Test/> */}
-    <LnadingPage/>
+    {/* <LnadingPage/> */}
+    <BookInfo/>
  
 
     </>
