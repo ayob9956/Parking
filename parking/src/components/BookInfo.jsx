@@ -74,7 +74,7 @@ function BookInfo() {
           </label>
         </div>
         <div className="form-control">
-          <button className="btn btn-primary w-[84%] ">التالي</button>
+          <button className="btn btn-primary w-[83%] ">التالي</button>
         </div>
         </div>
       </form>
