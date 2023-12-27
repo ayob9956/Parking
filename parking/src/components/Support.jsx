@@ -1,9 +1,7 @@
 import React from "react";
-import Nav from "./Nav";
 
 function Support() {
   return (<>
-  <Nav/>
   <div className="bg-gray-100 min-h-[88vh] flex items-center">
   <main className="container mx-auto px-4 py-8 ">
     <div className="max-w-lg mx-auto bg-white p-6 rounded-lg shadow">

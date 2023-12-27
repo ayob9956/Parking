@@ -8,6 +8,7 @@ import {
   Pin,
   InfoWindow,
 } from "@vis.gl/react-google-maps";
+import { Link } from "react-router-dom/dist";
 
 function BookInfo() {
     const position = { lat: 24.85357907176668, lng: 46.71208704698528 };
@@ -26,6 +27,7 @@ function BookInfo() {
         <div className="w-full h-[90vh] flex flex-col justify-center gap-6">
         <div className="form-control flax gap-5">
             <p className="text-center font-bold">معلومات الحجز </p>
+
     <div className="">
       <label htmlFor="date" className=" block mb-2">تحديد التاريخ:</label>
       <input type="date" id="date" name="date" className="input input-bordered input input-bordered p-4 h-[5vh] w-[84%] shadow-sm flex " required/>
@@ -66,18 +68,25 @@ function BookInfo() {
             <span className="label-text">رقم الموقف ( حدد موقفك من الخريطة )</span>
           </label>
           <input type="text" placeholder="رقم الموقف ( حدد موقفك من الخريطة )" className="p-2 h-[5vh] shadow-sm input input-bordered w-[84%]" required />
+
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">التكلفة الإجمالية (لكل ساعة 8 ريال سعودي) </span>
           </label>
-          <input type="password" placeholder="(لكل ساعة 8 ريال سعودي)" className="p-4 h-[5vh] shadow-sm input input-bordered w-[84%]" required />
+
+          <input type="text" placeholder="(لكل ساعة 8 ريال سعودي)" className="input shadow-sm input-bordered max-sm:w-full" required />
+
           <label className="label">
           </label>
         </div>
-        <div className="form-control">
-          <button className="btn btn-primary w-[84%] ">التالي</button>
-        </div>
+
+        <div className="form-control mt-6 border-none">
+           <Link className="btn btn-primary" to='/userdata'>
+           <button className="btn btn-primary">التالي</button>
+
+            </Link> 
+
         </div>
       </form>
     </div>
