@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 function Signup() {
   return (<>
   {/* the Page container */}
-  <div className="w-full h-[90vh] flex justify-center items-center bg-[#e5e5e645]  ">
+  <div className="w-full h-[100vh] flex justify-center items-center bg-[#e5e5e645]  ">
     {/* the Contents container */}
     <div className="w-[75%] h-[80vh] flex bg-gradient-to-b from-[#d9d9d90f] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px]  shadow-md border-[#d1d1d1]">
       {/* the Image contents */}
@@ -13,7 +13,7 @@ function Signup() {
             <div className=" w-full h-[79.8vh] bg-gradient-to-b from-[#d9d9d900] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px]  shadow-sm border-[#efefef]"></div>
         </div>
         {/* Registration card container */}
-         <div className="w-[50%] h-[80vh] border-r-0 flex items-center flex-col gap-5  ">
+         <div className="w-[50%] h-[80vh] border-r-0 flex items-center flex-col gap-3  ">
           {/* Logo Image */}
            <div className="w-full  flex justify-end"><p>[ركنة]</p></div>
           {/* Registration description */}
@@ -24,8 +24,8 @@ function Signup() {
             {/* Data User Entry */}
             <div className="flex flex-col gap-6">
             <input className="text-[12px] p-2 w-[35vh] h-[5vh] rounded-md border-[1px] shadow-sm" type="text" placeholder="ادخل اسم المستخدم"/>    
-            <input className="text-[12px]  p-2 w-[35vh] h-[5vh] rounded-md border-[1px] shadow-sm placeholder:text-right text-left" type="email" placeholder="ادخل البريد الإلكتروني"/>  
-            <input className="text-[12px]  p-2 w-[35vh] h-[5vh] rounded-md border-[1px] shadow-sm  placeholder:text-right" type="tel" placeholder="دخل رقم الجوال"/>  
+            <input className="text-[12px]  p-2 w-[35vh] h-[5vh] rounded-md border-[1px] shadow-sm  " type="email" placeholder="ادخل البريد الإلكتروني"/>  
+            <input className="text-[12px]  p-2 w-[35vh] h-[5vh] rounded-md border-[1px] shadow-sm text-right placeholder:text-right" type="tel" placeholder="ادخل رقم الجوال"/>  
             <input className="text-[12px]  p-2 w-[35vh] h-[5vh] rounded-md border-[1px] shadow-sm" type="password" placeholder="ادخل كلمة المرور"/>      
             <button className="w-[35vh] h-[5vh] rounded-md  bg-[#fbf429] font-bold shadow-md text-[12px] transition duration-500 hover:bg-[#faf4509e]">انشاء الحساب</button>
             </div>
@@ -48,11 +48,7 @@ function Signup() {
     </div>
 
 </div>
- <footer className="bg-gray-200 py-5  border-[1px] border-[#120e0e44] rounded-lg">
-    <div className="container mx-auto px-4 text-center text-gray-600">
-      جميع الحقوق محفوظة &copy; 2023
-    </div>
-  </footer>
+
   
   
   </>)
