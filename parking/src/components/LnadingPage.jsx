@@ -1,5 +1,4 @@
 import React from 'react'
-import Nav from './Nav'
 import login from '../assets/login.png'
 import parkingSign from '../assets/parking-sign.png'
 import parkingLot from '../assets/parking-lot.png'
@@ -8,6 +7,7 @@ import timetable from '../assets/timetable.png'
 import compliant from '../assets/compliant.png'
 import locationPin from '../assets/location-pin.png'
 import locationPinSoon from '../assets/location-pin-soon.png'
+
 
 import locationGreen from '../assets/location-pin-green.png'
 
@@ -50,21 +50,21 @@ const digitalPosition = {lat: 24.740567130959125, lng: 46.63443627239909};
   return (
 
     <>
-    <Nav/>
 
     <div className='h-screen w-full'>
 
 
-    <div className='h-[15vh] flex justify-center items-center mb-2'>
-        <div className='flex justify-center items-center gap-3 border shadow-sm p-3 rounded-md max-sm:[10vw] max-sm:mt-20 max-sm:mr-5 max-sm:ml-5 max-sm:flex-wrap'>
+    <div className=' flex justify-center items-center h-[18vh] '>
+        <div className='flex justify-center items-center gap-6 border shadow-2xl p-3 rounded-md max-sm:[10vw] max-sm:mt-20 max-sm:mr-5 max-sm:flex-wrap'>
+
         <div className='flex justify-center items-center gap-1'>
         <p>دخولك</p>
-        <img className='h-[4vh]' src={login}></img>
+        <img className='h-[3vh]' src={login}></img>
         </div>
         <span class="material-symbols-outlined">arrow_back</span>
         <div className='flex justify-center items-center gap-1'>
         <p>مكانك</p>
-        <img className='h-[4vh]' src={parkingSign}></img>
+        <img className='h-[3vh]' src={parkingSign}></img>
         </div>
         <span class="material-symbols-outlined">arrow_back</span>
         <div className='flex justify-center items-center gap-1'>
@@ -84,15 +84,16 @@ const digitalPosition = {lat: 24.740567130959125, lng: 46.63443627239909};
         <span class="material-symbols-outlined">arrow_back</span>
         <div className='flex justify-center items-center gap-1'>
         <p>الدفع والانهاء</p>
-        <img className='h-[4vh]' src={compliant}></img>
+        <img className='h-[3vh]' src={compliant}></img>
         </div>
         </div>
     </div>
-
-
+  
     <APIProvider apiKey="AIzaSyAj6Z0Nc3kdfc0KTG2ttumKZssMh6ioQO8">
+
       <div className='flex justify-center max-sm:mt-20 max-sm:pb-10'>
       <div className='h-[80vh] w-[80vw] relative'>
+
       <Map zoom={10} center={mapPosition} mapId="30946c4a5f450f07" mapTypeId="satellite">
 
     

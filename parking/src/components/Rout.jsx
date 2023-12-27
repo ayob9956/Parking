@@ -13,7 +13,9 @@ import Support from './Support'
 import UserData from './UserData'
 import Test from './Test'
 import Nav from './Nav'
-// import Ticket from './Ticket'
+
+ import Ticket from './Ticket'
+
 
 
 
@@ -33,14 +35,15 @@ export default function Rout() {
 
         <Route path='/support' element={<Support/>}/>
 
-        {/* <Route path='/ticket' element={<Ticket/>}/> */}
+        <Route path='/ticket' element={<Ticket/>}/>
 
 
 
     </Routes>  
 
-  
+
  
+ {/* <LnadingPage/>  */}
 
     </>
   )

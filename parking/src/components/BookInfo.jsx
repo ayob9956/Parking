@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+
 import { useEffect } from "react";
 
 import { Map, Polygon, GoogleApiWrapper } from "google-maps-react";
@@ -9,7 +10,7 @@ function BookInfo({ google }) {
     const position = { lat: 24.85353885090064, lng: 46.71209072625354 };
     const [open, setOpen] = useState(false);
 
-  
+ 
 
    
   useEffect(() => {
@@ -36,40 +37,64 @@ function BookInfo({ google }) {
     <div className="flex border-8  " >
 
     {/* <!-- component --> */}
+
   <div class="flex h-fit justify-center max-sm:flex-col">
 
   <div className="card shrink-0 max-md:w-72 max-sm:w-screen  max-w-sm shadow-2xl bg-base-100 ">
       <form className="card-body">
         <div className="form-control border-none">
             <p className="text-center font-bold">معلومات الحجز </p>
-          <label className="label">
-            <span className="label-text">اختر يوم الحجز </span>
-          </label>
-          <input type="email" placeholder="اختر يوم الحجز " className="input input-bordered" required />
+
+    <div className="">
+      <label htmlFor="date" className=" block mb-2">تحديد التاريخ:</label>
+      <input type="date" id="date" name="date" className="input input-bordered  p-4 h-[5vh] w-[84%] shadow-sm flex " required/>
+    </div> 
         </div>
-        <div className="form-control border-none">
-          <label className="label">
-            <span className="label-text">اختر بداية الحجز</span>
-          </label>
-          <input type="email" placeholder="اختر بداية الحجز" className="input input-bordered" required />
-        </div> <div className="form-control border-none">
-          <label className="label">
-            <span className="label-text">اختر نهاية الحجز </span>
-          </label>
-          <input type="email" placeholder="اختر نهاية الحجز " className="input input-bordered" required />
-        </div> <div className="form-control border-none">
+    <div className="w-full h-[20vh] flex flex-col gap-2 ">
+  <label htmlFor="time" className="block">
+    تحديد الوقت:
+  </label>
+  <input
+    type="time"
+    id="time"
+    name="time"
+    min="08:00"
+    max="17:00"
+    className="p-4 h-[5vh] shadow-sm input input-bordered w-[84%] "
+    required
+  />
+   <div className=" w-[84%] flex items-center justify-evenly gap-3">
+            <hr className="border-[1px] w-[84%]"></hr>
+            <p className="text-[12px] text-[#5d5b5b] ">الى</p>
+            <hr className="border-[1px] w-[84%]"></hr>
+    </div>
+
+     <input
+    type="time"
+    id="time"
+    name="time"
+    min="08:00"
+    max="17:00"
+    className="p-4 h-[5vh] shadow-sm input input-bordered w-[84%] "
+    required
+  />
+</div>
+
+       <div className="form-control">
           <label className="label">
             <span className="label-text">رقم الموقف ( حدد موقفك من الخريطة )</span>
           </label>
-          <input type="email" placeholder="رقم الموقف ( حدد موقفك من الخريطة )" className="input input-bordered" required />
+          <input type="text" placeholder="رقم الموقف ( حدد موقفك من الخريطة )" className="p-2 h-[5vh] shadow-sm input input-bordered w-[84%]" required />
+
         </div>
-        <div className="form-control border-none">
+        <div className="form-control">
           <label className="label">
-            <span className="label-text">التكلفة الإجمالية (لكل ساعة 8 ريال سعودي) </span>
+            <span className="label-text max-sm:text-sm">التكلفة الإجمالية (لكل ساعة 8 ريال سعودي) </span>
           </label>
-          <input type="password" placeholder="(لكل ساعة 8 ريال سعودي)" className="input input-bordered max-sm:w-full" required />
+
+          <input type="text" placeholder="(لكل ساعة 8 ريال سعودي)" className="p-4 h-[5vh] shadow-sm input input-bordered w-[84%]" required />
+
           <label className="label">
-            
           </label>
         </div>
         <div className="form-control border-none">
@@ -137,6 +162,7 @@ google={google} zoom={25} initialCenter={position} >
               glyphColor={"purple"}
             />
 
+
           </AdvancedMarker> */}
           {/* <div className=" w-56 h-12 bg-white border text-black">متاح غير متاح</div> */}
 
@@ -144,6 +170,7 @@ google={google} zoom={25} initialCenter={position} >
             <InfoWindow position={position} onCloseClick={() => setOpen(false)}>
               <p className="text-center items-center">انا في اكادمية طويق</p>
             </InfoWindow>
+
           )} */}
           
        
@@ -153,6 +180,7 @@ google={google} zoom={25} initialCenter={position} >
 
     </div>
     </div>
+    
   )
 }
 
