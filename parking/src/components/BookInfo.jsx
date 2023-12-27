@@ -32,12 +32,6 @@ function BookInfo({ google }) {
 
  
 
-
-    // const mapOptions = {
-    //   mapTypeId: google.maps.MapTypeId.SATELLITE,
-    // };
-
-
   return (
     <div className="flex border-8  " >
 
