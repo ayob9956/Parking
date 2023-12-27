@@ -9,7 +9,7 @@ import compliant from '../assets/compliant.png'
 import locationPin from '../assets/location-pin.png'
 import locationPinSoon from '../assets/location-pin-soon.png'
 
-
+// ;lkl
 import locationGreen from '../assets/location-pin-green.png'
 
 import { Link } from 'react-router-dom'
