@@ -14,7 +14,7 @@ function BookInfo() {
     const position = { lat: 24.85357907176668, lng: 46.71208704698528 };
     const [open, setOpen] = useState(false);
   return (
-    <div className="flex  border-8 ">
+    <div className="flex   ">
    
 
 
@@ -58,7 +58,7 @@ function BookInfo() {
         </div>
         <div className="form-control mt-6 border-none">
            <Link className="btn btn-primary" to='/userdata'>
-           <button className="btn btn-primary">التالي</button>
+           التالي
 
             </Link> 
         </div>

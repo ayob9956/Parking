@@ -102,15 +102,22 @@ function Payment() {
      </ul>
 </div>
  <Link to='/addcard'>
-     <div className=' flex p-5 gap-5 border h-20 items-center'>
+     <div className=' flex p-5 gap-5 border border-b-0 h-20 items-center'>
    <input type="checkbox" className='rounded-full h' /> <p>إضافة بطاقة جديدة</p>
  </div>
  </Link>
 
 
+<div className='w-full mt-5 border-t-0'>
+  <Link to="/ticket" >
+    <button className="btn btn-primary w-full">حجز الان</button>
+
+  </Link>
+</div>
+
  
     </div>
-
+    
     </div>
     
   )
