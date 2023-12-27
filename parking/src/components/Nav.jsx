@@ -31,7 +31,7 @@ export default function Nav() {
       </ul></div>
 </div> */}
   
-  <div className="navbar bg-base-100">
+  <div className="navbar bg-base-100 h-[12vh] rounded-lg border-[1px] shadow-lg">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -59,10 +59,12 @@ export default function Nav() {
         <li><a>الدعم</a></li>
     </ul>
   </div>
+
   <div className="navbar-end gap-2">
 <Link to="/signin">    <a className="btn btn-primary max-sm:btn-sm">دخول</a></Link>
 <Link to="/signup" >    <a className="btn btn-primary max-sm:btn-sm">تسجيل </a>
 </Link>
+
   </div>
 </div>
     

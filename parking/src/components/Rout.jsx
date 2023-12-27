@@ -39,8 +39,8 @@ export default function Rout() {
 
     </Routes>  
 
-  
  
+ {/* <LnadingPage/>  */}
 
     </>
   )

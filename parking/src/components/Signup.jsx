@@ -32,6 +32,7 @@ function Signup() {
               <hr className="border w-1/5"/>
               <p className="text-xs text-[#5d5b5b]">او</p>
               <hr className="border w-1/5"/>
+
             </div>
       <div className="w-full items-center flex justify-center">
          <button className="w-full md:w-auto px-4 py-2 rounded-md border font-bold text-xs shadow-md flex items-center justify-center gap-2 transition duration-500 hover:bg-[#efefef]">
@@ -42,6 +43,7 @@ function Signup() {
            
           </div>
 
+
           <div className="text-center">
             <p className="text-[#969696] text-xs">لدي حساب لتسجيل ?? <a className="text-blue-400 font-bold" href="/">تسجيل دخول</a></p>
           </div>
@@ -49,6 +51,11 @@ function Signup() {
       </div>
     </div>
   );
+</div>
+
+  
+  
+  </>)
 }
 
 export default Signup;

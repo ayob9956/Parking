@@ -2,6 +2,7 @@ import React from "react";
 import google from "../google.png";
 
 function Singnin() {
+
   return (
     <>
       <div className="w-full h-full flex justify-center items-center  p-5">
@@ -18,6 +19,8 @@ function Singnin() {
             <div className="text-center">
               <p className="font-bold text-lg">تسجيل دخول</p>
               <p className="text-gray-500 text-sm">يرجى تسجيل الدخول للمتابعة إلى حسابك.</p> 
+
+ 
             </div>
 
             <div className="flex flex-col gap-4">
@@ -44,6 +47,7 @@ function Singnin() {
           </div>
         </div>
       </div>
+
 
       
     </>
