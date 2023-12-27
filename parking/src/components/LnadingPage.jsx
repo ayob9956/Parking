@@ -1,5 +1,4 @@
 import React from 'react'
-import Nav from './Nav'
 import login from '../assets/login.png'
 import parkingSign from '../assets/parking-sign.png'
 import parkingLot from '../assets/parking-lot.png'
@@ -51,7 +50,6 @@ const digitalPosition = {lat: 24.740567130959125, lng: 46.63443627239909};
   return (
 
     <>
-<Nav/>
     <div className='h-screen w-full'>
 
 
