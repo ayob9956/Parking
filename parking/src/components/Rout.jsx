@@ -29,7 +29,7 @@ export default function Rout() {
     </Routes>   */}
 
     {/* <Singnin/> */}
-    {/* <Signup/> */}
+    <Signup/>
     {/* <Support/> */}
     {/* <UserData/> */}
     {/* <Test/> */}
@@ -37,7 +37,7 @@ export default function Rout() {
 
    
     
-    <BookInfo/>
+    {/* <BookInfo/> */}
  
  {/* <LnadingPage/>  */}
 
