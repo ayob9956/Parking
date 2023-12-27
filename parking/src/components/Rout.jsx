@@ -35,9 +35,9 @@ export default function Rout() {
     {/* <Test/> */}
      {/* <Nav/> */}
     
-    {/* <BookInfo/> */}
+    <BookInfo/>
  
- <LnadingPage/> 
+ {/* <LnadingPage/>  */}
 
     </>
   )
