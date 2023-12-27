@@ -37,7 +37,7 @@ export default function Rout() {
     
     {/* <BookInfo/> */}
  
- {/* <LnadingPage/>  */}
+ <LnadingPage/> 
 
     </>
   )

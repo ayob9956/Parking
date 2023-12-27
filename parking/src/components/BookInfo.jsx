@@ -13,11 +13,8 @@ function BookInfo() {
     const position = { lat: 24.85357907176668, lng: 46.71208704698528 };
     const [open, setOpen] = useState(false);
   return (
-    <div className="flex  ">
-   
-
-
-
+    <div className="flex">
+  
     {/* <!-- component --> */}
 <div class="flex h-screen w-full max-md:flex-wrap  justify-center bg-gradient-to-b from-[#d9d9d90f] via-[#2d61e310] to-[#d9d9d90f] ">
 

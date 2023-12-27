@@ -35,7 +35,7 @@ export default function LnadingPage() {
 //   const position = { lat: 53.54, lng: 10 };
 const position = { lat: 24.853610637162078, lng: 46.713016810239395 };
 
-const mapPosition = {lat: 24.724575196148205, lng: 46.739269761117356};
+const mapPosition = {lat: 24.809065115350908, lng: 46.714359578260314};
 
 const [open1, setOpen1] = useState(false);
 const [open2, setOpen2] = useState(false);
@@ -51,11 +51,11 @@ const digitalPosition = {lat: 24.740567130959125, lng: 46.63443627239909};
   return (
 
     <>
-<Nav/>
+
     <div className='h-screen w-full'>
 
 
-    <div className=' flex justify-center items-center h-[18vh] '>
+    <div className=' flex justify-center items-center h-[18vh] sm:h-[20vh] md:h-[25vh] lg:h-[30vh] xl:h-[18vh] '>
         <div className='flex justify-center items-center gap-6 border shadow-2xl p-3 rounded-md max-sm:[10vw] max-sm:mt-20 max-sm:mr-5 max-sm: flex-wrap'>
         <div className='flex justify-center items-center gap-1'>
         <p>دخولك</p>
@@ -91,8 +91,8 @@ const digitalPosition = {lat: 24.740567130959125, lng: 46.63443627239909};
   
     <APIProvider apiKey="AIzaSyAj6Z0Nc3kdfc0KTG2ttumKZssMh6ioQO8">
       <div className='flex justify-center  '>
-      <div className='h-[80vh] w-[80vw] relative border-[1px] border-[#ebe4eb rounded-xl shadow-sm'>
-      <Map zoom={10} center={mapPosition} mapId="30946c4a5f450f07" mapTypeId="satellite">
+      <div className='h-[80vh] bg-black w-[95vw]  relative border-[1px] border-[#ebe4eb rounded-xl] shadow-sm' style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)' }}>
+      <Map zoom={12} center={mapPosition} mapId="30946c4a5f450f07" mapTypeId="satellite">
 
     
           <AdvancedMarker position={position} onClick={() => setOpen1(true)}>
