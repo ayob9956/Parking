@@ -13,7 +13,9 @@ import Support from './Support'
 import UserData from './UserData'
 import Test from './Test'
 import Nav from './Nav'
-import Ticket from './Ticket'
+
+ import Ticket from './Ticket'
+
 
 
 
@@ -38,6 +40,7 @@ export default function Rout() {
 
 
     </Routes>  
+
 
  
  {/* <LnadingPage/>  */}
