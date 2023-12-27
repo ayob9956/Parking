@@ -23,12 +23,12 @@ function BookInfo() {
 
 	<div className="card shrink-0 w-full max-md:w-72 max-sm:w-full max-w-sm shadow-2xl bg-base-100 bg-gradient-to-b from-[#d9d9d90f] via-[#2d61e310] to-[#d9d9d90f]  ">
       <form className="card-body ">
-        <div className="w-full h-[90vh] flex flex-col justify-center gap-6">
-        <div className="form-control flax gap-5">
+        <div className="w-full h-[75vh] flex flex-col justify-around gap-3">
+        <div className="form-control">
             <p className="text-center font-bold">معلومات الحجز </p>
     <div className="">
       <label htmlFor="date" className=" block mb-2">تحديد التاريخ:</label>
-      <input type="date" id="date" name="date" className="input input-bordered input input-bordered p-4 h-[5vh] w-[84%] shadow-sm flex " required/>
+      <input type="date" id="date" name="date" className="  p-2 h-[5vh] w-[84%] shadow-sm" />
     </div> 
         </div>
     <div className="w-full h-[20vh] flex flex-col gap-2 ">
@@ -41,10 +41,9 @@ function BookInfo() {
     name="time"
     min="08:00"
     max="17:00"
-    className="p-4 h-[5vh] shadow-sm input input-bordered w-[84%] "
-    required
+    className=" p-2 h-[5vh] shadow-sm input input-bordered  w-[84%] "
   />
-   <div className=" w-[84%] flex items-center justify-evenly gap-3">
+   <div className=" w-[50%] flex items-center justify-evenly gap-3">
             <hr className="border-[1px] w-[84%]"></hr>
             <p className="text-[12px] text-[#5d5b5b] ">الى</p>
             <hr className="border-[1px] w-[84%]"></hr>
@@ -56,8 +55,7 @@ function BookInfo() {
     name="time"
     min="08:00"
     max="17:00"
-    className="p-4 h-[5vh] shadow-sm input input-bordered w-[84%] "
-    required
+    className="p-2 h-[5vh] shadow-sm input input-bordered  w-[84%] "
   />
 </div>
 
@@ -71,7 +69,7 @@ function BookInfo() {
           <label className="label">
             <span className="label-text">التكلفة الإجمالية (لكل ساعة 8 ريال سعودي) </span>
           </label>
-          <input type="password" placeholder="(لكل ساعة 8 ريال سعودي)" className="p-4 h-[5vh] shadow-sm input input-bordered w-[84%]" required />
+          <input type="password" placeholder="(لكل ساعة 8 ريال سعودي)" className="p-2 h-[5vh] shadow-sm input input-bordered w-[84%]" required />
           <label className="label">
           </label>
         </div>
@@ -83,7 +81,7 @@ function BookInfo() {
     </div>
     <div className="w-full h-full  items-center justify-center content-center border-[2px] rounded-xl shadow-2xl border-[#cecece]">
 	 <APIProvider apiKey="AIzaSyCOEE04AQC7gzfcMrUrmYoHiULXK7yJaeA">
-      <div className="w-full h-full  ">
+      <div className="w-full h-full border-[px] rounded-xl shadow-2xl border-[#cecece]">
         <Map zoom={20} center={position} mapId="AIzaSyCOEE04AQC7gzfcMrUrmYoHiULXK7yJaeA" mapTypeId="satellite">
           <AdvancedMarker position={position} onClick={() => setOpen(true)}>
             <Pin
