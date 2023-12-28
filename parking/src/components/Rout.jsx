@@ -15,6 +15,7 @@ import Test from './Test'
 import Nav from './Nav'
 import CheckoutForm from './CheckoutForm'
  import Ticket from './Ticket'
+
  import {Elements} from '@stripe/react-stripe-js';
  import {loadStripe} from '@stripe/stripe-js';
  import Checkout from './Checkout'
@@ -22,7 +23,11 @@ import CheckoutForm from './CheckoutForm'
  // Make sure to call `loadStripe` outside of a component’s render to avoid
  // recreating the `Stripe` object on every render.
  const stripePromise = loadStripe('pk_test_51OS4liBEKzJHwgwjOgTTCfeco9oWGRtB8MNvhMDzGc9HxPc8eCsqUxIN26UCfJKbauiMzGukK8iolSM6OqN7qAsl00y9SkWZYz');
- 
+
+
+ import ParkingAPI from './ParkingAPI'
+
+
 
 
 
