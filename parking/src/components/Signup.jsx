@@ -1,8 +1,55 @@
 import React from "react";
 import google from "../google.png"
-import { Link } from 'react-router-dom'
+import  { useState } from "react";
+import axios from "axios";
+
+
+
+     
 
 function Signup() {
+
+  
+     const [UeserName, setUeserName] = useState('');
+      const [Usernameerro, setUsernameerro] = useState('');
+
+     const [Email, setEmil] = useState("");
+     const [Emilerro, setEmailerro] = useState("");
+
+     const [phone, setphone] = useState("");
+     const [phoneerro, setphoneerro] = useState("");
+
+     const [Password, setPassword] = useState("");
+     const [Passworderro, setPassworderro] = useState("");
+
+    
+
+     const handelSingUP = ()=>{
+
+     if (UeserName.length < 4) {
+    setUsernameerro(<span style={{ color: "#c23e3ec7", fontFamily: "initial" }}>User name must be at least 4 characters</span>);
+
+    } else if (!/^[a-zA-Z0-9.]+@gmail.com$/.test(Email)) {
+  setEmailerro(<span style={{ color: "#c23e3ec7", fontFamily: "initial" }}>Email address must end with @gmail.com</span>);
+
+  } else if (!/^05\d{8}$/.test(phone)) {
+  setphoneerro(<span style={{ color: "#c23e3ec7", fontFamily: "initial" }}>Invalid phone number. Phone number must start with 05 and consist of 10 digits.</span>);
+
+}else if (!/^[a-zA-Z0-9]+$/.test(Password) || Password.length < 6) {
+    setPassworderro(<span style={{ color: "#c23e3ec7", fontFamily: "initial" }}>Password must be at least 6 characters and contain only letters and numbers</span>);
+
+  }else {
+    alert("goood")
+    axios.post("https://6552c0675449cfda0f2dca61.mockapi.io/uesers",{
+    UeserName : UeserName,
+    Email : Email,
+    phone : phone,
+    Password : Password,
+    })
+  
+    .catch(error => console.error(error));
+
+    }}
   return (<>
   {/* the Page container */}
   <div className="w-full h-[100vh] flex justify-center items-center bg-[#e5e5e645]  ">
@@ -22,12 +69,21 @@ function Signup() {
             <p className="text-[#969696] text-[12px]">قم بالتسجيل والاستفادة من ركنة</p> 
             </div>
             {/* Data User Entry */}
-            <div className="flex flex-col gap-6">
-            <input className="text-[12px] p-2 w-[35vh] h-[5vh] rounded-md border-[1px] shadow-sm" type="text" placeholder="ادخل اسم المستخدم"/>    
-            <input className="text-[12px]  p-2 w-[35vh] h-[5vh] rounded-md border-[1px] shadow-sm  " type="email" placeholder="ادخل البريد الإلكتروني"/>  
-            <input className="text-[12px]  p-2 w-[35vh] h-[5vh] rounded-md border-[1px] shadow-sm text-right placeholder:text-right" type="tel" placeholder="ادخل رقم الجوال"/>  
-            <input className="text-[12px]  p-2 w-[35vh] h-[5vh] rounded-md border-[1px] shadow-sm" type="password" placeholder="ادخل كلمة المرور"/>      
-            <button className="w-[35vh] h-[5vh] rounded-md  bg-[#fbf429] font-bold shadow-md text-[12px] transition duration-500 hover:bg-[#faf4509e]">انشاء الحساب</button>
+            <div className="card shrink-0 w-full  max-sm:w-full max-w-sm justify-center items-center flex flex-col gap-8">
+              <form className="card-body ">
+            <input value={UeserName} onChange={(e)=>{setUeserName(e.target.value);}} className="text-[12px] p-2 w-[35vh] h-[5vh] rounded-md border-[1px] shadow-sm" type="text" placeholder="ادخل اسم المستخدم" required/>   
+        
+            <input value={Email} onChange={(e)=>{setEmil(e.target.value);}} className="text-[12px]  p-2 w-[35vh] h-[5vh] rounded-md border-[1px] shadow-sm  " type="email" placeholder="ادخل البريد الإلكتروني"/>  
+        
+            <input value={phone} onChange={(e)=>{setphone(e.target.value);}} className="text-[12px]  p-2 w-[35vh] h-[5vh] rounded-md border-[1px] shadow-sm text-right placeholder:text-right" type="tel" placeholder="ادخل رقم الجوال"/>  
+        
+            <input value={Password} onChange={(e)=>{setPassword(e.target.value);}} className="text-[12px]  p-2 w-[35vh] h-[5vh] rounded-md border-[1px] shadow-sm" type="password" placeholder="ادخل كلمة المرور"/>    
+         
+           
+            <div className="form-control">
+            <button onClick={handelSingUP} className="btn btn-primary w-[35vh] h-[5vh] rounded-md  bg-[#fbf429] font-bold shadow-md text-[12px] transition duration-500 hover:bg-[#faf4509e]">انشاء الحساب</button>
+            </div>
+             </form>  
             </div>
             {/* Description of registration options */}
             <div className="w-full flex flex-col justify-center items-center gap-3">
@@ -41,7 +97,7 @@ function Signup() {
               <img className="w-[5%]" src={google}alt="" />
               التسجيل عن بأستخدام قوقل
             </button>
-            <p className="text-[#969696] text-[12px] ">لدي حساب لتسجيل ??  <a className="text-blue-400 font-bold" href="/">تسجيل دخول</a></p>
+            {/* <p className="text-[#969696] text-[12px] ">لدي حساب لتسجيل ??  <a className="text-blue-400 font-bold" href="/">تسجيل دخول</a></p> */}
            
             </div>
         </div>

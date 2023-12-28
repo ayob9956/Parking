@@ -29,13 +29,13 @@ export default function Rout() {
     </Routes>   */}
 
     {/* <Singnin/> */}
-    {/* <Signup/> */}
+    <Signup/>
     {/* <Support/> */}
     {/* <UserData/> */}
     {/* <Test/> */}
      {/* <Nav/> */}
     
-    <BookInfo/>
+    {/* <BookInfo/> */}
  
  {/* <LnadingPage/>  */}
 
