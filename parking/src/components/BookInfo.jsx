@@ -1,6 +1,3 @@
-
-import { useState } from "react";
-
 import { useEffect } from "react";
 
 import { Map, Polygon, GoogleApiWrapper } from "google-maps-react";
@@ -42,18 +39,22 @@ function BookInfo({ google }) {
   return (
     <div className="flex border-8  " >
 
+
     {/* <!-- component --> */}
+
 
   <div class="flex h-fit justify-center max-sm:flex-col">
 
   <div className="card shrink-0 max-md:w-72 max-sm:w-screen  max-w-sm shadow-2xl bg-base-100 ">
       <form className="card-body">
         <div className="form-control border-none">
-            <p className="text-center font-bold">معلومات الحجز </p>
 
+            <p className="text-center font-bold">معلومات الحجز </p>
     <div className="">
       <label htmlFor="date" className=" block mb-2">تحديد التاريخ:</label>
-      <input type="date" id="date" name="date" className="input input-bordered  p-4 h-[5vh] w-[84%] shadow-sm flex " required/>
+
+      <input type="date" id="date" name="date" className="  p-2 h-[5vh] w-[84%] shadow-sm" />
+
     </div> 
         </div>
     <div className="w-full h-[20vh] flex flex-col gap-2 ">
@@ -66,10 +67,9 @@ function BookInfo({ google }) {
     name="time"
     min="08:00"
     max="17:00"
-    className="p-4 h-[5vh] shadow-sm input input-bordered w-[84%] "
-    required
+    className=" p-2 h-[5vh] shadow-sm input input-bordered  w-[84%] "
   />
-   <div className=" w-[84%] flex items-center justify-evenly gap-3">
+   <div className=" w-[50%] flex items-center justify-evenly gap-3">
             <hr className="border-[1px] w-[84%]"></hr>
             <p className="text-[12px] text-[#5d5b5b] ">الى</p>
             <hr className="border-[1px] w-[84%]"></hr>
@@ -81,8 +81,7 @@ function BookInfo({ google }) {
     name="time"
     min="08:00"
     max="17:00"
-    className="p-4 h-[5vh] shadow-sm input input-bordered w-[84%] "
-    required
+    className="p-2 h-[5vh] shadow-sm input input-bordered  w-[84%] "
   />
 </div>
 
@@ -91,12 +90,12 @@ function BookInfo({ google }) {
             <span className="label-text">رقم الموقف ( حدد موقفك من الخريطة )</span>
           </label>
           <input type="text" placeholder="رقم الموقف ( حدد موقفك من الخريطة )" className="p-2 h-[5vh] shadow-sm input input-bordered w-[84%]" required />
-
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text max-sm:text-sm">التكلفة الإجمالية (لكل ساعة 8 ريال سعودي) </span>
           </label>
+
 
           <input type="text" placeholder="(لكل ساعة 8 ريال سعودي)" className="p-4 h-[5vh] shadow-sm input input-bordered w-[84%]" required />
 
