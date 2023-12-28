@@ -100,8 +100,7 @@ function BookInfo({ google }) {
 
           <input type="text" placeholder="(لكل ساعة 8 ريال سعودي)" className="p-4 h-[5vh] shadow-sm input input-bordered w-[84%]" required />
 
-          <label className="label">
-          </label>
+          
         </div>
         <div className="form-control border-none">
           <button className="btn btn-primary">التالي</button>
