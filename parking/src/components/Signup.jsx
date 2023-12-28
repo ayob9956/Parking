@@ -92,23 +92,27 @@ function Signup() {
             <p className="text-[12px] text-[#5d5b5b]">او</p>
             <hr className="border-[1px] w-[20%]"></hr>
             </div>
-       
-            <button className=" w-[35vh] h-[5vh] rounded-md border-[1px] font-bold text-[12px] shadow-md flex items-center justify-center gap-2 transition duration-500 hover:bg-[#efefef]">
-              <img className="w-[5%]" src={google}alt="" />
+      <div className="w-full items-center flex justify-center">
+         <button className="w-full md:w-auto px-4 py-2 rounded-md border font-bold text-xs shadow-md flex items-center justify-center gap-2 transition duration-500 hover:bg-[#efefef]">
+              <img className="w-6 h-6" src={google} alt="Google"/>
               التسجيل عن بأستخدام قوقل
             </button>
-            {/* <p className="text-[#969696] text-[12px] ">لدي حساب لتسجيل ??  <a className="text-blue-400 font-bold" href="/">تسجيل دخول</a></p> */}
+
            
-            </div>
+          </div>
+
+
+          <div className="text-center">
+            <p className="text-[#969696] text-xs">لدي حساب لتسجيل ?? <a className="text-blue-400 font-bold" href="/">تسجيل دخول</a></p>
+          </div>
         </div>
+      </div>
     </div>
 
-</div>
 
   
   
-  </>)
+  )
 }
 
 export default Signup;
-// bg-gradient-to-t from-[#d9d9d942] to-[#1038ff11]

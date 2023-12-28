@@ -1,31 +1,60 @@
-"use client";
+import { useEffect } from "react";
 
-import { useState } from "react";
-import {
-  APIProvider,
-  Map,
-  AdvancedMarker,
-  Pin,
-  InfoWindow,
-} from "@vis.gl/react-google-maps";
+import { Map, Polygon, GoogleApiWrapper } from "google-maps-react";
+import axios from "axios";
 
-function BookInfo() {
-    const position = { lat: 24.85357907176668, lng: 46.71208704698528 };
+
+function BookInfo({ google }) {
+    const position = { lat: 24.85353885090064, lng: 46.71209072625354 };
     const [open, setOpen] = useState(false);
-  return (
-    <div className="flex">
-  
-    {/* <!-- component --> */}
-<div class="flex h-screen w-full max-md:flex-wrap  justify-center bg-gradient-to-b from-[#d9d9d90f] via-[#2d61e310] to-[#d9d9d90f] ">
 
-	<div className="card shrink-0 w-full max-md:w-72 max-sm:w-full max-w-sm shadow-2xl bg-base-100 bg-gradient-to-b from-[#d9d9d90f] via-[#2d61e310] to-[#d9d9d90f]  ">
-      <form className="card-body ">
-        <div className="w-full h-[75vh] flex flex-col justify-around gap-3">
-        <div className="form-control">
+    // const [fillColor,setFillColor] = useState("#FF0000")
+    const [fillColor,setFillColor] = useState("#34a653")
+
+    
+
+    const [parking,setParking] = useState([])
+
+ 
+
+   
+  useEffect(() => {
+    axios.get('https://658c45f8859b3491d3f5d2ff.mockapi.io/Parking')
+  .then(function (response) {
+    setParking(response.data)
+    // handle success
+    console.log(response);
+  })
+  }, []);
+
+  const handleParking = (parkingNum) => {
+    console.log(parkingNum);
+  };
+
+
+
+
+ 
+
+  return (
+    <div className="flex border-8  " >
+
+
+    {/* <!-- component --> */}
+
+
+  <div class="flex h-fit justify-center max-sm:flex-col">
+
+  <div className="card shrink-0 max-md:w-72 max-sm:w-screen  max-w-sm shadow-2xl bg-base-100 ">
+      <form className="card-body">
+        <div className="form-control border-none">
+
             <p className="text-center font-bold">معلومات الحجز </p>
     <div className="">
       <label htmlFor="date" className=" block mb-2">تحديد التاريخ:</label>
+
       <input type="date" id="date" name="date" className="  p-2 h-[5vh] w-[84%] shadow-sm" />
+
     </div> 
         </div>
     <div className="w-full h-[20vh] flex flex-col gap-2 ">
@@ -64,44 +93,102 @@ function BookInfo() {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">التكلفة الإجمالية (لكل ساعة 8 ريال سعودي) </span>
+            <span className="label-text max-sm:text-sm">التكلفة الإجمالية (لكل ساعة 8 ريال سعودي) </span>
           </label>
-          <input type="password" placeholder="(لكل ساعة 8 ريال سعودي)" className="p-2 h-[5vh] shadow-sm input input-bordered w-[84%]" required />
-          <label className="label">
-          </label>
+
+
+          <input type="text" placeholder="(لكل ساعة 8 ريال سعودي)" className="p-4 h-[5vh] shadow-sm input input-bordered w-[84%]" required />
+
+          
         </div>
-        <div className="form-control">
-          <button className="btn btn-primary w-[84%] ">التالي</button>
-        </div>
+        <div className="form-control border-none">
+          <button className="btn btn-primary">التالي</button>
         </div>
       </form>
     </div>
-    <div className="w-full h-full  items-center justify-center content-center border-[2px] rounded-xl shadow-2xl border-[#cecece]">
-	 <APIProvider apiKey="AIzaSyCOEE04AQC7gzfcMrUrmYoHiULXK7yJaeA">
-      <div className="w-full h-full border-[px] rounded-xl shadow-2xl border-[#cecece]">
-        <Map zoom={20} center={position} mapId="AIzaSyCOEE04AQC7gzfcMrUrmYoHiULXK7yJaeA" mapTypeId="satellite">
-          <AdvancedMarker position={position} onClick={() => setOpen(true)}>
+
+    
+    <div className=" h-full items-center justify-center content-center">
+   <div className="w-44 max-sm:hidden" >
+        <Map  containerStyle={{ width: '72vw' , height: '85%'}}
+          google={google}
+          zoom={25}
+          initialCenter={position} mapId="30946c4a5f450f07" mapTypeId="satellite">
+
+          {parking.map(item=>
+           
+            <Polygon
+            paths={item.coords}
+            strokeColor= {fillColor}
+            strokeOpacity={0.8}
+            strokeWeight={2}
+            fillColor= {fillColor}
+            fillOpacity={0.35}
+            tilt={item.parkingNum}
+            onClick={() => handleParking(item.parkingNum)}
+
+            
+
+          />
+          )}
+        </Map>
+        </div>
+
+      {/* <div className="w-44 hidden max-sm:block" >
+        <Map  containerStyle={{ width: '400px', height: '600px' }}
+google={google} zoom={25} initialCenter={position} >
+            <Polygon
+            paths={triangleCoords}
+            strokeColor="#FF0000"
+            strokeOpacity={0.8}
+            strokeWeight={2}
+            fillColor="#FF0000"
+            fillOpacity={0.35}
+          />
+
+          <Polygon
+            paths={triangleCoords2}
+            strokeColor="#FF0000"
+            strokeOpacity={0.8}
+            strokeWeight={2}
+            fillColor="#FF0000"
+            fillOpacity={0.35}
+          />
+        </Map>
+        </div> */}
+          
+          {/* <AdvancedMarker position={position} onClick={() => setOpen(true)}>
+
             <Pin
               background={"grey"}
               borderColor={"green"}
               glyphColor={"purple"}
             />
-          </AdvancedMarker>
 
-          {open && (
+
+          </AdvancedMarker> */}
+          {/* <div className=" w-56 h-12 bg-white border text-black">متاح غير متاح</div> */}
+
+          {/* {open && (
             <InfoWindow position={position} onCloseClick={() => setOpen(false)}>
               <p className="text-center items-center">انا في اكادمية طويق</p>
             </InfoWindow>
-          )}
-        </Map>
-      </div>
-    </APIProvider>
 
+          )} */}
+          
+       
+    {/* </APIProvider> */}
 
-	</div>
+  </div>
+
     </div>
     </div>
+    
   )
 }
 
-export default BookInfo
+// export default BookInfo
+export default GoogleApiWrapper({
+  apiKey: "AIzaSyCOEE04AQC7gzfcMrUrmYoHiULXK7yJaeA",
+})(BookInfo);
+
