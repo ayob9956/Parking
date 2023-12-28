@@ -26,6 +26,7 @@ import CheckoutForm from './CheckoutForm'
 
 
  import ParkingAPI from './ParkingAPI'
+import Emailjs from './Emailjs'
 
 
 
@@ -55,6 +56,8 @@ export default function Rout() {
         <Route path='/ticket' element={<Ticket/>}/>
        
           <Route path='/checkout' element={<Checkout/>}/>
+          <Route path='/sendemail' element={<Emailjs/>}/>
+
 
 
 
