@@ -40,7 +40,7 @@ export default function Rout() {
   };
   return (
     <>
-    {/* <Routes>
+    <Routes>
         <Route path='/' element={<LnadingPage/>}></Route>
         <Route path='/bookinfo' element={<BookInfo/>} />
 
@@ -65,7 +65,7 @@ export default function Rout() {
 
 
 
-    </Routes>   */}
+    </Routes>  
 
 
  

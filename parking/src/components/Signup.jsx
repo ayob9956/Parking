@@ -50,7 +50,8 @@ function Signup() {
     .catch(error => console.error(error));
 
     }}
-  return (<>
+  return (
+  <>
   {/* the Page container */}
   <div className="w-full h-[100vh] flex justify-center items-center bg-[#e5e5e645]  ">
     {/* the Contents container */}
@@ -110,8 +111,8 @@ function Signup() {
     </div>
 
 
-  
-  
+  </div>
+  </>
   )
 }
 
