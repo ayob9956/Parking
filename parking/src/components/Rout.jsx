@@ -17,6 +17,7 @@ import Nav from './Nav'
  import Ticket from './Ticket'
 
  import ParkingAPI from './ParkingAPI'
+ import About from './About'
 
 
 
@@ -38,6 +39,8 @@ export default function Rout() {
         <Route path='/support' element={<Support/>}/>
 
         <Route path='/ticket' element={<Ticket/>}/>
+
+        <Route path='/About' element={<About/>}/>
 
 
 
