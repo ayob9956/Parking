@@ -13,6 +13,7 @@ import Support from './Support'
 import UserData from './UserData'
 import Test from './Test'
 import Nav from './Nav'
+
 import CheckoutForm from './CheckoutForm'
  import Ticket from './Ticket'
 
@@ -26,7 +27,11 @@ import CheckoutForm from './CheckoutForm'
 
 
  import ParkingAPI from './ParkingAPI'
+
 import Emailjs from './Emailjs'
+
+ import About from './About'
+
 
 
 
@@ -39,9 +44,10 @@ export default function Rout() {
   };
   return (
     <>
-    <Routes>
+    {/* <Routes>
         <Route path='/' element={<LnadingPage/>}></Route>
         <Route path='/bookinfo' element={<BookInfo/>} />
+
         <Route path='/userdata' element={<UserData/>} />
 
 
@@ -59,11 +65,13 @@ export default function Rout() {
           <Route path='/sendemail' element={<Emailjs/>}/>
 
 
+        <Route path='/About' element={<About/>}/>
 
 
 
 
-    </Routes>  
+
+    </Routes>   */}
 
 
  
