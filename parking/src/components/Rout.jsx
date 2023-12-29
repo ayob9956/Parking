@@ -27,6 +27,7 @@ import CheckoutForm from './CheckoutForm'
 
 
  import ParkingAPI from './ParkingAPI'
+ import About from './About'
 
 
 
@@ -57,6 +58,8 @@ export default function Rout() {
         <Route path='/ticket' element={<Ticket/>}/>
        
           <Route path='/checkout' element={<Checkout/>}/>
+
+        <Route path='/About' element={<About/>}/>
 
 
 
