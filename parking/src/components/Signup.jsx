@@ -17,7 +17,7 @@ const ErrorMessage = ({ message, onHide }) => {
 
   // Alert Component FOR error Massage
   return (
-    <div className="absolute top-52 left-0 right-24 bg-[#fecaca6d] px-6 py-3 m-4 rounded-xl shadow-md text-xs flex items-center gap-2 mx-auto w-3/4 xl:w-[45vh] ">
+    <div className="absolute top-52 left-0 right-24 bg-[#fecaca6d] px-6 py-3 m-4 rounded-xl shadow-md text-xs flex items-center gap-2 mx-auto w-3/4 xl:w-[48vh] ">
       <svg viewBox="0 0 24 24" className="text-red-600 w-4 h-4 sm:w-4 sm:h-4 mr-2">
         <path
           fill="currentColor"
@@ -54,9 +54,6 @@ const SuccessMessage = ({ message, onHide }) => {
 };
 
 
-
-
-
 function Signup() {
 
 const [username, setUsername] = useState('');
@@ -89,7 +86,7 @@ const [username, setUsername] = useState('');
       setError('الرقم السري يجب أن يكون على الأقل 8 أحرف ويحتوي على أحرف كبيرة وصغيرة وأرقام');
       return false;
     }
-    setError('');
+ 
     return true;
   };
 
@@ -205,12 +202,14 @@ const handelgoogel = async (e)=>{
           </div>
 
           {/*  Submit button */}
-          <div className="flex items-center justify-between mb-2 ">
-           <Link to="/Singnin" ><button type="submit" onClick={showErrorMessage} className="w-[35vh] h-[5vh] rounded-md bg-[#fbf429] font-bold shadow-md text-[12px] transition duration-500 hover:bg-[#faf4509e]">
+         <a href="/Signin" > <div className="flex items-center justify-between mb-2 ">
+           <button type="submit" onClick={showErrorMessage} className="w-[35vh] h-[5vh] rounded-md bg-[#fbf429] font-bold shadow-md text-[12px] transition duration-500 hover:bg-[#faf4509e]">
               تسجيل الدخول
-            </button></Link>
-          </div>
+            </button>
+          </div></a>
         </form>
+
+        
 
             {/* Description of registration options */}
             <div className="w-full flex flex-col justify-center items-center gap-3 ">
@@ -220,7 +219,6 @@ const handelgoogel = async (e)=>{
             <hr className="border-[1px] w-[20%]"></hr>
             </div>
 
-
             {/*  Submit to registr by googel button */}
             <button onClick={handelgoogel} className=" w-[35vh] h-[5vh] rounded-md border-[1px] font-bold text-[12px] shadow-md flex items-center justify-center gap-2 transition duration-500 hover:bg-[#efefef]">
               <img className="w-[5%]" src={google}alt="" />
@@ -228,15 +226,15 @@ const handelgoogel = async (e)=>{
             </button>
             <p className="text-[#969696] text-[12px] mt-">لدي حساب لتسجيل ??  <a className="text-blue-400 font-bold" href="/">تسجيل دخول</a></p> 
             </div>
-
         </div>
-      </div>
     </div>
 
+</div>
 
-  </>
   
-  )
+  
+  </>)
 }
 
 export default Signup;
+// bg-gradient-to-t from-[#d9d9d942] to-[#1038ff11]

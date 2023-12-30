@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import google from "../google.png";
 import axios from "axios";
 import { GoogleAuthProvider, signInWithPopup } from '@firebase/auth';
-import { auth } from '../components/firebase/firebaseConfig';
+import { auth } from './firebase/firebaseConfig';
 import { useNavigate } from 'react-router-dom';
 
 // sset Timeout to display a error Massage to the user 
@@ -17,7 +17,7 @@ const ErrorMessage = ({ message, onHide }) => {
 
  // Alert Component FOR error Massage
   return (
-    <div className="absolute top-52 left-0 right-24 bg-[#fecaca6d] px-6 py-3 m-4 rounded-xl shadow-md text-xs flex items-center gap-2 mx-auto w-3/4 xl:w-[45vh] ">
+    <div className="absolute top-52 left-0 right-24 bg-[#fecaca6d] px-6 py-3 m-4 rounded-xl shadow-md text-xs flex items-center gap-2 mx-auto w-3/4 xl:w-[48vh] ">
       <svg viewBox="0 0 24 24" className="text-red-600 w-4 h-4 sm:w-4 sm:h-4 mr-2">
         <path
           fill="currentColor"
@@ -53,7 +53,7 @@ const SuccessMessage = ({ message, onHide }) => {
   );
 };
 
-function Singnin() {
+function Signin() {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -199,4 +199,4 @@ function Singnin() {
   );
 }
 
-export default Singnin;
+export default Signin;
