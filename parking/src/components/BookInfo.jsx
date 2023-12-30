@@ -5,19 +5,19 @@ import { useEffect } from "react";
 import { Map, Polygon, GoogleApiWrapper } from "google-maps-react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 
 
 function BookInfo({ google }) {
     const position = { lat: 24.85353885090064, lng: 46.71209072625354 };
-    const [open, setOpen] = useState(false);
 
-    // const [fillColor,setFillColor] = useState("#FF0000")
-    // const [fillColor,setFillColor] = useState("#34a653")
     const [fillColor,setFillColor] = useState()
 
 
     const [parking,setParking] = useState([])
+
+    const navigate = useNavigate();
 
 
     //Reservation data
@@ -27,6 +27,11 @@ function BookInfo({ google }) {
   const [parkingNum ,setParkingNum]= useState();
   const [totalCost,setTotalCost] = useState();
 
+  const [parkingId,setParkingId]= useState();
+
+  const [reservationExpired, setReservationExpired] = useState(false);
+
+
 
   useEffect(() => {
 
@@ -34,7 +39,7 @@ function BookInfo({ google }) {
     .then(function (response) {
       setParking(response.data)
       // handle success
-      console.log(response);
+      // console.log(response);
     })
 
 
@@ -43,42 +48,85 @@ function BookInfo({ google }) {
       const start = new Date(`2000-01-01T${startTime}`);
       const end = new Date(`2000-01-01T${endTime}`);
       const diff = Math.abs(end - start);
-      const hours = Math.round(diff / (1000 * 60 * 60)); 
+      const hours = Math.ceil(diff / (1000 * 60 * 60)); 
       setTotalCost(hours*8);
+
+    
+    const currentDate = new Date();
+    const startRes = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), Number(startTime.split(":")[0]), Number(startTime.split(":")[1]));
+    const endRes = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), Number(endTime.split(":")[0]), Number(endTime.split(":")[1]));
+    const currentTime = new Date();
+
+
+      console.log("Current Time:", currentTime);
+      console.log("End Time:", endRes);
+
+      if (endRes > currentTime) {
+        const timeDiff = endRes.getTime() - currentTime.getTime();
+
+        console.log("Time Difference:", timeDiff);
+
+  
+        const timeoutId = setTimeout(() => {
+          console.log("تم انتهاء مدة الحجز");
+          setReservationExpired(true);
+        }, timeDiff);
+
+      return () => {
+        clearTimeout(timeoutId);
+      };
+
     }
+    }
+
   }, [startTime, endTime]);
 
-   
-  // useEffect(() => {
-  //   axios.get('https://658c45f8859b3491d3f5d2ff.mockapi.io/Parking')
-  // .then(function (response) {
-  //   setParking(response.data)
-  //   // handle success
-  //   console.log(response);
-  // })
-  // }, []);
 
 
- 
+  function getCurrentDate() {
+    const today = new Date();
+    const year = today.getFullYear();
+    let month = today.getMonth() + 1;
+    let day = today.getDate();
+  
+    if (month < 10) {
+      month = `0${month}`;
+    }
+  
+    if (day < 10) {
+      day = `0${day}`;
+    }
+  
+    return `${year}-${month}-${day}`;
+  }
+
+
 
 
   const handleParking = (parkingNum) => {
     setParkingNum(parkingNum);
   };
 
+
   const book = ()=>{
     axios.post('https://658c45f8859b3491d3f5d2ff.mockapi.io/Reservation', {
-      // userId: 'Fred',
+      // userId: ,
       parkingId: parkingNum,
       date: date,
       startTime: startTime,
       endTime: endTime,
       totalCost: totalCost,
-      reservationStatus: "incomplete"
+      paymentStatus: "incomplete",
+      reservationStatus: "active"
     })
 
-  }
+    .then(res => {
+      localStorage.setItem("ReservationId",res.data.id);
+      // localStorage.setItem("parkingNum",parkingNum);
 
+    })
+     
+  }
 
 
 
@@ -101,7 +149,8 @@ function BookInfo({ google }) {
     <div className="">
       <label htmlFor="date" className=" block mb-2">تحديد التاريخ:</label>
 
-      <input value={date} onChange={(e)=>setDate(e.target.value)} type="date" id="date" name="date" className="input input-bordered  p-4 h-[5vh] w-[84%] shadow-sm flex " required/>
+      <input value={date} onChange={(e)=>setDate(e.target.value)} type="date" id="date" name="date" className="input input-bordered  p-4 h-[5vh] w-[84%] shadow-sm flex " required
+      min={getCurrentDate()}/>
 
 
 
@@ -194,6 +243,7 @@ function BookInfo({ google }) {
           
           onClick={() => {
             if (item.status === "available") {
+              localStorage.setItem("parkingId",item.id)
               handleParking(item.parkingNum);
             }
           }}
