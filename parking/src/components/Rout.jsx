@@ -79,6 +79,8 @@ export default function Rout() {
 
         <Route path='/' element={<Signup/>}/>
 
+        <Route path='/Signup' element={<Signup/>}/>
+
         <Route path='/Signin' element={<Signin/>}/>
 
         </Routes> 

@@ -3,7 +3,7 @@ import google from "../google.png"
 import axios from "axios";
 import { GoogleAuthProvider,signInWithPopup } from '@firebase/auth';
 import { auth } from '../components/firebase/firebaseConfig';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 // sset Timeout to display a error Massage to the user 
 const ErrorMessage = ({ message, onHide }) => {
@@ -64,6 +64,8 @@ const [username, setUsername] = useState('');
   const [isErrorVisible, setIsErrorVisible] = useState(false);
   const [isSuccessVisible, setIsSuccessVisible] = useState(false);
 
+  const navget =useNavigate('')
+
   // validate Form
   const validateForm = () => {
 
@@ -96,6 +98,8 @@ const [username, setUsername] = useState('');
     e.preventDefault();
     if (validateForm()) {
 
+    setIsErrorVisible(false);
+
     showSuccessMessage();
      
       axios.post("https://6552c0675449cfda0f2dca61.mockapi.io/uesers", {
@@ -104,13 +108,8 @@ const [username, setUsername] = useState('');
         Phone: phone,
         Password: password,
       })
-        .then(response => {
-          console.log('"Data has been saved successfully.":', response.data);
-           
-        })
-        .catch(error => {
-          console.error('An error occurred while saving the data', error);
-        });
+      .then(res =>navget("/Signin"))
+    .catch(error => console.error(error));
     }
   };
 
@@ -202,11 +201,11 @@ const handelgoogel = async (e)=>{
           </div>
 
           {/*  Submit button */}
-         <a href="/Signin" > <div className="flex items-center justify-between mb-2 ">
+          <div className="flex items-center justify-between mb-2 ">
            <button type="submit" onClick={showErrorMessage} className="w-[35vh] h-[5vh] rounded-md bg-[#fbf429] font-bold shadow-md text-[12px] transition duration-500 hover:bg-[#faf4509e]">
               تسجيل الدخول
             </button>
-          </div></a>
+          </div>
         </form>
 
         
@@ -224,7 +223,7 @@ const handelgoogel = async (e)=>{
               <img className="w-[5%]" src={google}alt="" />
               التسجيل عن بأستخدام قوقل
             </button>
-            <p className="text-[#969696] text-[12px] mt-">لدي حساب لتسجيل ??  <a className="text-blue-400 font-bold" href="/">تسجيل دخول</a></p> 
+            <p className="text-[#969696] text-[12px] mt-">لدي حساب لتسجيل ??  <a className="text-blue-400 font-bold" href="/Signin">تسجيل دخول</a></p> 
             </div>
         </div>
     </div>

@@ -81,6 +81,8 @@ function Signin() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
+      setIsErrorVisible(false);
+
       axios.get("https://6552c0675449cfda0f2dca61.mockapi.io/uesers")
         .then(res => {
           const users = res.data.find(
@@ -189,7 +191,7 @@ function Signin() {
              <img className="w-[5%]" src={google} alt="" />
                 التسجيل دخول بأستخدام قوقل
           </button>
-              <p className="text-[#969696] text-[12px] ">ليس لدي حساب لتسجيل ؟؟  <a className="text-blue-400 font-bold" href="/">انشاء حساب</a></p>
+              <p className="text-[#969696] text-[12px] ">ليس لدي حساب لتسجيل ؟؟  <a className="text-blue-400 font-bold" href="/Signup">انشاء حساب</a></p>
 
             </div>
           </div>
