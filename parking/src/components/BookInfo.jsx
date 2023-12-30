@@ -42,9 +42,10 @@ function BookInfo({ google }) {
       // console.log(response);
     })
 
-
+// حساب التكلفة عند البداية والنهاية
 
     if (startTime !== "" && endTime !== "") {
+      
       const start = new Date(`2000-01-01T${startTime}`);
       const end = new Date(`2000-01-01T${endTime}`);
       const diff = Math.abs(end - start);
@@ -53,6 +54,7 @@ function BookInfo({ google }) {
 
     
     const currentDate = new Date();
+// بدايةالحجز 
     const startRes = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), Number(startTime.split(":")[0]), Number(startTime.split(":")[1]));
     const endRes = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), Number(endTime.split(":")[0]), Number(endTime.split(":")[1]));
     const currentTime = new Date();

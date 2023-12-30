@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 export default function Nav() {
   return (
-    <div className='shadow-md mb-5 '>
+    <div className='shadow-md  '>
 
 {/* <div className="navbar bg-base-100 shadow-md  rounded-md">
 
@@ -31,7 +31,7 @@ export default function Nav() {
       </ul></div>
 </div> */}
   
-  <div className="navbar bg-base-100 h-[12vh] rounded-lg border-[1px] shadow-lg">
+  <div className="navbar bg-base-100   rounded-lg border-[1px] shadow-lg">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
