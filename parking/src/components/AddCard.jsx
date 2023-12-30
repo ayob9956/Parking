@@ -175,7 +175,7 @@ function AddCard() {
         </div>
         <div>
             <Link to="/ticket">
-            <button class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700  text-white rounded-lg px-3 py-3 font-semibold"> شراء الآن</button>
+            <button class="block w-full max-w-xs mx-auto btn btn-neutral  text-white rounded-lg px-3 py-3 font-semibold"> شراء الآن</button>
 
             </Link>
         </div>

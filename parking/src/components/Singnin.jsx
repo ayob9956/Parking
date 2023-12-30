@@ -190,6 +190,7 @@ function Singnin() {
                 التسجيل دخول بأستخدام قوقل
           </button>
               <p className="text-[#969696] text-[12px] ">ليس لدي حساب لتسجيل ؟؟  <a className="text-blue-400 font-bold" href="/">انشاء حساب</a></p>
+
             </div>
           </div>
         </div>

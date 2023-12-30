@@ -220,6 +220,7 @@ const handelgoogel = async (e)=>{
             <hr className="border-[1px] w-[20%]"></hr>
             </div>
 
+
             {/*  Submit to registr by googel button */}
             <button onClick={handelgoogel} className=" w-[35vh] h-[5vh] rounded-md border-[1px] font-bold text-[12px] shadow-md flex items-center justify-center gap-2 transition duration-500 hover:bg-[#efefef]">
               <img className="w-[5%]" src={google}alt="" />
@@ -227,15 +228,15 @@ const handelgoogel = async (e)=>{
             </button>
             <p className="text-[#969696] text-[12px] mt-">لدي حساب لتسجيل ??  <a className="text-blue-400 font-bold" href="/">تسجيل دخول</a></p> 
             </div>
+
         </div>
+      </div>
     </div>
 
-</div>
 
+  </>
   
-  
-  </>)
+  )
 }
 
 export default Signup;
-// bg-gradient-to-t from-[#d9d9d942] to-[#1038ff11]

@@ -1,11 +1,14 @@
 import Nav from "./components/Nav"
 import Rout from "./components/Rout"
 
-function App() {
 
+function App() {
+ 
   return (
     <>
+
     <Nav/>
+
     <Rout/>
     
     </>
