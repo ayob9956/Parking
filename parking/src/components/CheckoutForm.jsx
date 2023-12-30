@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {useStripe, useElements, PaymentElement} from '@stripe/react-stripe-js';
 
+import axios from "axios";
+
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
@@ -38,10 +40,26 @@ const CheckoutForm = () => {
     }
   };
 
+
+  const completeReservation=()=>{
+    const ReservationId = localStorage.getItem("ReservationId");
+    axios.put(`https://658c45f8859b3491d3f5d2ff.mockapi.io/Reservation/${ReservationId}`, {
+      paymentStatus : "complete"
+  });
+
+
+  const ParkingId = localStorage.getItem("parkingId");
+  axios.put(`https://658c45f8859b3491d3f5d2ff.mockapi.io/Parking/${ParkingId}`, {
+    status : "notAvailable"
+});
+
+
+  }
+
   return (
     <form className='flex flex-col gap-5' onSubmit={handleSubmit}>
       <PaymentElement />
-      <button className='btn btn-neutral' disabled={!stripe}>شراء الان</button>
+      <button onClick={completeReservation} className='btn btn-neutral' disabled={!stripe}>شراء الان</button>
       {/* Show error message to your customers */}
       {errorMessage && <div>{errorMessage}</div>}
     </form>
