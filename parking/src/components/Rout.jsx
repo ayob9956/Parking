@@ -13,28 +13,35 @@ import Support from './Support'
 import UserData from './UserData'
 import Test from './Test'
 import Nav from './Nav'
-
+import Com from './Com'
+import TsetComponet from './TsetComponet'
 
 
 export default function Rout() {
   return (
     <>
-    {/* <Routes>
-        <Route path='/' element={<LnadingPage/>}></Route>
+    <Routes>
+        {/* <Route path='/' element={<LnadingPage/>}></Route>
         <Route path='/bookinfo' element={<BookInfo/>} />
         <Route path='/payment' element={<Payment/>}/>
-        <Route path='/addCard' element={<AddCard/>}/>
+        <Route path='/addCard' element={<AddCard/>}/> */}
+         <Route path='/' element={<Signup/>}/>
+          <Route path='/Singnin' element={<Singnin/>}/>
+          <Route path='/Signup' element={<Signup/>}/>
 
 
-    </Routes>   */}
-
+    </Routes>  
+  
     {/* <Singnin/> */}
-    <Signup/>
+    {/* <Signup/> */}
     {/* <Support/> */}
     {/* <UserData/> */}
     {/* <Test/> */}
      {/* <Nav/> */}
-    
+  {/* <Testt/>
+  <Com/> */}
+  {/* <Com/> */}
+  {/* <TsetComponet/> */}
     {/* <BookInfo/> */}
  
  {/* <LnadingPage/>  */}
