@@ -52,10 +52,14 @@ export default function Nav() {
     <ul className="menu menu-horizontal px-1">
    <Link to="/"><li><a>الرئيسية</a></li>
     </Link> 
+
+    <Link to="/About">
         <li>
           <a>من نحن</a>
           
         </li>
+        </Link>
+        
         <li><a>الدعم</a></li>
     </ul>
   </div>
