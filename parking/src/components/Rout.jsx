@@ -44,14 +44,14 @@ export default function Rout() {
   };
   return (
     <>
-    {/* <Routes>
+    <Routes>
         <Route path='/' element={<LnadingPage/>}></Route>
         <Route path='/bookinfo' element={<BookInfo/>} />
 
         <Route path='/userdata' element={<UserData/>} />
 
 
-        <Route path='/payment' element={<Payment/>}/>
+        <Route path='/payment' element={<Checkout/>}/>
         <Route path='/addCard' element={<AddCard/>}/>
         <Route path='/signup' element={<Signup/>}/>
 
@@ -71,7 +71,7 @@ export default function Rout() {
 
 
 
-    </Routes>   */}
+    </Routes>  
 
 
  
