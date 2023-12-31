@@ -13,6 +13,7 @@ import UserData from './UserData'
 import Test from './Test'
 import Nav from './Nav'
 import Signup from './Signup'
+import Checkout from './Checkout'
 
 import CheckoutForm from './CheckoutForm'
  import Ticket from './Ticket'
@@ -46,8 +47,8 @@ export default function Rout() {
   return (
     <>
 
-    {/* <Routes> */}
-        {/* <Route path='/' element={<LnadingPage/>}></Route>
+    {/* <Routes>
+        <Route path='/' element={<LnadingPage/>}></Route> */}
 
     <Routes>
         <Route path='/' element={<LnadingPage/>}></Route>
@@ -61,20 +62,21 @@ export default function Rout() {
         <Route path='/addCard' element={<AddCard/>}/>
         <Route path='/signup' element={<Signup/>}/>
 
-        <Route path='/signin' element={<Singnin/>}/>
+        <Route path='/Signin' element={<Signin/>}/>
 
         <Route path='/support' element={<Support/>}/>
 
         <Route path='/ticket' element={<Ticket/>}/>
        
           <Route path='/checkout' element={<Checkout/>}/>
+          <Route path='/CheckoutForm' element={<CheckoutForm/>}/>
           <Route path='/sendemail' element={<Emailjs/>}/>
 
 
         <Route path='/About' element={<About/>}/>
 
 
-    </Routes>   */}
+    </Routes>   
 
 
 
@@ -100,7 +102,7 @@ export default function Rout() {
   
 {/* <Singnin/> */}
 
-    </Routes>  
+    {/* </Routes>   */}
 
 
 
