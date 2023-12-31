@@ -28,11 +28,6 @@ import CheckoutForm from './CheckoutForm'
 
  import ParkingAPI from './ParkingAPI'
 
-import Emailjs from './Emailjs'
-
- import About from './About'
-
-
 
 
 
@@ -45,12 +40,8 @@ export default function Rout() {
   };
   return (
     <>
-
     {/* <Routes> */}
         {/* <Route path='/' element={<LnadingPage/>}></Route>
-
-    <Routes>
-        <Route path='/' element={<LnadingPage/>}></Route>
         <Route path='/bookinfo' element={<BookInfo/>} />
 
         <Route path='/userdata' element={<UserData/>} />
@@ -68,14 +59,9 @@ export default function Rout() {
         <Route path='/ticket' element={<Ticket/>}/>
        
           <Route path='/checkout' element={<Checkout/>}/>
-          <Route path='/sendemail' element={<Emailjs/>}/>
-
-
-        <Route path='/About' element={<About/>}/>
 
 
     </Routes>   */}
-
 
 
 
@@ -89,6 +75,17 @@ export default function Rout() {
 
         <Route path='/addCard' element={<AddCard/>}/> */}
 
+        <Routes> 
+
+        <Route path='/' element={<Signup/>}/>
+
+        <Route path='/Signup' element={<Signup/>}/>
+
+        <Route path='/Signin' element={<Signin/>}/>
+
+         <Route path='/LnadingPage' element={<LnadingPage/>}/>
+
+        </Routes> 
 
         {/* <Route path='/support' element={<Support/>}/>
 
@@ -98,9 +95,6 @@ export default function Rout() {
 
   
 {/* <Singnin/> */}
-
-    
-
 
 
  

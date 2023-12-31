@@ -101,7 +101,7 @@ const [username, setUsername] = useState('');
     setIsErrorVisible(false);
 
     showSuccessMessage();
-     
+     localStorage.clear();
       axios.post("https://6552c0675449cfda0f2dca61.mockapi.io/uesers", {
         UserName: username,
         Email: email,
