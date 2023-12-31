@@ -13,9 +13,8 @@ function BookInfo({ google }) {
     const position = { lat: 24.85353885090064, lng: 46.71209072625354 };
 
     const [fillColor,setFillColor] = useState()
-
-
     const [parking,setParking] = useState([])
+    const [reservations,setReservations] = useState([])
 
     const navigate = useNavigate();
 
@@ -38,6 +37,14 @@ function BookInfo({ google }) {
     axios.get('https://658c45f8859b3491d3f5d2ff.mockapi.io/Parking')
     .then(function (response) {
       setParking(response.data)
+      // handle success
+      // console.log(response);
+    })
+
+
+    axios.get('https://658c45f8859b3491d3f5d2ff.mockapi.io/Reservation')
+    .then(function (response) {
+      setReservations(response.data)
       // handle success
       // console.log(response);
     })
@@ -102,6 +109,20 @@ function BookInfo({ google }) {
 
 
 
+  // const selectedDate  = date;
+
+ function getMinTimeForToday(date ) {
+        const today = new Date();
+        const currentDate = today.toISOString().split('T')[0];
+
+        if (date === currentDate) {
+            let hour = today.getHours().toString().padStart(2, '0');
+            let minute = today.getMinutes().toString().padStart(2, '0');
+            return `${hour}:${minute}`;
+        }
+        return '00:00';
+    }
+
 
   const handleParking = (parkingNum) => {
     setParkingNum(parkingNum);
@@ -165,12 +186,10 @@ function BookInfo({ google }) {
     value={startTime}
     onChange={(e)=>setStartTime(e.target.value)}
     type="time"
-    id="time"
-    name="time"
-
-
-    className="p-4 h-[5vh] shadow-sm input input-bordered w-[84%] "
-    required
+    id="startTime"
+    name="startTime"
+    className="input input-bordered p-4 h-[5vh] w-[84%] shadow-sm flex"
+     required min={getMinTimeForToday(date)}
   />
 
   
@@ -186,11 +205,10 @@ function BookInfo({ google }) {
     value={endTime}
     onChange={(e)=>setEndTime(e.target.value)}
     type="time"
-    id="time"
-    name="time"
-    min="08:00"
-    max="17:00"
-    className="p-2 h-[5vh] shadow-sm input input-bordered  w-[84%] "
+    id="endTime"
+    name="endTime"
+    className="input input-bordered p-4 h-[5vh] w-[84%] shadow-sm flex" required
+    min={startTime || getMinTimeForToday(date)}
   />
 </div>
 
@@ -213,7 +231,7 @@ function BookInfo({ google }) {
 
           
         </div>
-        <div className="form-control border-none">
+        <div className="form-control border-none ">
           <Link to={"/userdata"}>
           <button onClick={book} className="btn btn-primary">التالي</button>
           </Link>
@@ -230,26 +248,62 @@ function BookInfo({ google }) {
           initialCenter={position} mapId="30946c4a5f450f07" mapTypeId="satellite">
 
 
-          {parking.map(item=>
+          {parking.map(item=>{
+           
+          //  const isParkingAvailable = !reservations.some(
+          //   reservation =>
+          //     reservation.parkingId === item.parkingNum &&
+          //     new Date(reservation.endTime) > new Date(startTime) &&
+          //     new Date(reservation.startTime) < new Date(endTime)
+          // );
+        
+          // const activeReservation = reservations.find(
+          //   reservation =>
+          //     reservation.parkingId === item.parkingNum &&
+          //     new Date(reservation.endTime) > new Date(startTime) &&
+          //     new Date(reservation.startTime) < new Date(endTime) &&
+          //     reservation.reservationStatus === "active"
+          // );
+        
+          // const parkingColor = activeReservation
+          //   ? "#FF0000" // اللون الأحمر إذا كان هناك حجز نشط
+          //   : isParkingAvailable
+          //   ? "#34a653" // اللون الأخضر إذا كان هناك حجز غير نشط
+          //   : "#808080"; // اللون الرمادي إذا كان الموقف غير متاح
+        
+        
+          
+          return (
 
           <Polygon
+          key={item.id}
           paths={item.coords}
-          strokeColor= {item.status === "available" ? "#34a653" : "#FF0000"}
+          strokeColor={parkingColor}
           strokeOpacity={0.8}
           strokeWeight={2}
-          fillColor={item.status === "available" ? "#34a653" : "#FF0000"}
+          fillColor={parkingColor}
           fillOpacity={0.35}
           tilt={item.parkingNum}
           
-          onClick={() => {
-            if (item.status === "available") {
-              localStorage.setItem("parkingId",item.id)
-              handleParking(item.parkingNum);
-            }
-          }}
-           />
+          // onClick={() => {
+          //   if (item.status === "available") {
+          //     localStorage.setItem("parkingId",item.id)
+          //     handleParking(item.parkingNum);
+          //   }
+          // }}
 
-          )}
+          onClick={() => {
+            // if (isParkingAvailable) {
+              localStorage.setItem("parkingId", item.id);
+              handleParking(item.parkingNum);
+            // } else if (!isReservationActive) {
+            //   alert("الموقف غير متاح في هذا الوقت.");
+            // }
+          }}
+        />
+        );
+
+        })}
         </Map>
         </div>
 
