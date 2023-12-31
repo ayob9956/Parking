@@ -7,23 +7,23 @@ import TestEvreyThing from './TestEvreyThing'
 import BookInfo from './BookInfo'
 import Payment from './Payment'
 import AddCard from './AddCard'
-import Signup from './Signup'
-import Singnin from './Singnin'
+import Signin from './Signin'
 import Support from './Support'
 import UserData from './UserData'
 import Test from './Test'
 import Nav from './Nav'
+import Signup from './Signup'
 
 import CheckoutForm from './CheckoutForm'
  import Ticket from './Ticket'
 
- import {Elements} from '@stripe/react-stripe-js';
- import {loadStripe} from '@stripe/stripe-js';
- import Checkout from './Checkout'
+//  import {Elements} from '@stripe/react-stripe-js';
+//  import {loadStripe} from '@stripe/stripe-js';
+//  import Checkout from './Checkout'
  
  // Make sure to call `loadStripe` outside of a component’s render to avoid
  // recreating the `Stripe` object on every render.
- const stripePromise = loadStripe('pk_test_51OS4liBEKzJHwgwjOgTTCfeco9oWGRtB8MNvhMDzGc9HxPc8eCsqUxIN26UCfJKbauiMzGukK8iolSM6OqN7qAsl00y9SkWZYz');
+//  const stripePromise = loadStripe('pk_test_51OS4liBEKzJHwgwjOgTTCfeco9oWGRtB8MNvhMDzGc9HxPc8eCsqUxIN26UCfJKbauiMzGukK8iolSM6OqN7qAsl00y9SkWZYz');
 
 
  import ParkingAPI from './ParkingAPI'
@@ -37,13 +37,18 @@ import Emailjs from './Emailjs'
 
 
 
+
 export default function Rout() {
   const options = {
     // passing the client secret obtained from the server
-    clientSecret: '{{CLIENT_SECRET}}',
+    // clientSecret: '{{CLIENT_SECRET}}',
   };
   return (
     <>
+
+    {/* <Routes> */}
+        {/* <Route path='/' element={<LnadingPage/>}></Route>
+
     <Routes>
         <Route path='/' element={<LnadingPage/>}></Route>
         <Route path='/bookinfo' element={<BookInfo/>} />
@@ -52,6 +57,7 @@ export default function Rout() {
 
 
         <Route path='/payment' element={<Payment/>}/>
+
         <Route path='/addCard' element={<AddCard/>}/>
         <Route path='/signup' element={<Signup/>}/>
 
@@ -68,14 +74,40 @@ export default function Rout() {
         <Route path='/About' element={<About/>}/>
 
 
+    </Routes>   */}
 
 
+
+
+         {/* <Route path='/' element={<LnadingPage/>}/>
+        <Route path='/bookinfo' element={<BookInfo/>} />
+
+        <Route path='/userdata' element={<UserData/>} />
+
+
+        <Route path='/payment' element={<Payment/>}/>
+
+        <Route path='/addCard' element={<AddCard/>}/> */}
+
+   
+
+        {/* <Route path='/support' element={<Support/>}/>
+
+        <Route path='/ticket' element={<Ticket/>}/>
+       
+          <Route path='/checkout' element={<Checkout/>}/> */}
+
+  
+{/* <Singnin/> */}
 
     </Routes>  
 
 
+
  
  {/* <LnadingPage/>  */}
+
+ {/* <Signup/> */}
 
     </>
   )

@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
     
     
      
-    
+
     
 function Emailjs() {
     const form = useRef();
@@ -13,10 +13,10 @@ function Emailjs() {
     
        emailjs.sendForm('service_mhcfiw6', 'template_5qqbpym', form.current, 'rY2L4SmEgvfjPNQ01')
        .then((result) => {
-             // show the user a success message
+       console.log('SUCCESS!', response.status, response.text);
          }, (error) => {
-             // show the user an error
-         });
+          console.log('FAILED...', error);
+        });
      };
   return (
     <div className='w-full flex'>
