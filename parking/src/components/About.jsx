@@ -5,9 +5,9 @@ import p from '../assets/aboutFig.jpg'
 export default function About() {
   return (
     <>
-    <div className='w-full flex justify-center items-center'>
-        <div className='w-[70vw] h-[60vh] mt-16 flex gap-3'>
-        <div className='h-[60vh] w-[65vw] bg-gradient-to-b from-[#d9d9d90f] via-[#2d61e310] to-[#d9d9d90f] rounded-md flex justify-center items-center max-sm:w-[80vw]'>
+    <div className='w-full flex  justify-center items-center'>
+        <div className='w-[70dvw] h-[60dvh] max-sm:text-sm mt-16 flex gap-3'>
+        <div className='h-[60dvh] w-[65dvw] bg-gradient-to-b from-[#d9d9d90f] via-[#2d61e310] to-[#d9d9d90f] rounded-md flex justify-center items-center max-sm:w-[80vw]'>
 
             <div className='w-[40vw] text-justify flex flex-col gap-6 max-sm:w-[50vw]'>
             <p>

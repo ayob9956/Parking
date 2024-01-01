@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import google from "../google.png"
 import axios from "axios";
-import { GoogleAuthProvider,signInWithPopup } from '@firebase/auth';
-import { auth } from '../components/firebase/firebaseConfig';
-import { Link } from 'react-router-dom';
-
+import {signInWithPopup } from '@firebase/auth';
+import { auth,provider } from './firebase/firebaseConfig';
+import { useNavigate } from 'react-router-dom';
+import Nav from "./Nav"
+ 
 // sset Timeout to display a error Massage to the user 
 const ErrorMessage = ({ message, onHide }) => {
   useEffect(() => {
@@ -17,7 +18,7 @@ const ErrorMessage = ({ message, onHide }) => {
 
   // Alert Component FOR error Massage
   return (
-    <div className="absolute top-52 left-0 right-24 bg-[#fecaca6d] px-6 py-3 m-4 rounded-xl shadow-md text-xs flex items-center gap-2 mx-auto w-3/4 xl:w-[48vh] ">
+    <div className="absolute top-48 left-0 right-24 bg-[#fecaca6d] px-6 py-3 m-4 rounded-xl shadow-md text-xs flex items-center gap-2 mx-auto w-3/4 xl:w-[48vh] ">
       <svg viewBox="0 0 24 24" className="text-red-600 w-4 h-4 sm:w-4 sm:h-4 mr-2">
         <path
           fill="currentColor"
@@ -63,6 +64,9 @@ const [username, setUsername] = useState('');
   const [error, setError] = useState('');
   const [isErrorVisible, setIsErrorVisible] = useState(false);
   const [isSuccessVisible, setIsSuccessVisible] = useState(false);
+ const [value, setvalue] = useState('');
+  const navget = useNavigate();
+    const navgetTI = useNavigate();
 
   // validate Form
   const validateForm = () => {
@@ -96,30 +100,37 @@ const [username, setUsername] = useState('');
     e.preventDefault();
     if (validateForm()) {
 
+    setIsErrorVisible(false);
+
     showSuccessMessage();
-     
+     localStorage.clear();
       axios.post("https://6552c0675449cfda0f2dca61.mockapi.io/uesers", {
         UserName: username,
         Email: email,
         Phone: phone,
         Password: password,
       })
-        .then(response => {
-          console.log('"Data has been saved successfully.":', response.data);
-           
-        })
-        .catch(error => {
-          console.error('An error occurred while saving the data', error);
-        });
+      .then(res =>navget("/Signin"))
+    .catch(error => console.error(error));
     }
   };
 
   // Executing user registration through Google using Firebase
-const handelgoogel = async (e)=>{
-    const provider = await  new GoogleAuthProvider ();
-    return signInWithPopup( auth, provider);
+ const handelgoogel =()=>{
+  
+     signInWithPopup(auth, provider).then((data)=>{
+        setvalue(data.user.email)
+        localStorage.setItem("userData",JSON.stringify(data.user))
 
+    })
   }
+
+  useEffect(()=>{
+
+    setvalue(localStorage.getItem("email"))
+
+  })
+
 
   //to clearing and displays Error Message
    const showErrorMessage = () => {
@@ -145,12 +156,14 @@ const handelgoogel = async (e)=>{
 
   return (<>
 
+     <Nav/>
     
         {/* Error Message */}
         {isErrorVisible && <ErrorMessage message={error} onHide={hideErrorMessage} />}
 
         {/* Success Message */}
         {isSuccessVisible && <SuccessMessage message="تم حفظ البيانات بنجاح" onHide={hideSuccessMessage} />}
+
 
   {/* the Page container */}
   <div className="w-full h-[100vh]  flex justify-center items-center bg-[#e5e5e645]  ">
@@ -159,7 +172,7 @@ const handelgoogel = async (e)=>{
     <div className="w-[75%] h-[80vh] flex bg-gradient-to-b from-[#d9d9d90f] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px]  shadow-md border-[#d1d1d1]">
 
       {/* the Image contents */}
-        <div className=" w-[50%] h-[79.8vh] bg-[url('Screenshot.png')] bg-cover bg-center rounded-2xl">
+        <div className=" w-[50%] h-[79.8vh] bg-[url('Screenshot.png')] bg-cover bg-center max-md:hidden rounded-2xl">
             <div className=" w-full h-[79.8vh] bg-gradient-to-b from-[#d9d9d900] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px]  shadow-sm border-[#efefef]"></div>
         </div>
 
@@ -201,11 +214,11 @@ const handelgoogel = async (e)=>{
           </div>
 
           {/*  Submit button */}
-         <a href="/Signin" > <div className="flex items-center justify-between mb-2 ">
+          <div className="flex items-center justify-between mb-2 ">
            <button type="submit" onClick={showErrorMessage} className="w-[35vh] h-[5vh] rounded-md bg-[#fbf429] font-bold shadow-md text-[12px] transition duration-500 hover:bg-[#faf4509e]">
               تسجيل الدخول
             </button>
-          </div></a>
+          </div>
         </form>
 
         
@@ -219,11 +232,13 @@ const handelgoogel = async (e)=>{
             </div>
 
             {/*  Submit to registr by googel button */}
-            <button onClick={handelgoogel} className=" w-[35vh] h-[5vh] rounded-md border-[1px] font-bold text-[12px] shadow-md flex items-center justify-center gap-2 transition duration-500 hover:bg-[#efefef]">
-              <img className="w-[5%]" src={google}alt="" />
-              التسجيل عن بأستخدام قوقل
-            </button>
-            <p className="text-[#969696] text-[12px] mt-">لدي حساب لتسجيل ??  <a className="text-blue-400 font-bold" href="/">تسجيل دخول</a></p> 
+             {value? navgetTI("/LnadingPage") :
+         <button onClick={handelgoogel} className=" w-[35vh] h-[5vh] rounded-md border-[1px] font-bold text-[12px] shadow-md flex items-center justify-center gap-2 transition duration-500 hover:bg-[#dedede5d]">
+             <img className="w-[5%]" src={google} alt="" />
+                التسجيل دخول بأستخدام قوقل
+          </button>
+          }
+            <p className="text-[#969696] text-[12px] mt-">لدي حساب لتسجيل ??  <a className="text-blue-400 font-bold" href="/Signin">تسجيل دخول</a></p> 
             </div>
         </div>
     </div>
@@ -231,7 +246,7 @@ const handelgoogel = async (e)=>{
 </div>
 
 
-  
+
   </>
   )
 
