@@ -182,7 +182,7 @@ const [username, setUsername] = useState('');
          <div className="w-[50%] h-[80vh] border-r-0 flex items-center flex-col justify-evenly ">
 
           {/* Registration description */}
-            <div className="w-full flex flex-col items-center ">
+            <div className="w-full flex flex-col items-center m-8 ">
             <p className="font-bold text-[20px]">تسجيل جديد</p>
             <p className="text-[#969696] text-[12px]">قم بالتسجيل والاستفادة من ركنة</p> 
 

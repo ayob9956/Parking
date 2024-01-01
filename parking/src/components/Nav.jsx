@@ -95,9 +95,9 @@ export default function Nav() {
            <Link to={"/Signin"}><button
               onClick={handleLogout}
              type='submit'
-              className="btn btn-primary p- text-[12px] max-sm:btn-sm"
+              className="btn btn-primary p-3 text-[12px] max-sm:btn-sm"
             >
-              خروج
+              تسجيل خروج
             </button></Link> 
           ) : (
             <Link to="/signin">

@@ -78,7 +78,7 @@ export default function Rout() {
 
         <Routes> 
 
-        <Route path='/' element={<Signup/>}/>
+        <Route path='/' element={<LnadingPage/>}/>
 
         <Route path='/Signup' element={<Signup/>}/>
 
@@ -86,6 +86,7 @@ export default function Rout() {
 
          <Route path='/LnadingPage' element={<LnadingPage/>}/>
 
+          <Route path='/Data' element={<Data/>}/>
           <Route path='/Data' element={<Data/>}/>
 
         </Routes> 
