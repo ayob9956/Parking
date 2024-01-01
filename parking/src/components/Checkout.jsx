@@ -33,7 +33,7 @@ const Checkout = () => {
   }, []);
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full flex justify-center mt-9">
       {clientSecretSettings.loading ? (
         <h1>Loading ...</h1>
       ) : (
