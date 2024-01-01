@@ -13,6 +13,7 @@ import UserData from './UserData'
 import Test from './Test'
 import Nav from './Nav'
 import Signup from './Signup'
+import Data from './Data'
 
 import CheckoutForm from './CheckoutForm'
  import Ticket from './Ticket'
@@ -84,6 +85,8 @@ export default function Rout() {
         <Route path='/Signin' element={<Signin/>}/>
 
          <Route path='/LnadingPage' element={<LnadingPage/>}/>
+
+          <Route path='/Data' element={<Data/>}/>
 
         </Routes> 
 

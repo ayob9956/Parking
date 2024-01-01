@@ -95,6 +95,7 @@ function Signin() {
 
           if (users) {
             navget("/Signup");
+             localStorage.setItem("Sumpent", "true");
           } else {
             showErrorMessage();
           }
@@ -110,7 +111,7 @@ function Signin() {
   
      signInWithPopup(auth, provider).then((data)=>{
         setvalue(data.user.email)
-        localStorage.setItem("email",data.user.email)
+        localStorage.setItem("userData",JSON.stringify(data.user),"true")
 
     })
   }

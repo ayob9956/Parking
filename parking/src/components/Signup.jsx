@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import google from "../google.png"
 import axios from "axios";
-import { GoogleAuthProvider,signInWithPopup } from '@firebase/auth';
-import { auth } from '../components/firebase/firebaseConfig';
-import { useNavigate } from 'react-router';
+import {signInWithPopup } from '@firebase/auth';
+import { auth,provider } from './firebase/firebaseConfig';
+import { useNavigate } from 'react-router-dom';
+
 
 // sset Timeout to display a error Massage to the user 
 const ErrorMessage = ({ message, onHide }) => {
@@ -63,8 +64,9 @@ const [username, setUsername] = useState('');
   const [error, setError] = useState('');
   const [isErrorVisible, setIsErrorVisible] = useState(false);
   const [isSuccessVisible, setIsSuccessVisible] = useState(false);
-
-  const navget =useNavigate('')
+ const [value, setvalue] = useState('');
+  const navget = useNavigate();
+    const navgetTI = useNavigate();
 
   // validate Form
   const validateForm = () => {
@@ -114,11 +116,21 @@ const [username, setUsername] = useState('');
   };
 
   // Executing user registration through Google using Firebase
-const handelgoogel = async (e)=>{
-    const provider = await  new GoogleAuthProvider ();
-    return signInWithPopup( auth, provider);
+ const handelgoogel =()=>{
+  
+     signInWithPopup(auth, provider).then((data)=>{
+        setvalue(data.user.email)
+        localStorage.setItem("userData",JSON.stringify(data.user))
 
+    })
   }
+
+  useEffect(()=>{
+
+    setvalue(localStorage.getItem("email"))
+
+  })
+
 
   //to clearing and displays Error Message
    const showErrorMessage = () => {
@@ -161,7 +173,7 @@ const handelgoogel = async (e)=>{
     <div className="w-[75%] h-[80vh] flex bg-gradient-to-b from-[#d9d9d90f] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px]  shadow-md border-[#d1d1d1]">
 
       {/* the Image contents */}
-        <div className=" w-[50%] h-[79.8vh] bg-[url('Screenshot.png')] bg-cover bg-center rounded-2xl">
+        <div className=" w-[50%] h-[79.8vh] bg-[url('Screenshot.png')] bg-cover bg-center max-md:hidden rounded-2xl">
             <div className=" w-full h-[79.8vh] bg-gradient-to-b from-[#d9d9d900] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px]  shadow-sm border-[#efefef]"></div>
         </div>
 
@@ -221,10 +233,12 @@ const handelgoogel = async (e)=>{
             </div>
 
             {/*  Submit to registr by googel button */}
-            <button onClick={handelgoogel} className=" w-[35vh] h-[5vh] rounded-md border-[1px] font-bold text-[12px] shadow-md flex items-center justify-center gap-2 transition duration-500 hover:bg-[#efefef]">
-              <img className="w-[5%]" src={google}alt="" />
-              التسجيل عن بأستخدام قوقل
-            </button>
+             {value? navgetTI("/LnadingPage") :
+         <button onClick={handelgoogel} className=" w-[35vh] h-[5vh] rounded-md border-[1px] font-bold text-[12px] shadow-md flex items-center justify-center gap-2 transition duration-500 hover:bg-[#dedede5d]">
+             <img className="w-[5%]" src={google} alt="" />
+                التسجيل دخول بأستخدام قوقل
+          </button>
+          }
             <p className="text-[#969696] text-[12px] mt-">لدي حساب لتسجيل ??  <a className="text-blue-400 font-bold" href="/Signin">تسجيل دخول</a></p> 
             </div>
         </div>

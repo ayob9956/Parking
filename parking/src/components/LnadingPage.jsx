@@ -27,8 +27,6 @@ import {
 } from "@vis.gl/react-google-maps";
 
 
-
-
 export default function LnadingPage() {
 
 //   const position = { lat: 53.54, lng: 10 };
