@@ -152,22 +152,6 @@ const handelgoogel = async (e)=>{
         {/* Success Message */}
         {isSuccessVisible && <SuccessMessage message="تم حفظ البيانات بنجاح" onHide={hideSuccessMessage} />}
 
-
-
-  }else {
-    alert("goood")
-    axios.post("https://6552c0675449cfda0f2dca61.mockapi.io/uesers",{
-    UeserName : UeserName,
-    Email : Email,
-    phone : phone,
-    Password : Password,
-    })
-  
-    .catch(error => console.error(error));
-
-    }}
-  return (
-  <>
   {/* the Page container */}
   <div className="w-full h-[100vh]  flex justify-center items-center bg-[#e5e5e645]  ">
 
@@ -247,7 +231,7 @@ const handelgoogel = async (e)=>{
 </div>
 
 
-  </div>
+  
   </>
   )
 

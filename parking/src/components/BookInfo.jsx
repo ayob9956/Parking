@@ -12,10 +12,8 @@ import { useNavigate } from "react-router-dom";
 function BookInfo({ google }) {
     const position = { lat: 24.85353885090064, lng: 46.71209072625354 };
 
-    const [fillColor,setFillColor] = useState()
-
-
     const [parking,setParking] = useState([])
+    const [reservations,setReservations] = useState([])
 
     const navigate = useNavigate();
 
@@ -27,19 +25,19 @@ function BookInfo({ google }) {
   const [parkingNum ,setParkingNum]= useState();
   const [totalCost,setTotalCost] = useState();
 
-  const [parkingId,setParkingId]= useState();
-
-  const [reservationExpired, setReservationExpired] = useState(false);
-
-
 
   useEffect(() => {
 
     axios.get('https://658c45f8859b3491d3f5d2ff.mockapi.io/Parking')
     .then(function (response) {
       setParking(response.data)
-      // handle success
-      // console.log(response);
+
+    })
+
+
+    axios.get('https://658c45f8859b3491d3f5d2ff.mockapi.io/Reservation')
+    .then(function (response) {
+      setReservations(response.data)
     })
 
 
@@ -50,36 +48,10 @@ function BookInfo({ google }) {
       const diff = Math.abs(end - start);
       const hours = Math.ceil(diff / (1000 * 60 * 60)); 
       setTotalCost(hours*8);
-
-    
-    const currentDate = new Date();
-    const startRes = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), Number(startTime.split(":")[0]), Number(startTime.split(":")[1]));
-    const endRes = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), Number(endTime.split(":")[0]), Number(endTime.split(":")[1]));
-    const currentTime = new Date();
-
-
-      console.log("Current Time:", currentTime);
-      console.log("End Time:", endRes);
-
-      if (endRes > currentTime) {
-        const timeDiff = endRes.getTime() - currentTime.getTime();
-
-        console.log("Time Difference:", timeDiff);
-
-  
-        const timeoutId = setTimeout(() => {
-          console.log("تم انتهاء مدة الحجز");
-          setReservationExpired(true);
-        }, timeDiff);
-
-      return () => {
-        clearTimeout(timeoutId);
-      };
-
-    }
     }
 
   }, [startTime, endTime]);
+
 
 
 
@@ -101,6 +73,20 @@ function BookInfo({ google }) {
   }
 
 
+
+//   const selectedDate  = date;
+
+//  function getMinTimeForToday(date ) {
+//         const today = new Date();
+//         const currentDate = today.toISOString().split('T')[0];
+
+//         if (date === currentDate) {
+//             let hour = today.getHours().toString().padStart(2, '0');
+//             let minute = today.getMinutes().toString().padStart(2, '0');
+//             return `${hour}:${minute}`;
+//         }
+//         return '00:00';
+//     }
 
 
   const handleParking = (parkingNum) => {
@@ -128,6 +114,44 @@ function BookInfo({ google }) {
      
   }
 
+
+  const checkAvailability = (parkingNum) => {
+
+
+    // console.log("parkingId"+parkingNum);
+    const today = getCurrentDate();
+
+    const reservationFound = reservations.find((item)=> item.parkingId === parkingNum && item.date === today)
+    // console.log(reservationFound); 
+    
+     if (reservationFound){
+    //الوقت الحالي بنظام 24 ساعة 
+    const currentTime = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false });
+    
+    const [currHours, currMinutes] = currentTime.split(":").map(Number); 
+    const [startHours, startMinutes] = reservationFound.startTime.split(":").map(Number);
+    const [endHours, endMinutes] = reservationFound.endTime.split(":").map(Number);
+    
+    const current = currHours * 60 + currMinutes;
+    const start = startHours * 60 + startMinutes;
+    const end = endHours * 60 + endMinutes;
+ 
+    
+    if (start <= current && end >= current ) {
+      // setFillColors("#FF0000") 
+      return false;
+    } else {
+      // setFillColors("#34a653")
+      return true;
+    }
+
+    }else{
+      return true;
+    }
+
+  }
+
+  
 
 
  
@@ -165,12 +189,11 @@ function BookInfo({ google }) {
     value={startTime}
     onChange={(e)=>setStartTime(e.target.value)}
     type="time"
-    id="time"
-    name="time"
-
-
-    className="p-4 h-[5vh] shadow-sm input input-bordered w-[84%] "
-    required
+    id="startTime"
+    name="startTime"
+    className="input input-bordered p-4 h-[5vh] w-[84%] shadow-sm flex"
+     required 
+    //  min={getMinTimeForToday(date)}
   />
 
   
@@ -186,11 +209,10 @@ function BookInfo({ google }) {
     value={endTime}
     onChange={(e)=>setEndTime(e.target.value)}
     type="time"
-    id="time"
-    name="time"
-    min="08:00"
-    max="17:00"
-    className="p-2 h-[5vh] shadow-sm input input-bordered  w-[84%] "
+    id="endTime"
+    name="endTime"
+    className="input input-bordered p-4 h-[5vh] w-[84%] shadow-sm flex" required
+    // min={startTime || getMinTimeForToday(date)}
   />
 </div>
 
@@ -213,7 +235,7 @@ function BookInfo({ google }) {
 
           
         </div>
-        <div className="form-control border-none">
+        <div className="form-control border-none ">
           <Link to={"/userdata"}>
           <button onClick={book} className="btn btn-primary">التالي</button>
           </Link>
@@ -230,26 +252,32 @@ function BookInfo({ google }) {
           initialCenter={position} mapId="30946c4a5f450f07" mapTypeId="satellite">
 
 
-          {parking.map(item=>
+          {parking.map(item => {
+                   
+          return (
 
           <Polygon
+          key={item.id}
           paths={item.coords}
-          strokeColor= {item.status === "available" ? "#34a653" : "#FF0000"}
+          strokeColor={checkAvailability(item.parkingNum) ? "#34a653" :"#FF0000"}
           strokeOpacity={0.8}
           strokeWeight={2}
-          fillColor={item.status === "available" ? "#34a653" : "#FF0000"}
+          fillColor={checkAvailability(item.parkingNum) ? "#34a653" :"#FF0000"}
           fillOpacity={0.35}
           tilt={item.parkingNum}
           
           onClick={() => {
-            if (item.status === "available") {
-              localStorage.setItem("parkingId",item.id)
+            if (checkAvailability(item.parkingNum)) {
+              localStorage.setItem("parkingId", item.id);
               handleParking(item.parkingNum);
             }
           }}
-           />
 
-          )}
+
+        />
+        
+
+)})}
         </Map>
         </div>
 
