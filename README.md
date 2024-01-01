@@ -28,7 +28,7 @@
 ![image](https://github.com/ayob9956/Parking/assets/53684366/6ac2958a-d20b-4ce8-bc52-d50fd590fee8)
 
 
-رابط تصميم Figma :
+رابط تصميم "Figma" :
 https://www.figma.com/file/Z4fNKmNRZc5zZB949cLErf/Untitled?type=design&node-id=0%3A1&mode=design&t=7BDKx5ZjrSDXHcxX-1
 
 -أعضاء الفريق –
