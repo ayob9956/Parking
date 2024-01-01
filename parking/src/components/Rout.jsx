@@ -7,7 +7,6 @@ import TestEvreyThing from './TestEvreyThing'
 import BookInfo from './BookInfo'
 import Payment from './Payment'
 import AddCard from './AddCard'
-import Signin from './Signin'
 import Support from './Support'
 import UserData from './UserData'
 import Test from './Test'
@@ -15,8 +14,11 @@ import Nav from './Nav'
 import Signup from './Signup'
 import Data from './Data'
 
+import Signin from './Signin'
+
 import CheckoutForm from './CheckoutForm'
  import Ticket from './Ticket'
+ import Checkout from './Checkout'
 
 //  import {Elements} from '@stripe/react-stripe-js';
 //  import {loadStripe} from '@stripe/stripe-js';
@@ -43,26 +45,35 @@ export default function Rout() {
     <>
     {/* <Routes> */}
         {/* <Route path='/' element={<LnadingPage/>}></Route>
+
+    <Routes>
+        <Route path='/' element={<LnadingPage/>}></Route>
         <Route path='/bookinfo' element={<BookInfo/>} />
 
         <Route path='/userdata' element={<UserData/>} />
 
 
-        <Route path='/payment' element={<Payment/>}/>
+        <Route path='/payment' element={<Checkout/>}/>
 
-        <Route path='/addCard' element={<AddCard/>}/>
+        {/* <Route path='/addCard' element={<AddCard/>}/> */}
         <Route path='/signup' element={<Signup/>}/>
 
-        <Route path='/signin' element={<Singnin/>}/>
+        <Route path='/Signin' element={<Signin/>}/>
+
 
         <Route path='/support' element={<Support/>}/>
 
         <Route path='/ticket' element={<Ticket/>}/>
        
           <Route path='/checkout' element={<Checkout/>}/>
+          <Route path='/CheckoutForm' element={<CheckoutForm/>}/>
+          <Route path='/sendemail' element={<Emailjs/>}/>
 
 
-    </Routes>   */}
+        <Route path='/About' element={<About/>}/>
+
+
+    </Routes>   
 
 
 

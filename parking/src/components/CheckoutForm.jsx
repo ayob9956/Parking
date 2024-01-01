@@ -42,6 +42,7 @@ const CheckoutForm = () => {
 
 
   const completeReservation=()=>{
+
     const ReservationId = localStorage.getItem("ReservationId");
     axios.put(`https://658c45f8859b3491d3f5d2ff.mockapi.io/Reservation/${ReservationId}`, {
       paymentStatus : "complete"
@@ -53,8 +54,8 @@ const CheckoutForm = () => {
     status : "notAvailable"
 });
 
-
   }
+  
 
   return (
     <form className='flex flex-col gap-5' onSubmit={handleSubmit}>
