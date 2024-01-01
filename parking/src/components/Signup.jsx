@@ -152,11 +152,6 @@ const handelgoogel = async (e)=>{
         {/* Success Message */}
         {isSuccessVisible && <SuccessMessage message="تم حفظ البيانات بنجاح" onHide={hideSuccessMessage} />}
 
-
-
-  
-    
-
   {/* the Page container */}
   <div className="w-full h-[100vh]  flex justify-center items-center bg-[#e5e5e645]  ">
 
@@ -236,13 +231,8 @@ const handelgoogel = async (e)=>{
 </div>
 
 
-
-</>
   
-
-  
-
-
+  </>
   )
 
 }
