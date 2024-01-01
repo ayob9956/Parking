@@ -20,12 +20,13 @@ export default function Rout() {
 
   return (
     <>
+    <Nav/>
     <Routes>
 
         <Route path='/' element={<LnadingPage/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/Signin' element={<Signin/>}/>
-        <Route path='/support' element={<Support/>}/>
+        <Route path='/support' element={<Emailjs/>}/>
         <Route path='/ticket' element={<Ticket/>}/>
         <Route path='/checkout' element={<Checkout/>}/>
         <Route path='/CheckoutForm' element={<CheckoutForm/>}/>

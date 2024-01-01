@@ -156,7 +156,6 @@ const [username, setUsername] = useState('');
 
   return (<>
 
-     <Nav/>
     
         {/* Error Message */}
         {isErrorVisible && <ErrorMessage message={error} onHide={hideErrorMessage} />}

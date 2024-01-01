@@ -23,7 +23,8 @@ function BookInfo({ google }) {
   const [endTime,setEndTime] = useState("");
   const [parkingNum ,setParkingNum]= useState();
   const [totalCost,setTotalCost] = useState();
-
+  const navparUser = localStorage.getItem('userDetails');
+  const user = JSON.parse(navparUser);
 
   useEffect(() => {
 
@@ -95,7 +96,7 @@ function BookInfo({ google }) {
 
   const book = ()=>{
     axios.post('https://658c45f8859b3491d3f5d2ff.mockapi.io/Reservation', {
-      // userId: ,
+      userId:user.Id ,
       parkingId: parkingNum,
       date: date,
       startTime: startTime,
@@ -155,7 +156,7 @@ function BookInfo({ google }) {
  
 
   return (
-    <div className="flex border-8" >
+    <div className="flex py-5" >
 
 
     {/* <!-- component --> */}

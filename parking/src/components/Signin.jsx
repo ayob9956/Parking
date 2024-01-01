@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import { data } from 'browserslist';
 import Nav from "./Nav"
 
-// sset Timeout to display a error Massage to the user 
 const ErrorMessage = ({ message, onHide }) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -17,7 +16,6 @@ const ErrorMessage = ({ message, onHide }) => {
     return () => clearTimeout(timeout);
   }, [onHide]);
 
- // Alert Component FOR error Massage
   return (
     <div className="absolute top-48 left-0 right-24 bg-[#fecaca6d] px-6 py-3 m-4 rounded-xl shadow-md text-xs flex items-center gap-2 mx-auto w-3/4 xl:w-[48vh] ">
       <svg viewBox="0 0 24 24" className="text-red-600 w-4 h-4 sm:w-4 sm:h-4 mr-2">
@@ -31,7 +29,6 @@ const ErrorMessage = ({ message, onHide }) => {
   );
 };
 
-// sset Timeout to display a Success Message to the user
 const SuccessMessage = ({ message, onHide }) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -41,7 +38,6 @@ const SuccessMessage = ({ message, onHide }) => {
     return () => clearTimeout(timeout);
   }, [onHide]);
 
-  // Alert Component FOR Success Message
   return (
 
     <div className="absolute top-32 left-0 right-24  bg-[#bbf7d09f] px-6 py-3 m-4 rounded-xl text-xs flex items-center gap-2 mx-auto w-3/4 xl:w-[45vh]">
@@ -68,7 +64,6 @@ function Signin() {
   const navget = useNavigate();
   const navgetTI = useNavigate();
 
-  // validate Form
   const validateForm = () => {
     if (username.length < 6) {
       setError('اسم المستخدم يجب أن يكون أكبر من 6 أحرف');
@@ -83,7 +78,6 @@ function Signin() {
     return true;
   };
 
-  // Executing the CRUD operation to be save the data user in the API
   const handleSubmit = (e) => {
     
     e.preventDefault();
@@ -95,12 +89,19 @@ function Signin() {
           const users = res.data.find(
             user => user.UserName === username && user.Password === password
           );
-
+          
+         
           if (users) {
             console.log(users);
-            // let userr = {}
+            const userDetails = {
+              Id:users.id,
+              Email: users.Email,
+              UserName: users.UserName
+            };
+      
+            localStorage.setItem("userDetails", JSON.stringify(userDetails));
+            
             navget("/");
-             localStorage.setItem("Sumpent",JSON.stringify(users) );
           } else {
             showErrorMessage();
           }
@@ -111,7 +112,6 @@ function Signin() {
     }
   };
 
-  // Executing user registration through Google using Firebase
   const handelgoogel =()=>{
   
      signInWithPopup(auth, provider).then((data)=>{
@@ -127,23 +127,19 @@ function Signin() {
 
   })
 
-  //to clearing and displays Error Message
   const showErrorMessage = () => {
     setError('اسم المستخدم أو الرقم السري غير صحيح');
     setIsErrorVisible(true);
   };
 
-  //to hides Error Message
   const hideErrorMessage = () => {
     setIsErrorVisible(false);
   };
 
-  //to clearing and displays Success Message
   const showSuccessMessage = () => {
     setIsSuccessVisible(true);
   };
 
-  //to hides Success Message
   const hideSuccessMessage = () => {
     setIsSuccessVisible(false);
   };
@@ -151,48 +147,36 @@ function Signin() {
   return (
     <>
 
-     <Nav/>
-       {/* Error Message */}
       {isErrorVisible && <ErrorMessage message={error} onHide={hideErrorMessage} />}
 
-       {/* Success Message */}
       {isSuccessVisible && <SuccessMessage message="تم حفظ البيانات بنجاح" onHide={hideSuccessMessage} />}
 
- {/* the Page container */}
   <div className="w-full h-[100vh] flex justify-center items-center bg-[#e5e5e645]">
 
-    {/* the Contents container */}
     <div className="w-[70%] h-[80vh] flex bg-gradient-to-b from-[#d9d9d90f] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px] shadow-md border-[#d1d1d1]  ">
 
-        {/* the Image contents */}
       <div className=" w-[50%] h-[79.8vh] bg-[url('Screenshot.png')] bg-cover bg-center rounded-2xl   ">
         <div className=" w-full h-[79.8vh] bg-gradient-to-b from-[#d9d9d900] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px]  shadow-sm border-[#efefef]"></div>
       </div>
 
-     {/* Registration card container */} 
    < div className="w-[50%] h-[80vh] border-r-0 flex items-center flex-col j gap-8 m-9  ">
 
-     {/* Registration description */}
       <div className="w-full flex flex-col items-center gap-4">
         <p className="font-bold text-[20px]">تسجيل دخول</p>
         <p className="text-[#969696] text-[12px]">يرجى تسجيل الدخول للمتابعة إلى حسابك. </p>
       </div>
 
-       {/* Data User Entry */}
       <form onSubmit={handleSubmit} className='w-full flex flex-col items-center'>
 
-        {/* Username input */}
           <div className="mb-2">
                 <label htmlFor="username" className="block text-sm text-[12px]  text-gray-600">اسم المستخدم</label>
                 <input type="text" id="username" name="username" className=" p-2 w-[35vh] h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px]" onChange={(e) => setUsername(e.target.value)} placeholder="ادخل اسم المستخدم" />
               </div>
-         {/* Password input */}
           <div className="mb-3">
               <label htmlFor="password" className="block text-sm text-[12px] text-gray-600">الرقم السري</label>
                 <input type="password" id="password" name="password" className=" p-2 w-[35vh] h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px] " onChange={(e) => setPassword(e.target.value)} placeholder="ادخل كلمة المرور" />
               </div>
 
-         {/*  Submit button */}
           <div className="flex items-center justify-between mb-2 ">
               <button type="submit" onClick={showErrorMessage} className="w-[35vh] h-[5vh] rounded-md bg-[#fbf429] font-bold shadow-md text-[12px] transition duration-500 hover:bg-[#faf4509e]">
                   تسجيل الدخول
@@ -200,7 +184,6 @@ function Signin() {
               </div>
         </form>
 
-         {/* Description of registration options */}
         <div className="w-full flex flex-col justify-center items-center gap-4">
           <div className=" w-full flex items-center justify-center gap-2">
             <hr className="border-[1px] w-[20%]"></hr>
@@ -208,7 +191,6 @@ function Signin() {
             <hr className="border-[1px] w-[20%]"></hr>
           </div>
 
-          {/*  Submit to registr by googel button */}
           {value? navgetTI("/") :
          <button onClick={handelgoogel} className=" w-[35vh] h-[5vh] rounded-md border-[1px] font-bold text-[12px] shadow-md flex items-center justify-center gap-2 transition duration-500 hover:bg-[#dedede5d]">
              <img className="w-[5%]" src={google} alt="" />
