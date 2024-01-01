@@ -50,7 +50,6 @@ const digitalPosition = {lat: 24.740567130959125, lng: 46.63443627239909};
   return (
 
     <>
-       <Nav/>
 
     <div className='h-screen w-full'>
 

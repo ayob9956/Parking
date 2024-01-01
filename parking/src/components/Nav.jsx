@@ -7,7 +7,7 @@ import react from '../assets/react.svg';
 
 export default function Nav() {
   const navget = useNavigate();
-  const navparUser = localStorage.getItem('Sumpent');
+  const navparUser = localStorage.getItem('userDetails');
 console.log(navparUser);
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(localStorage.getItem('userData'))
@@ -75,9 +75,9 @@ console.log(navparUser);
                 <a>من نحن</a>
               </li>
             </Link>
-            <li>
+            <Link to="/support"> <li>
             <a>الدعم</a>
-            </li>
+            </li></Link>
        {currentUser || JSON.parse(navparUser) !==""  ? (
              <Link to={"/Data"}><li>
               <a>حسابي</a>
