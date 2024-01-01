@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import google from "../google.png";
 import axios from "axios";
-import { GoogleAuthProvider, signInWithPopup } from '@firebase/auth';
-import { auth } from './firebase/firebaseConfig';
+import {signInWithPopup } from '@firebase/auth';
+import { auth,provider } from './firebase/firebaseConfig';
 import { useNavigate } from 'react-router-dom';
+import { data } from 'browserslist';
+import Nav from "./Nav"
 
 // sset Timeout to display a error Massage to the user 
 const ErrorMessage = ({ message, onHide }) => {
@@ -17,7 +19,7 @@ const ErrorMessage = ({ message, onHide }) => {
 
  // Alert Component FOR error Massage
   return (
-    <div className="absolute top-52 left-0 right-24 bg-[#fecaca6d] px-6 py-3 m-4 rounded-xl shadow-md text-xs flex items-center gap-2 mx-auto w-3/4 xl:w-[48vh] ">
+    <div className="absolute top-48 left-0 right-24 bg-[#fecaca6d] px-6 py-3 m-4 rounded-xl shadow-md text-xs flex items-center gap-2 mx-auto w-3/4 xl:w-[48vh] ">
       <svg viewBox="0 0 24 24" className="text-red-600 w-4 h-4 sm:w-4 sm:h-4 mr-2">
         <path
           fill="currentColor"
@@ -41,6 +43,7 @@ const SuccessMessage = ({ message, onHide }) => {
 
   // Alert Component FOR Success Message
   return (
+
     <div className="absolute top-32 left-0 right-24  bg-[#bbf7d09f] px-6 py-3 m-4 rounded-xl text-xs flex items-center gap-2 mx-auto w-3/4 xl:w-[45vh]">
       <svg viewBox="0 0 24 24" className="text-green-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
         <path
@@ -50,6 +53,7 @@ const SuccessMessage = ({ message, onHide }) => {
       </svg>
       <span className="text-green-800">{message}</span>
     </div>
+
   );
 };
 
@@ -60,7 +64,9 @@ function Signin() {
   const [error, setError] = useState('');
   const [isErrorVisible, setIsErrorVisible] = useState(false);
   const [isSuccessVisible, setIsSuccessVisible] = useState(false);
+  const [value, setvalue] = useState('');
   const navget = useNavigate();
+  const navgetTI = useNavigate();
 
   // validate Form
   const validateForm = () => {
@@ -81,6 +87,8 @@ function Signin() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
+      setIsErrorVisible(false);
+
       axios.get("https://6552c0675449cfda0f2dca61.mockapi.io/uesers")
         .then(res => {
           const users = res.data.find(
@@ -89,6 +97,7 @@ function Signin() {
 
           if (users) {
             navget("/Signup");
+             localStorage.setItem("Sumpent", "true");
           } else {
             showErrorMessage();
           }
@@ -100,10 +109,20 @@ function Signin() {
   };
 
   // Executing user registration through Google using Firebase
-  const handelgoogel = async (e) => {
-    const provider = await new GoogleAuthProvider();
-    return signInWithPopup(auth, provider);
-  };
+  const handelgoogel =()=>{
+  
+     signInWithPopup(auth, provider).then((data)=>{
+        setvalue(data.user.email)
+        localStorage.setItem("userData",JSON.stringify(data.user),"true")
+
+    })
+  }
+
+  useEffect(()=>{
+
+    setvalue(localStorage.getItem("email"))
+
+  })
 
   //to clearing and displays Error Message
   const showErrorMessage = () => {
@@ -128,6 +147,8 @@ function Signin() {
 
   return (
     <>
+
+     <Nav/>
        {/* Error Message */}
       {isErrorVisible && <ErrorMessage message={error} onHide={hideErrorMessage} />}
 
@@ -185,11 +206,13 @@ function Signin() {
           </div>
 
           {/*  Submit to registr by googel button */}
+          {value? navgetTI("/LnadingPage") :
          <button onClick={handelgoogel} className=" w-[35vh] h-[5vh] rounded-md border-[1px] font-bold text-[12px] shadow-md flex items-center justify-center gap-2 transition duration-500 hover:bg-[#dedede5d]">
              <img className="w-[5%]" src={google} alt="" />
                 التسجيل دخول بأستخدام قوقل
           </button>
-              <p className="text-[#969696] text-[12px] ">ليس لدي حساب لتسجيل ؟؟  <a className="text-blue-400 font-bold" href="/">انشاء حساب</a></p>
+          }
+              <p className="text-[#969696] text-[12px] ">ليس لدي حساب لتسجيل ؟؟  <a className="text-blue-400 font-bold" href="/Signup">انشاء حساب</a></p>
 
             </div>
           </div>

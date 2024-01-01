@@ -12,6 +12,7 @@ import UserData from './UserData'
 import Test from './Test'
 import Nav from './Nav'
 import Signup from './Signup'
+import Data from './Data'
 
 import Signin from './Signin'
 
@@ -30,11 +31,6 @@ import CheckoutForm from './CheckoutForm'
 
  import ParkingAPI from './ParkingAPI'
 
-import Emailjs from './Emailjs'
-
- import About from './About'
-
-
 
 
 
@@ -47,6 +43,8 @@ export default function Rout() {
   };
   return (
     <>
+    {/* <Routes> */}
+        {/* <Route path='/' element={<LnadingPage/>}></Route>
 
     <Routes>
         <Route path='/' element={<LnadingPage/>}></Route>
@@ -79,7 +77,6 @@ export default function Rout() {
 
 
 
-
          {/* <Route path='/' element={<LnadingPage/>}/>
         <Route path='/bookinfo' element={<BookInfo/>} />
 
@@ -90,7 +87,19 @@ export default function Rout() {
 
         <Route path='/addCard' element={<AddCard/>}/> */}
 
-   
+        <Routes> 
+
+        <Route path='/' element={<Signup/>}/>
+
+        <Route path='/Signup' element={<Signup/>}/>
+
+        <Route path='/Signin' element={<Signin/>}/>
+
+         <Route path='/LnadingPage' element={<LnadingPage/>}/>
+
+          <Route path='/Data' element={<Data/>}/>
+
+        </Routes> 
 
         {/* <Route path='/support' element={<Support/>}/>
 
@@ -100,10 +109,6 @@ export default function Rout() {
 
   
 {/* <Singnin/> */}
-
-    {/* </Routes>   */}
-
-
 
 
  
