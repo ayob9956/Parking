@@ -85,10 +85,11 @@ function Signin() {
 
   // Executing the CRUD operation to be save the data user in the API
   const handleSubmit = (e) => {
+    
     e.preventDefault();
     if (validateForm()) {
       setIsErrorVisible(false);
-
+      console.log("hi");
       axios.get("https://6552c0675449cfda0f2dca61.mockapi.io/uesers")
         .then(res => {
           const users = res.data.find(
@@ -96,8 +97,10 @@ function Signin() {
           );
 
           if (users) {
-            navget("/Signup");
-             localStorage.setItem("Sumpent", "true");
+            console.log(users);
+            // let userr = {}
+            navget("/");
+             localStorage.setItem("Sumpent",JSON.stringify(users) );
           } else {
             showErrorMessage();
           }
@@ -159,7 +162,7 @@ function Signin() {
   <div className="w-full h-[100vh] flex justify-center items-center bg-[#e5e5e645]">
 
     {/* the Contents container */}
-    <div className="w-[70%] h-[80vh] flex bg-gradient-to-b from-[#d9d9d90f] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px] shadow-md border-[#d1d1d1] ">
+    <div className="w-[70%] h-[80vh] flex bg-gradient-to-b from-[#d9d9d90f] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px] shadow-md border-[#d1d1d1]  ">
 
         {/* the Image contents */}
       <div className=" w-[50%] h-[79.8vh] bg-[url('Screenshot.png')] bg-cover bg-center rounded-2xl   ">
@@ -167,7 +170,7 @@ function Signin() {
       </div>
 
      {/* Registration card container */} 
-   < div className="w-[50%] h-[80vh] border-r-0 flex items-center flex-col j gap-8  ">
+   < div className="w-[50%] h-[80vh] border-r-0 flex items-center flex-col j gap-8 m-9  ">
 
      {/* Registration description */}
       <div className="w-full flex flex-col items-center gap-4">
@@ -206,7 +209,7 @@ function Signin() {
           </div>
 
           {/*  Submit to registr by googel button */}
-          {value? navgetTI("/LnadingPage") :
+          {value? navgetTI("/") :
          <button onClick={handelgoogel} className=" w-[35vh] h-[5vh] rounded-md border-[1px] font-bold text-[12px] shadow-md flex items-center justify-center gap-2 transition duration-500 hover:bg-[#dedede5d]">
              <img className="w-[5%]" src={google} alt="" />
                 التسجيل دخول بأستخدام قوقل

@@ -232,7 +232,7 @@ const [username, setUsername] = useState('');
             </div>
 
             {/*  Submit to registr by googel button */}
-             {value? navgetTI("/LnadingPage") :
+             {value? navgetTI("/") :
          <button onClick={handelgoogel} className=" w-[35vh] h-[5vh] rounded-md border-[1px] font-bold text-[12px] shadow-md flex items-center justify-center gap-2 transition duration-500 hover:bg-[#dedede5d]">
              <img className="w-[5%]" src={google} alt="" />
                 التسجيل دخول بأستخدام قوقل
