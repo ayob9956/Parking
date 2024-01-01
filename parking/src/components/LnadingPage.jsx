@@ -7,6 +7,8 @@ import timetable from '../assets/timetable.png'
 import compliant from '../assets/compliant.png'
 import locationPin from '../assets/location-pin.png'
 import locationPinSoon from '../assets/location-pin-soon.png'
+import Nav from "./Nav"
+ 
 
 // ;lkl
 import locationGreen from '../assets/location-pin-green.png'
@@ -48,6 +50,7 @@ const digitalPosition = {lat: 24.740567130959125, lng: 46.63443627239909};
   return (
 
     <>
+       <Nav/>
 
     <div className='h-screen w-full'>
 

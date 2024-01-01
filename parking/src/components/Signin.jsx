@@ -5,7 +5,7 @@ import {signInWithPopup } from '@firebase/auth';
 import { auth,provider } from './firebase/firebaseConfig';
 import { useNavigate } from 'react-router-dom';
 import { data } from 'browserslist';
-
+import Nav from "./Nav"
 
 // sset Timeout to display a error Massage to the user 
 const ErrorMessage = ({ message, onHide }) => {
@@ -19,7 +19,7 @@ const ErrorMessage = ({ message, onHide }) => {
 
  // Alert Component FOR error Massage
   return (
-    <div className="absolute top-52 left-0 right-24 bg-[#fecaca6d] px-6 py-3 m-4 rounded-xl shadow-md text-xs flex items-center gap-2 mx-auto w-3/4 xl:w-[48vh] ">
+    <div className="absolute top-48 left-0 right-24 bg-[#fecaca6d] px-6 py-3 m-4 rounded-xl shadow-md text-xs flex items-center gap-2 mx-auto w-3/4 xl:w-[48vh] ">
       <svg viewBox="0 0 24 24" className="text-red-600 w-4 h-4 sm:w-4 sm:h-4 mr-2">
         <path
           fill="currentColor"
@@ -43,6 +43,7 @@ const SuccessMessage = ({ message, onHide }) => {
 
   // Alert Component FOR Success Message
   return (
+
     <div className="absolute top-32 left-0 right-24  bg-[#bbf7d09f] px-6 py-3 m-4 rounded-xl text-xs flex items-center gap-2 mx-auto w-3/4 xl:w-[45vh]">
       <svg viewBox="0 0 24 24" className="text-green-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
         <path
@@ -52,6 +53,7 @@ const SuccessMessage = ({ message, onHide }) => {
       </svg>
       <span className="text-green-800">{message}</span>
     </div>
+
   );
 };
 
@@ -64,7 +66,7 @@ function Signin() {
   const [isSuccessVisible, setIsSuccessVisible] = useState(false);
   const [value, setvalue] = useState('');
   const navget = useNavigate();
-    const navgetTI = useNavigate();
+  const navgetTI = useNavigate();
 
   // validate Form
   const validateForm = () => {
@@ -145,6 +147,8 @@ function Signin() {
 
   return (
     <>
+
+     <Nav/>
        {/* Error Message */}
       {isErrorVisible && <ErrorMessage message={error} onHide={hideErrorMessage} />}
 

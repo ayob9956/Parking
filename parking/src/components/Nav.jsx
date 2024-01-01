@@ -19,12 +19,11 @@ export default function Nav() {
   const handleLogout = () => {
      localStorage.clear("")
    window.location.reload
-    
 
   };
 
   return (
-    <div className="shadow-md mb-5">
+    <div className="shadow-md ">
       <div className="navbar bg-base-100 h-[12vh] rounded-lg border-[1px] shadow-lg">
         <div className="navbar-start">
           <div className="dropdown">
@@ -76,7 +75,6 @@ export default function Nav() {
                 <a>من نحن</a>
               </li>
             </Link>
-
             <li>
             <a>الدعم</a>
             </li>
