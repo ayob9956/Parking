@@ -7,16 +7,17 @@ import TestEvreyThing from './TestEvreyThing'
 import BookInfo from './BookInfo'
 import Payment from './Payment'
 import AddCard from './AddCard'
-import Signin from './Signin'
 import Support from './Support'
 import UserData from './UserData'
 import Test from './Test'
 import Nav from './Nav'
 import Signup from './Signup'
-import Checkout from './Checkout'
+
+import Signin from './Signin'
 
 import CheckoutForm from './CheckoutForm'
  import Ticket from './Ticket'
+ import Checkout from './Checkout'
 
 //  import {Elements} from '@stripe/react-stripe-js';
 //  import {loadStripe} from '@stripe/stripe-js';
@@ -47,9 +48,6 @@ export default function Rout() {
   return (
     <>
 
-    {/* <Routes>
-        <Route path='/' element={<LnadingPage/>}></Route> */}
-
     <Routes>
         <Route path='/' element={<LnadingPage/>}></Route>
         <Route path='/bookinfo' element={<BookInfo/>} />
@@ -57,12 +55,13 @@ export default function Rout() {
         <Route path='/userdata' element={<UserData/>} />
 
 
-        <Route path='/payment' element={<Payment/>}/>
+        <Route path='/payment' element={<Checkout/>}/>
 
-        <Route path='/addCard' element={<AddCard/>}/>
+        {/* <Route path='/addCard' element={<AddCard/>}/> */}
         <Route path='/signup' element={<Signup/>}/>
 
         <Route path='/Signin' element={<Signin/>}/>
+
 
         <Route path='/support' element={<Support/>}/>
 
@@ -103,6 +102,7 @@ export default function Rout() {
 {/* <Singnin/> */}
 
     {/* </Routes>   */}
+
 
 
 
