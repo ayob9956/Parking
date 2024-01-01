@@ -116,20 +116,21 @@ function BookInfo({ google }) {
 
   const checkAvailability = (parkingNum) => {
 
-
+    let checkAll = true; 
     // console.log("parkingId"+parkingNum);
     const today = getCurrentDate();
 
-    const reservationFound = reservations.find((item)=> item.parkingId === parkingNum && item.date === today)
-    // console.log(reservationFound); 
+    const reservationFound = reservations.filter((item)=> item.parkingId === parkingNum && item.date === today)
+    console.log(reservationFound); 
     
-     if (reservationFound){
+     if (reservationFound.length > 0){
     //الوقت الحالي بنظام 24 ساعة 
     const currentTime = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false });
-    
     const [currHours, currMinutes] = currentTime.split(":").map(Number); 
-    const [startHours, startMinutes] = reservationFound.startTime.split(":").map(Number);
-    const [endHours, endMinutes] = reservationFound.endTime.split(":").map(Number);
+
+    for (const reservation of reservationFound){
+    const [startHours, startMinutes] = reservation.startTime.split(":").map(Number);
+    const [endHours, endMinutes] = reservation.endTime.split(":").map(Number);
     
     const current = currHours * 60 + currMinutes;
     const start = startHours * 60 + startMinutes;
@@ -138,15 +139,13 @@ function BookInfo({ google }) {
     
     if (start <= current && end >= current ) {
       // setFillColors("#FF0000") 
-      return false;
-    } else {
-      // setFillColors("#34a653")
-      return true;
+      checkAll = false;
     }
+  }
 
-    }else{
-      return true;
-    }
+     }
+
+      return checkAll;
 
   }
 
@@ -166,24 +165,26 @@ function BookInfo({ google }) {
 
   <div className="card shrink-0 max-md:w-72 max-sm:w-screen  max-w-sm shadow-2xl bg-base-100 ">
       <form className="card-body">
-        <div className="form-control border-none">
 
-            <p className="text-center font-bold">معلومات الحجز </p>
-    <div className="">
-      <label htmlFor="date" className=" block mb-2">تحديد التاريخ:</label>
+
+        <div className="form-control border-none">
+        <p className="text-center font-bold mb-4">معلومات الحجز </p>
+      <div className="w-full flex flex-col justify-center items-center gap-2 ">
+      <label htmlFor="date" className="w-[75%]">تحديد التاريخ:</label>
+
 
       <input value={date} onChange={(e)=>setDate(e.target.value)} type="date" id="date" name="date" className="input input-bordered  p-4 h-[5vh] w-[84%] shadow-sm flex " required
       min={getCurrentDate()}/>
 
 
-
-
-    </div> 
         </div>
-    <div className="w-full h-[20vh] flex flex-col gap-2 ">
-  <label htmlFor="time" className="block">
+        </div>
+
+        
+    <div className="w-full h-[20vh] flex flex-col justify-center items-center gap-2 mt-2 ">
+  <div htmlFor="time" className="w-[75%] mt-2">
     تحديد الوقت:
-  </label>
+  </div>
   <input
     value={startTime}
     onChange={(e)=>setStartTime(e.target.value)}
@@ -197,7 +198,7 @@ function BookInfo({ google }) {
 
   
   
-   <div className=" w-[50%] flex items-center justify-evenly gap-3">
+   <div className=" w-[80%] flex items-center justify-evenly gap-3">
 
             <hr className="border-[1px] w-[84%]"></hr>
             <p className="text-[12px] text-[#5d5b5b] ">الى</p>
@@ -215,18 +216,18 @@ function BookInfo({ google }) {
   />
 </div>
 
-       <div className="form-control">
+       <div className="w-full flex flex-col justify-center items-center">
           <label className="label">
-            <span className="label-text">رقم الموقف (حدد موقفك من الخريطة)</span>
+            <div className="w-[100%] mt-2 max-sm:text-sm">رقم الموقف (حدد موقفك من الخريطة)</div>
           </label>
 
-          <input value={parkingNum} type="text" className="p-2 h-[5vh] shadow-sm input input-bordered w-[84%]" readOnly />
-
-
+          <input value={parkingNum} type="text" className="p-4 h-[5vh] shadow-sm input input-bordered w-[84%]" readOnly />
         </div>
-        <div className="form-control">
+
+
+        <div className="w-full flex flex-col justify-center items-center">
           <label className="label">
-            <span className="label-text max-sm:text-sm">التكلفة الإجمالية (لكل ساعة 8 ريال سعودي) </span>
+            <span className=" max-sm:text-sm">التكلفة الإجمالية (لكل ساعة 8 ريال سعودي) </span>
           </label>
 
           <input value={totalCost} type="text" className="p-4 h-[5vh] shadow-sm input input-bordered w-[84%]" readOnly />
@@ -234,7 +235,7 @@ function BookInfo({ google }) {
 
           
         </div>
-        <div className="form-control border-none ">
+        <div className="w-full flex flex-col justify-center items-center gap-2  mt-4">
           <Link to={"/userdata"}>
           <button onClick={book} className="btn btn-primary">التالي</button>
           </Link>
@@ -244,8 +245,8 @@ function BookInfo({ google }) {
 
     
     <div className=" h-full items-center justify-center content-center">
-   <div className="w-44 max-sm:hidden" >
-        <Map  containerStyle={{ width: '72vw' , height: '85%'}}
+   <div className="w-44 max-sm:hidden max-md:hidden" >
+        <Map  containerStyle={{ width: '70vw' , height: '89%'}}
           google={google}
           zoom={25}
           initialCenter={position} mapId="30946c4a5f450f07" mapTypeId="satellite">
@@ -280,6 +281,44 @@ function BookInfo({ google }) {
         </Map>
         </div>
 
+
+{/* for mobile */}
+
+<div className="w-44 hidden max-sm:block " >
+        <Map  containerStyle={{ width: '100%' , height: '89%'}}
+          google={google}
+          zoom={19}
+          initialCenter={position} mapId="30946c4a5f450f07" mapTypeId="satellite">
+
+
+          {parking.map(item => {
+                   
+          return (
+
+          <Polygon
+          key={item.id}
+          paths={item.coords}
+          strokeColor={checkAvailability(item.parkingNum) ? "#34a653" :"#FF0000"}
+          strokeOpacity={0.8}
+          strokeWeight={2}
+          fillColor={checkAvailability(item.parkingNum) ? "#34a653" :"#FF0000"}
+          fillOpacity={0.35}
+          tilt={item.parkingNum}
+          
+          onClick={() => {
+            if (checkAvailability(item.parkingNum)) {
+              localStorage.setItem("parkingId", item.id);
+              handleParking(item.parkingNum);
+            }
+          }}
+
+
+        />
+        
+
+)})}
+        </Map>
+        </div>
          
   </div>
 
