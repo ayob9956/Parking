@@ -1,47 +1,38 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/Logo.png';
 import react from '../assets/react.svg';
 
 export default function Nav() {
-  const navget = useNavigate();
-  const navparUser = localStorage.getItem('userDetails');
-console.log(navparUser);
-  const [currentUser, setCurrentUser] = useState(
-    JSON.parse(localStorage.getItem('userData'))
-  );
+  const navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useState(null);
 
-  console.log(currentUser?.email);
-  console.log(currentUser?.displayName);
+  const navparUser = localStorage.getItem('userDetails');
+  const user = JSON.parse(navparUser);
+
+  useEffect(() => {
+    // Load user details from localStorage and update state
+    const userDetails = localStorage.getItem('userData');
+    if (userDetails) {
+      setCurrentUser(JSON.parse(userDetails));
+    }
+  }, []);
 
   const handleLogout = () => {
-     localStorage.clear("")
-   window.location.reload
-
+    localStorage.clear();
+    setCurrentUser(null); // Clear the user state
+    navigate('/signin'); // Navigate to signin page after logout
   };
 
   return (
     <div className="shadow-md ">
       <div className="navbar bg-base-100 h-[12vh] rounded-lg border-[1px] shadow-lg">
         <div className="navbar-start">
+          {/* ... mobile menu and logo code ... */}
+
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
+              {/* ... mobile menu icon ... */}
             </div>
             <ul
               tabIndex={0}
@@ -75,30 +66,30 @@ console.log(navparUser);
                 <a>من نحن</a>
               </li>
             </Link>
-            <Link to="/support"> <li>
-            <a>الدعم</a>
-            </li></Link>
-       {currentUser || JSON.parse(navparUser) !==""  ? (
-             <Link to={"/Data"}><li>
-              <a>حسابي</a>
-            </li></Link> 
-          ) : (
-            <li>
-              <a></a>
-            </li>
-            )}
+            <Link to="/support"> 
+              <li>
+                <a>الدعم</a>
+              </li>
+            </Link>
+            {currentUser || user ? (
+              <Link to={"/Data"}>
+                <li>
+                  <a>حسابي</a>
+                </li>
+              </Link> 
+            ) : null}
           </ul>
         </div>
 
         <div className="navbar-end gap-2">
-          {currentUser || navparUser !== "" ? (
-           <Link to={"/Signin"}><button
+          {currentUser || user ? (
+            <button
               onClick={handleLogout}
-             type='submit'
-              className="btn btn-primary p- text-[12px] max-sm:btn-sm"
+              type='submit'
+              className="btn btn-primary p-2 text-[12px] max-sm:btn-sm"
             >
               خروج
-            </button></Link> 
+            </button>
           ) : (
             <Link to="/signin">
               <a className="btn btn-primary p-2 text-[12px] max-sm:btn-sm">
