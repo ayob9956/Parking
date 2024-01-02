@@ -341,4 +341,3 @@ function BookInfo({ google }) {
 export default GoogleApiWrapper({
   apiKey: "AIzaSyCOEE04AQC7gzfcMrUrmYoHiULXK7yJaeA",
 })(BookInfo);
-
