@@ -93,6 +93,7 @@ function BookInfo({ google }) {
   const book = () => {
     axios
       .post("https://658c45f8859b3491d3f5d2ff.mockapi.io/Reservation", {
+        // userId: ,
         parkingId: parkingNum,
         date: date,
         startTime: startTime,
@@ -110,25 +111,7 @@ function BookInfo({ google }) {
       });
   };
 
-  const book = ()=>{
-    axios.post('https://658c45f8859b3491d3f5d2ff.mockapi.io/Reservation', {
-      // userId: ,
-      parkingId: parkingNum,
-      date: date,
-      startTime: startTime,
-      endTime: endTime,
-      totalCost: totalCost,
-      paymentStatus: "incomplete",
-      reservationStatus: "active"
-    })
 
-    .then(res => {
-      localStorage.setItem("ReservationId",res.data.id);
-      // localStorage.setItem("parkingNum",parkingNum);
-
-    })
-     
-  }
 
 
   const checkAvailability = (parkingNum) => {
