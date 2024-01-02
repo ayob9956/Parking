@@ -7,8 +7,8 @@ import react from '../assets/react.svg';
 
 export default function Nav() {
   const navget = useNavigate();
-  const navparUser = localStorage.getItem('Sumpent');
-
+  const navparUser = localStorage.getItem('userDetails');
+console.log(navparUser);
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(localStorage.getItem('userData'))
   );
@@ -75,10 +75,10 @@ export default function Nav() {
                 <a>من نحن</a>
               </li>
             </Link>
-            <li>
+            <Link to="/support"> <li>
             <a>الدعم</a>
-            </li>
-       {currentUser || navparUser === 'true' ? (
+            </li></Link>
+       {currentUser || JSON.parse(navparUser) !==""  ? (
              <Link to={"/Data"}><li>
               <a>حسابي</a>
             </li></Link> 
@@ -91,7 +91,7 @@ export default function Nav() {
         </div>
 
         <div className="navbar-end gap-2">
-          {currentUser || navparUser === 'true' ? (
+          {currentUser || navparUser !== "" ? (
            <Link to={"/Signin"}><button
               onClick={handleLogout}
              type='submit'

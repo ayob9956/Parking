@@ -33,10 +33,13 @@ const Checkout = () => {
   }, []);
 
   return (
-    <div className="w-full flex justify-center mt-9">
+
+    <div className="w-full flex flex-col mt-20">
+      <div className="w-full  flex justify-center ">
       {clientSecretSettings.loading ? (
         <h1>Loading ...</h1>
       ) : (
+        <div className="shadow-md border p-5 rounded-md bg-[#d7dade29]">
         <Elements
           stripe={stripePromise}
           options={{
@@ -46,7 +49,9 @@ const Checkout = () => {
         >
           <CheckoutForm />
         </Elements>
+        </div>
       )}
+    </div>
     </div>
   );
 };

@@ -60,7 +60,7 @@ const CheckoutForm = () => {
   return (
     <form className='flex flex-col gap-5' onSubmit={handleSubmit}>
       <PaymentElement />
-      <button onClick={completeReservation} className='btn btn-neutral' disabled={!stripe}>شراء الان</button>
+      <button onClick={completeReservation} className='btn btn-primary' disabled={!stripe}>شراء الان</button>
       {/* Show error message to your customers */}
       {errorMessage && <div>{errorMessage}</div>}
     </form>

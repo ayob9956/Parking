@@ -22,14 +22,14 @@ export default function Rout() {
 
   return (
     <>
-
     <Nav/>
     <Routes>
 
         <Route path='/' element={<LnadingPage/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/Signin' element={<Signin/>}/>
-        <Route path='/ticket' element={<Ticket/>}/>      
+        <Route path='/support' element={<Emailjs/>}/>
+        <Route path='/ticket' element={<Ticket/>}/>
         <Route path='/checkout' element={<Checkout/>}/>
         <Route path='/CheckoutForm' element={<CheckoutForm/>}/>
         <Route path='/sendemail' element={<Emailjs/>}/>
@@ -39,7 +39,7 @@ export default function Rout() {
         <Route path='/UserData' element={<UserData/>}/>
 
 
-    </Routes>   
+    </Routes>
 
     </>
   )

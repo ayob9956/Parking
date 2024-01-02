@@ -62,7 +62,7 @@ function Emailjs() {
             return;
         }
 
-        emailjs.sendForm('service_mhcfiw6', 'template_5qqbpym', form.current, 'rY2L4SmEgvfjPNQ01')
+        emailjs.sendForm('service_mhcfiw6', 'template_61anxy9', form.current, 'rY2L4SmEgvfjPNQ01')
             .then((result) => {
                 console.log('SUCCESS!', result.status, result.text);
                 setMessage('تم ارسال الايميل بنجاح');
@@ -78,14 +78,14 @@ function Emailjs() {
     return (
         <div className='w-full  '>
             <section className="bg-white">
-                <div className="container w-[50dvw] max-sm:w-[100dvw] px-6 py-12 mx-auto">
+                <div className="container h-[90dvh] w-[50dvw] max-sm:w-[100dvw] px-6 py-9 mx-auto">
                     <div>
                         <p className="font-medium text-yellow-500">تواصل معنا</p>
                         <h1 className="mt-2 text-2xl font-semibold text-gray-800 md:text-3xl">راسل فريقنا الرهيب</h1>
-                        <p className="mt-3 text-gray-500">نود أن نسمع منك. الرجاء تعبئة هذا النموذج.</p>
+                        <p className="mt-3 text-gray-500">نبي  نسمع منك. الرجاء تعبئة هذا النموذج.</p>
                     </div>
 
-                    <div className="w-[50dvw] max-sm:w-[80dvw] gap-12 mt-10">
+                    <div className="w-[50dvw] max-sm:w-[80dvw] gap-12 mt-7">
                         <div className="p-4 py-6 rounded-lg bg-gray-50 md:p-8">
                             <form ref={form} onSubmit={sendEmail}>
                                 <div className="-mx-2 md:items-center md:flex">
@@ -102,7 +102,7 @@ function Emailjs() {
 
                                 <div className="w-full  mt-4">
                                     <label className="block mb-2 text-sm text-gray-600">الرسالة</label>
-                                    <textarea name="message" className="block w-full h-32 px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg md:h-56 focus:border-blue-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="مرحبا فريق ركنة...."></textarea>
+                                    <textarea name="message"  className="block w-full h-32 px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg md:h-56 focus:border-blue-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="مرحبا فريق ركنة...."></textarea>
                                 </div>
                                 <p className={` text-wrap flex ${Toast}`}>{Message}</p>
 
