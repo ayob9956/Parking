@@ -90,25 +90,6 @@ function BookInfo({ google }) {
     setParkingNum(parkingNum);
   };
 
-  const book = () => {
-    axios
-      .post("https://658c45f8859b3491d3f5d2ff.mockapi.io/Reservation", {
-        parkingId: parkingNum,
-        date: date,
-        startTime: startTime,
-        endTime: endTime,
-        totalCost: totalCost,
-        paymentStatus: "incomplete",
-        reservationStatus: "active",
-      })
-      .then((res) => {
-        localStorage.setItem("ReservationId", res.data.id);
-        navigate("/userdata");
-      })
-      .catch((error) => {
-        console.error("Error creating reservation:", error);
-      });
-  };
 
   const book = ()=>{
     axios.post('https://658c45f8859b3491d3f5d2ff.mockapi.io/Reservation', {
@@ -289,7 +270,6 @@ function BookInfo({ google }) {
 
 
         />
-        
 
 )})}
         </Map>
