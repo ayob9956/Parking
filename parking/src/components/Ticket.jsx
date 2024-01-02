@@ -62,6 +62,8 @@ function Ticket() {
 }  
 {currentUser && <h2 className="card-title  font-mono text-white text-nowrap">{ currentUser.displayName }</h2>
 }  
+
+
 </div>
 </div>
 <div> 
