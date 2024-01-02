@@ -15,6 +15,7 @@ import CheckoutForm from './CheckoutForm'
  import Checkout from './Checkout'
  import About from './About'
  import Emailjs from './Emailjs'
+ import MyReservation from './MyReservation'
 
 
 
@@ -37,6 +38,7 @@ export default function Rout() {
         <Route path='/About' element={<About/>}/>
         <Route path='/Data' element={<Data/>}/>
         <Route path='/UserData' element={<UserData/>}/>
+        <Route path='/MyReservations' element={<MyReservation/>}/>
 
 
     </Routes>

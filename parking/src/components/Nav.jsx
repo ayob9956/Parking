@@ -70,6 +70,15 @@ export default function Nav() {
                 <a>الدعم</a>
               </li>
             </Link>
+
+            {currentUser || user ? (
+              <Link to={"/MyReservations"}>
+                <li>
+                  <a>حجوزاتي</a>
+                </li>
+              </Link> 
+            ) : null}
+
             {currentUser || user ? (
               <Link to={"/Data"}>
                 <li>
@@ -77,6 +86,7 @@ export default function Nav() {
                 </li>
               </Link> 
             ) : null}
+            
           </ul>
         </div>
 
