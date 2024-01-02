@@ -23,6 +23,9 @@ function BookInfo({ google }) {
   const [endTime,setEndTime] = useState("");
   const [parkingNum ,setParkingNum]= useState();
   const [totalCost,setTotalCost] = useState();
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(localStorage.getItem('userData'))
+  );
   const navparUser = localStorage.getItem('userDetails');
   const user = JSON.parse(navparUser);
 
@@ -96,7 +99,8 @@ function BookInfo({ google }) {
 
   const book = ()=>{
     axios.post('https://658c45f8859b3491d3f5d2ff.mockapi.io/Reservation', {
-      userId:user.Id ,
+      userId: user ? user.Id : "null",
+      uid:currentUser ? currentUser.uid :"null",
       parkingId: parkingNum,
       date: date,
       startTime: startTime,
@@ -109,8 +113,13 @@ function BookInfo({ google }) {
     .then(res => {
       localStorage.setItem("ReservationId",res.data.id);
       // localStorage.setItem("parkingNum",parkingNum);
-
+      navigate("/userdata")
+      console.log('Reservation successful:', res.data);
     })
+    .catch(error => {
+      // Handle any error that occurred in making the request or in the server response
+      console.error('Error making reservation:', error);
+    });
      
   }
 
@@ -237,9 +246,9 @@ function BookInfo({ google }) {
           
         </div>
         <div className="w-full flex flex-col justify-center items-center gap-2  mt-4">
-          <Link to={"/userdata"}>
-          <button onClick={book} className="btn btn-primary">التالي</button>
-          </Link>
+          
+          <button type="button" onClick={book} className="btn btn-primary">التالي</button>
+          
         </div>
       </form>
     </div>

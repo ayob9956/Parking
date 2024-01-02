@@ -7,7 +7,9 @@ function Ticket() {
         const [reservations,setReservations] = useState([])
         const [Message, setMessage] = useState('')
         const form = useRef();
-
+        const [currentUser, setCurrentUser] = useState(
+                JSON.parse(localStorage.getItem('userData'))
+              );
 
         const sendEmail = (e) => {
           e.preventDefault();
@@ -54,10 +56,12 @@ function Ticket() {
 <div className='flex gap-10'>
     <div>
     <p className='font-bold text-xl font-mono p-2'>الاسم</p>
-<div className="card w-24 bg-neutral h-10 justify-center rounded-none text-primary-content items-center">
+<div className="card w-full bg-neutral h-10 justify-center rounded-none text-primary-content items-center">
     
-        <h2  className="card-title font-mono text-white text-nowrap">{user.UserName}</h2>
-  
+{user && <h2 className="card-title  font-mono text-white text-nowrap">{ user.UserName }</h2>
+}  
+{currentUser && <h2 className="card-title  font-mono text-white text-nowrap">{ currentUser.displayName }</h2>
+}  
 </div>
 </div>
 <div> 
@@ -105,9 +109,9 @@ function Ticket() {
         <form  ref={form} onSubmit={sendEmail}>
                 <div className='hidden'>
       <label>Name</label>
-      <input type="text" value={user.UserName} name="user_name" />
+      <input type="text" value={user? user.UserName : currentUser.displayName} name="user_name" />
       <label>Email</label>
-      <input type="email" value={user.Email} name="user_email" />
+      <input type="email" value={user ? user.Email: currentUser.email} name="user_email" />
       <label>Message</label>
       <textarea value={Message} name="message" />
       </div>
