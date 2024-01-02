@@ -11,7 +11,6 @@ export default function Nav() {
   const user = JSON.parse(navparUser);
 
   useEffect(() => {
-    // Load user details from localStorage and update state
     const userDetails = localStorage.getItem('userData');
     if (userDetails) {
       setCurrentUser(JSON.parse(userDetails));
@@ -20,19 +19,19 @@ export default function Nav() {
 
   const handleLogout = () => {
     localStorage.clear();
-    setCurrentUser(null); // Clear the user state
-    navigate('/signin'); // Navigate to signin page after logout
+    setCurrentUser(null);
+    navigate('/signin'); 
   };
 
   return (
     <div className="shadow-md ">
       <div className="navbar bg-base-100 h-[12vh] rounded-lg border-[1px] shadow-lg">
         <div className="navbar-start">
-          {/* ... mobile menu and logo code ... */}
+         
 
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              {/* ... mobile menu icon ... */}
+             
             </div>
             <ul
               tabIndex={0}

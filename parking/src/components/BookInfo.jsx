@@ -117,7 +117,6 @@ function BookInfo({ google }) {
       console.log('Reservation successful:', res.data);
     })
     .catch(error => {
-      // Handle any error that occurred in making the request or in the server response
       console.error('Error making reservation:', error);
     });
      

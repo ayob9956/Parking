@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "./Nav"
   
 function Data() {
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(localStorage.getItem('userData'))
+  );
   const navparUser = localStorage.getItem('userDetails');
   const user = JSON.parse(navparUser);
   return(<>
@@ -21,11 +24,12 @@ function Data() {
         </div>
          <div class="mb-1">
             <label class="block text-gray-700 font-bold mb-1 p-1" for="username">اسم المستخدم:</label>
-                <p class="text-gray-800 bg-[#8a8b8d6e] text-base rounded-md shadow-md truncate w-[40%] border-[1px] p-2" id="username"> {user.UserName}</p>
+            {user &&   <p class="text-gray-800 bg-[#8a8b8d6e] text-base rounded-md shadow-md truncate w-[40%] border-[1px] p-2" id="username"> {user.UserName}</p>}
+            {currentUser && <p class="text-gray-800 bg-[#8a8b8d6e] text-base rounded-md shadow-md truncate w-[40%] border-[1px] p-2" id="username"> { currentUser.displayName }</p>}
         </div>
   <div class="mb-1">
     <label class="block text-gray-700 font-bold mb-2 p-1" for="email">البريد الإلكتروني:</label>
-     <p class="text-gray-800 bg-[#8a8b8d6e] text-base rounded-md shadow-md truncate w-[40%] border-[1px] p-2" id="email">{user.Email}</p>
+     <p class="text-gray-800 bg-[#8a8b8d6e] text-base rounded-md shadow-md truncate w-[40%] border-[1px] p-2" id="email">{user ? user.Email: currentUser.email}</p>
   </div>
   <div>
 
