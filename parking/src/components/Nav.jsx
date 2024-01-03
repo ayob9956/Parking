@@ -75,9 +75,10 @@ export default function Nav() {
                 <a>من نحن</a>
               </li>
             </Link>
+          <Link to="/About">
             <li>
             <a>الدعم</a>
-            </li>
+            </li></Link>
        {currentUser || navparUser === 'true' ? (
              <Link to={"/Data"}><li>
               <a>حسابي</a>

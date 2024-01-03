@@ -26,7 +26,7 @@ function UserData() {
 
   return(<>
   
-   <div className="bg-gray-100 w-full min-h-screen">
+   <div className="bg-gray-100 w-full min-h-screen cardata">
      
 
        <div className="bg-gray-100  min-h-screen flex items-center justify-center">
