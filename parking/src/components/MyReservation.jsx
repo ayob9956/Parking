@@ -43,10 +43,28 @@ export default function MyReservation() {
     },[]);
 
 
+    function getCurrentDate() {
+        const today = new Date();
+        const year = today.getFullYear();
+        let month = today.getMonth() + 1;
+        let day = today.getDate();
+      
+        if (month < 10) {
+          month = `0${month}`;
+        }
+      
+        if (day < 10) {
+          day = `0${day}`;
+        }
+      
+        return `${year}-${month}-${day}`;
+      }
+
+
     const checkStatus=(date,endTime)=>{
     
-    const currentDate = new Date();
-    const reservationDate = new Date(date);
+    const currentDate = getCurrentDate();
+    const reservationDate = date;
     const isDateInFuture = reservationDate >= currentDate;
 
     if (isDateInFuture){
