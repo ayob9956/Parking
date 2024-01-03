@@ -153,34 +153,35 @@ function Signin() {
 
   <div className="w-full h-[100vh] flex justify-center items-center bg-[#e5e5e645]">
 
-    <div className="w-[70%] h-[80vh] flex bg-gradient-to-b from-[#d9d9d90f] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px] shadow-md border-[#d1d1d1]  ">
+    <div className="w-[70%] h-[80vh] flex bg-gradient-to-b from-[#d9d9d90f] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px] shadow-md border-[#d1d1d1] max-sm:justify-center max-sm:h-[60vh] ">
 
-      <div className=" w-[50%] h-[79.8vh] bg-[url('Screenshot.png')] bg-cover bg-center rounded-2xl   ">
+      <div className=" w-[50%] h-[79.8vh] bg-[url('Screenshot.png')] bg-cover bg-center rounded-2xl max-sm:hidden  ">
         <div className=" w-full h-[79.8vh] bg-gradient-to-b from-[#d9d9d900] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px]  shadow-sm border-[#efefef]"></div>
       </div>
 
-   < div className="w-[50%] h-[80vh] border-r-0 flex items-center flex-col j gap-8 m-9  ">
+   < div className="w-[50%] h-[80vh] border-r-0 flex items-center flex-col j gap-8 m-9">
 
-      <div className="w-full flex flex-col items-center gap-4">
+      <div className="w-full flex flex-col items-center gap-4 ">
         <p className="font-bold text-[20px]">تسجيل دخول</p>
         <p className="text-[#969696] text-[12px]">يرجى تسجيل الدخول للمتابعة إلى حسابك. </p>
       </div>
-
+      
       <form onSubmit={handleSubmit} className='w-full flex flex-col items-center'>
-
+      <div className=' max-sm:w-[60vw]'>
           <div className="mb-2">
                 <label htmlFor="username" className="block text-sm text-[12px]  text-gray-600">اسم المستخدم</label>
-                <input type="text" id="username" name="username" className=" p-2 w-[35vh] h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px]" onChange={(e) => setUsername(e.target.value)} placeholder="ادخل اسم المستخدم" />
+                <input type="text" id="username" name="username" className=" p-2 w-[35vh] h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px] max-sm:w-[60vw]" onChange={(e) => setUsername(e.target.value)} placeholder="ادخل اسم المستخدم" />
               </div>
           <div className="mb-3">
               <label htmlFor="password" className="block text-sm text-[12px] text-gray-600">الرقم السري</label>
-                <input type="password" id="password" name="password" className=" p-2 w-[35vh] h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px] " onChange={(e) => setPassword(e.target.value)} placeholder="ادخل كلمة المرور" />
+                <input type="password" id="password" name="password" className=" p-2 w-[35vh] h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px] max-sm:w-[60vw] " onChange={(e) => setPassword(e.target.value)} placeholder="ادخل كلمة المرور" />
               </div>
 
           <div className="flex items-center justify-between mb-2 ">
               <button type="submit" onClick={showErrorMessage} className="w-[35vh] h-[5vh] rounded-md bg-[#fbf429] font-bold shadow-md text-[12px] transition duration-500 hover:bg-[#faf4509e]">
                   تسجيل الدخول
               </button>
+              </div>
               </div>
         </form>
 
@@ -192,13 +193,14 @@ function Signin() {
           </div>
 
           {value? navgetTI("/") :
-         <button onClick={handelgoogel} className=" w-[35vh] h-[5vh] rounded-md border-[1px] font-bold text-[12px] shadow-md flex items-center justify-center gap-2 transition duration-500 hover:bg-[#dedede5d]">
+         <button onClick={handelgoogel} className=" w-[35vh] h-[5vh] rounded-md border-[1px] font-bold text-[12px] shadow-md flex items-center justify-center gap-2 transition duration-500 hover:bg-[#dedede5d] max-sm:w-[60vw]">
              <img className="w-[5%]" src={google} alt="" />
-                التسجيل دخول بأستخدام قوقل
+                تسجيل دخول باستخدام قوقل
           </button>
           }
-              <p className="text-[#969696] text-[12px] ">ليس لدي حساب لتسجيل ؟؟  <a className="text-blue-400 font-bold" href="/Signup">انشاء حساب</a></p>
-
+              <div className='max-sm:w-[60vw] max-sm:text-center'>
+              <p className="text-[#969696] text-[12px] ">ليس لديك حساب؟<a className="text-blue-400 font-bold" href="/Signup">إنشاء حساب</a></p>
+              </div>
             </div>
           </div>
         </div>

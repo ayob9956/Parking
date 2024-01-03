@@ -168,48 +168,49 @@ const [username, setUsername] = useState('');
   <div className="w-full h-[100vh]  flex justify-center items-center bg-[#e5e5e645]  ">
 
     {/* the Contents container */}
-    <div className="w-[75%] h-[80vh] flex bg-gradient-to-b from-[#d9d9d90f] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px]  shadow-md border-[#d1d1d1]">
+    <div className="w-[75%] h-[80vh] flex bg-gradient-to-b from-[#d9d9d90f] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px]  shadow-md border-[#d1d1d1] max-sm:justify-center">
 
       {/* the Image contents */}
         <div className=" w-[50%] h-[79.8vh] bg-[url('Screenshot.png')] bg-cover bg-center max-md:hidden rounded-2xl">
-            <div className=" w-full h-[79.8vh] bg-gradient-to-b from-[#d9d9d900] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px]  shadow-sm border-[#efefef]"></div>
+            <div className=" w-full h-[79.8vh] bg-gradient-to-b from-[#d9d9d900] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px]  shadow-sm border-[#efefef] "></div>
         </div>
 
         {/* Registration card container */}
          <div className="w-[50%] h-[80vh] border-r-0 flex items-center flex-col justify-evenly ">
 
           {/* Registration description */}
-            <div className="w-full flex flex-col items-center ">
+            <div className="w-full flex flex-col items-center">
             <p className="font-bold text-[20px]">تسجيل جديد</p>
-            <p className="text-[#969696] text-[12px]">قم بالتسجيل والاستفادة من ركنة</p> 
+            <p className="text-[#969696] text-[12px] max-sm:w-[40vw]">قم بالتسجيل والاستفادة من ركنة</p> 
 
             </div>
 
             {/* Data User Entry */}
              <form onSubmit={handleSubmit} className='w-full flex flex-col items-center'>
+             <div className=' max-sm:w-[60vw]'>
 
           {/* Username input */}
           <div className="mb-2">
             <label htmlFor="username" className="block text-sm text-[12px]  text-gray-600">اسم المستخدم</label>
-            <input type="text" id="username" name="username" className=" p-2 w-[35vh] h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px]" onChange={(e) => setUsername(e.target.value)} placeholder="ادخل اسم المستخدم"/>
+            <input type="text" id="username" name="username" className=" p-2 w-[35vh] h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px] max-sm:w-[60vw]" onChange={(e) => setUsername(e.target.value)} placeholder="ادخل اسم المستخدم"/>
           </div>  
 
           {/* Email input */}
           <div className="mb-2">
             <label htmlFor="email" className="block text-sm text-[12px]  text-gray-600">البريد الإلكتروني</label>
-            <input type="email" id="email" name="email" className=" p-2 w-[35vh] h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px]"onChange={(e) => setEmail(e.target.value)}placeholder="ادخل البريد الإلكتروني" />
+            <input type="email" id="email" name="email" className=" p-2 w-[35vh] h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px] max-sm:w-[60vw]"onChange={(e) => setEmail(e.target.value)}placeholder="ادخل البريد الإلكتروني" />
           </div>
 
           {/* Phone input */}
           <div className="mb-2">
             <label htmlFor="phone" className="block text-sm text-[12px] text-gray-600">رقم الجوال</label>
-            <input type="" id="phone" name="phone" className=" p-2 w-[35vh] h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px] placeholder:rtl " onChange={(e) => setPhone(e.target.value)}placeholder="ادخل رقم الجوال" />
+            <input type="" id="phone" name="phone" className=" p-2 w-[35vh] h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px] placeholder:rtl max-sm:w-[60vw]" onChange={(e) => setPhone(e.target.value)}placeholder="ادخل رقم الجوال" />
           </div>
 
           {/* Password input */}
           <div className="mb-3">
             <label htmlFor="password" className="block text-sm text-[12px] text-gray-600">الرقم السري</label>
-            <input type="password" id="password" name="password" className=" p-2 w-[35vh] h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px] " onChange={(e) => setPassword(e.target.value)}placeholder="ادخل كلمة المرور" />
+            <input type="password" id="password" name="password" className=" p-2 w-[35vh] h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px] max-sm:w-[60vw] " onChange={(e) => setPassword(e.target.value)}placeholder="ادخل كلمة المرور" />
           </div>
 
           {/*  Submit button */}
@@ -217,6 +218,7 @@ const [username, setUsername] = useState('');
            <button type="submit" onClick={showErrorMessage} className="w-[35vh] h-[5vh] rounded-md bg-[#fbf429] font-bold shadow-md text-[12px] transition duration-500 hover:bg-[#faf4509e]">
               تسجيل الدخول
             </button>
+          </div>
           </div>
         </form>
 
@@ -232,12 +234,12 @@ const [username, setUsername] = useState('');
 
             {/*  Submit to registr by googel button */}
              {value? navgetTI("/") :
-         <button onClick={handelgoogel} className=" w-[35vh] h-[5vh] rounded-md border-[1px] font-bold text-[12px] shadow-md flex items-center justify-center gap-2 transition duration-500 hover:bg-[#dedede5d]">
+         <button onClick={handelgoogel} className=" w-[35vh] h-[5vh] rounded-md border-[1px] font-bold text-[12px] shadow-md flex items-center justify-center gap-2 transition duration-500 hover:bg-[#dedede5d] max-sm:w-[60vw]">
              <img className="w-[5%]" src={google} alt="" />
-                التسجيل دخول بأستخدام قوقل
+                تسجيل دخول باستخدام قوقل
           </button>
           }
-            <p className="text-[#969696] text-[12px] mt-">لدي حساب لتسجيل ??  <a className="text-blue-400 font-bold" href="/Signin">تسجيل دخول</a></p> 
+            <p className="text-[#969696] text-[12px] mt-"> لديك حساب؟  <a className="text-blue-400 font-bold" href="/Signin">تسجيل دخول</a></p> 
             </div>
         </div>
     </div>
