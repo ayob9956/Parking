@@ -24,8 +24,10 @@ function Data() {
         </div>
          <div class="mb-1">
             <label class="block text-gray-700 font-bold mb-1 p-1" for="username">اسم المستخدم:</label>
+
             {user &&   <p className="text-gray-800 bg-[#8a8b8d6e] text-base rounded-md shadow-md truncate w-[40%] border-[1px] p-2 max-sm:w-full " id="username"> {user.UserName}</p>}
             {currentUser && <p class="text-gray-800 bg-[#8a8b8d6e] text-base rounded-md shadow-md truncate w-[40%] border-[1px] p-2  max-sm:w-full " id="username"> { currentUser.displayName }</p>}
+
         </div>
   <div class="mb-1">
     <label class="block text-gray-700 font-bold mb-2 p-1" for="email">البريد الإلكتروني:</label>

@@ -284,7 +284,6 @@ function BookInfo({ google }) {
 
 
         />
-        
 
 )})}
         </Map>
