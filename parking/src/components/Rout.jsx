@@ -23,8 +23,8 @@ export default function Rout() {
 
   return (
     <>
+ 
      <Nav/>
-    {/* <Nav/>
     <Routes>
 
         <Route path='/' element={<LnadingPage/>}/>
@@ -41,12 +41,13 @@ export default function Rout() {
         <Route path='/UserData' element={<UserData/>}/>
         <Route path='/MyReservations' element={<MyReservation/>}/>
 
+    
+    </Routes> 
 
-    </Routes> */}
-
-    <UserData></UserData>
+    {/* <UserData></UserData> */}
     {/* {<Emailjs/>} */}
-
+    {/* <Signin/> */}
+{/* <Data/> */}
     </>
   )
 }
