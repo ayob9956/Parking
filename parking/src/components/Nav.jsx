@@ -95,7 +95,7 @@ export default function Nav() {
             <button
               onClick={handleLogout}
               type='submit'
-              className="btn btn-primary p-2 text-[12px] max-sm:btn-sm"
+              className="btn btn-primary p-4 text-[12px] max-sm:btn-sm"
             >
               خروج
             </button>
