@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from "axios";
 import  { useRef } from 'react';
 import emailjs from '@emailjs/browser';
+
 function Ticket() {
+        const navget = useNavigate();
+
         const [reservations,setReservations] = useState([])
         const [Message, setMessage] = useState('')
         const form = useRef();
@@ -17,6 +20,7 @@ function Ticket() {
           emailjs.sendForm('service_mhcfiw6', 'template_1riql99', form.current, 'rY2L4SmEgvfjPNQ01')
             .then((result) => {
                 console.log(result.text);
+                navget("/");
             }, (error) => {
                 console.log(error.text);
             });
