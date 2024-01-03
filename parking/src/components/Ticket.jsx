@@ -46,6 +46,8 @@ function Ticket() {
                 
                 وقت الحجز من:${reservations.startTime} الى ${reservations.endTime}`)
         }, [])
+        console.log(Message);
+        
   return (
     <div className='flex flex-col items-center  justify-center h-full mt-10 w-full px-8 '>
         <div className='flex flex-col border p-3 bg-slate-100'>
