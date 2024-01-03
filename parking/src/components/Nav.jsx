@@ -1,47 +1,37 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/Logo.png';
 import react from '../assets/react.svg';
 
 export default function Nav() {
-  const navget = useNavigate();
-  const navparUser = localStorage.getItem('Sumpent');
+  const navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useState(null);
 
-  const [currentUser, setCurrentUser] = useState(
-    JSON.parse(localStorage.getItem('userData'))
-  );
+  const navparUser = localStorage.getItem('userDetails');
+  const user = JSON.parse(navparUser);
 
-  console.log(currentUser?.email);
-  console.log(currentUser?.displayName);
+  useEffect(() => {
+    const userDetails = localStorage.getItem('userData');
+    if (userDetails) {
+      setCurrentUser(JSON.parse(userDetails));
+    }
+  }, []);
 
   const handleLogout = () => {
-     localStorage.clear("")
-   window.location.reload
-
+    localStorage.clear();
+    setCurrentUser(null);
+    navigate('/signin'); 
   };
 
   return (
     <div className="shadow-md ">
       <div className="navbar bg-base-100 h-[12vh] rounded-lg border-[1px] shadow-lg">
         <div className="navbar-start">
+         
+
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
+             
             </div>
             <ul
               tabIndex={0}
@@ -75,31 +65,40 @@ export default function Nav() {
                 <a>من نحن</a>
               </li>
             </Link>
-          <Link to="/About">
-            <li>
-            <a>الدعم</a>
-            </li></Link>
-       {currentUser || navparUser === 'true' ? (
-             <Link to={"/Data"}><li>
-              <a>حسابي</a>
-            </li></Link> 
-          ) : (
-            <li>
-              <a></a>
-            </li>
-            )}
+            <Link to="/support"> 
+              <li>
+                <a>الدعم</a>
+              </li>
+            </Link>
+
+            {currentUser || user ? (
+              <Link to={"/MyReservations"}>
+                <li>
+                  <a>حجوزاتي</a>
+                </li>
+              </Link> 
+            ) : null}
+
+            {currentUser || user ? (
+              <Link to={"/Data"}>
+                <li>
+                  <a>حسابي</a>
+                </li>
+              </Link> 
+            ) : null}
+            
           </ul>
         </div>
 
         <div className="navbar-end gap-2">
-          {currentUser || navparUser === 'true' ? (
-           <Link to={"/Signin"}><button
+          {currentUser || user ? (
+            <button
               onClick={handleLogout}
-             type='submit'
-              className="btn btn-primary p-3 text-[12px] max-sm:btn-sm"
+              type='submit'
+              className="btn btn-primary p-2 text-[12px] max-sm:btn-sm"
             >
-              تسجيل خروج
-            </button></Link> 
+              خروج
+            </button>
           ) : (
             <Link to="/signin">
               <a className="btn btn-primary p-2 text-[12px] max-sm:btn-sm">

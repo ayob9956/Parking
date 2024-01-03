@@ -1,3 +1,5 @@
+
+
 import React from 'react'
 import {Routes,Route} from 'react-router-dom'
 import LnadingPage from './LnadingPage'
@@ -13,7 +15,7 @@ import CheckoutForm from './CheckoutForm'
  import Checkout from './Checkout'
  import About from './About'
  import Emailjs from './Emailjs'
-
+ import MyReservation from './MyReservation'
 
 
 
@@ -21,12 +23,13 @@ export default function Rout() {
 
   return (
     <>
+    <Nav/>
     <Routes>
 
         <Route path='/' element={<LnadingPage/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/Signin' element={<Signin/>}/>
-        <Route path='/support' element={<Support/>}/>
+        <Route path='/support' element={<Emailjs/>}/>
         <Route path='/ticket' element={<Ticket/>}/>
         <Route path='/checkout' element={<Checkout/>}/>
         <Route path='/CheckoutForm' element={<CheckoutForm/>}/>
@@ -35,12 +38,10 @@ export default function Rout() {
         <Route path='/About' element={<About/>}/>
         <Route path='/Data' element={<Data/>}/>
         <Route path='/UserData' element={<UserData/>}/>
-        <Route path='/LnadingPage' element={<LnadingPage/>}/>
+        <Route path='/MyReservations' element={<MyReservation/>}/>
 
 
     </Routes>
-
- 
 
     </>
   )
