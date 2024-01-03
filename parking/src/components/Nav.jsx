@@ -48,7 +48,7 @@ export default function Nav() {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">
+          <a href='/' className="btn btn-ghost text-xl">
             <img className="h-8" src={react} alt="" />
           </a>
         </div>
