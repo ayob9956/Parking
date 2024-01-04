@@ -33,8 +33,14 @@
 https://www.figma.com/file/Z4fNKmNRZc5zZB949cLErf/Untitled?type=design&node-id=0%3A1&mode=design&t=7BDKx5ZjrSDXHcxX-1
 
 -أعضاء الفريق –
-* أيوب العايد - https://github.com/ayob9956
-* طارق الشلاحي - https://github.com/Tariq-SOF
+* أيوب العايد - 
+
+https://github.com/ayob9956
+https://www.linkedin.com/in/ayoub-alayed-b08626234?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app
+
+* طارق الشلاحي - 
+https://github.com/Tariq-SOF
+https://www.linkedin.com/in/tariq-almutairi-80?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app
 * اروى السعدان
 *  https://github.com/Arwa-AlSaadan
   
