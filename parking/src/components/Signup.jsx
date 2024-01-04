@@ -165,79 +165,96 @@ const [username, setUsername] = useState('');
 
 
   {/* the Page container */}
-  <div className="w-full h-[100vh]  flex justify-center items-center bg-[#e5e5e645]  ">
+  <div className="w-full h-[100vh] max-sm:w-auto max-sm:h-[88vh]  flex justify-center items-center bg-[#e5e5e645]  ">
 
     {/* the Contents container */}
-    <div className="w-[75%] h-[80vh] flex bg-gradient-to-b from-[#d9d9d90f] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px]  shadow-md border-[#d1d1d1]">
+
+    <div className="w-[75%] h-[80vh] max-sm:w-[70%] max-sm:h-[60vh]  flex bg-gradient-to-b from-[#d9d9d90f] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px]  shadow-md border-[#d1d1d1]">
 
       {/* the Image contents */}
-        <div className=" w-[50%] h-[79.8vh] bg-[url('Screenshot.png')] bg-cover bg-center max-md:hidden rounded-2xl">
-            <div className=" w-full h-[79.8vh] bg-gradient-to-b from-[#d9d9d900] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px]  shadow-sm border-[#efefef]"></div>
+        <div className=" w-[50%] h-[79.8vh] max-sm:w-[0%]  max-sm:h-[0%] bg-[url('Screenshot.png')] bg-cover bg-center max-md:hidden rounded-2xl">
+            <div className=" w-full h-[79.8vh] max-sm:w-[0%]  max-sm:h-[0%] bg-gradient-to-b from-[#d9d9d900] via-[#2d61e310] to-[#d9d9d90f] rounded-2xl border-[1px]  shadow-sm border-[#efefef]"></div>
+
         </div>
 
         {/* Registration card container */}
-         <div className="w-[50%] h-[80vh] border-r-0 flex items-center flex-col justify-evenly ">
+         <div className="w-[50%] h-[80vh] max-sm:w-[95%] max-sm:h-[58vh] border-r-0 flex items-center flex-col justify-evenly ">
 
           {/* Registration description */}
-            <div className="w-full flex flex-col items-center ">
+
+            <div className=" w-auto  h-auto flex flex-col items-center m-8 ">
+
             <p className="font-bold text-[20px]">تسجيل جديد</p>
-            <p className="text-[#969696] text-[12px]">قم بالتسجيل والاستفادة من ركنة</p> 
+            <p className="text-[#969696] text-[12px] max-sm:w-[40vw]">قم بالتسجيل والاستفادة من ركنة</p> 
 
             </div>
 
             {/* Data User Entry */}
-             <form onSubmit={handleSubmit} className='w-full flex flex-col items-center'>
+
+             <form onSubmit={handleSubmit} className='w-auto h-auto  flex flex-col items-center'>
+
 
           {/* Username input */}
-          <div className="mb-2">
+          <div className="mb-2  w-auto ">
             <label htmlFor="username" className="block text-sm text-[12px]  text-gray-600">اسم المستخدم</label>
-            <input type="text" id="username" name="username" className=" p-2 w-[35vh] h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px]" onChange={(e) => setUsername(e.target.value)} placeholder="ادخل اسم المستخدم"/>
+
+            <input type="text" id="username" name="username" className=" p-2 w-[35vh] max-sm:w-[20vh]  h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px]" onChange={(e) => setUsername(e.target.value)} placeholder="ادخل اسم المستخدم"/>
+
           </div>  
 
           {/* Email input */}
-          <div className="mb-2">
+          <div className="mb-2  w-auto h-auto ">
             <label htmlFor="email" className="block text-sm text-[12px]  text-gray-600">البريد الإلكتروني</label>
-            <input type="email" id="email" name="email" className=" p-2 w-[35vh] h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px]"onChange={(e) => setEmail(e.target.value)}placeholder="ادخل البريد الإلكتروني" />
+
+            <input type="email" id="email" name="email" className=" p-2 w-[35vh] h-[5vh] max-sm:w-[20vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px]"onChange={(e) => setEmail(e.target.value)}placeholder="ادخل البريد الإلكتروني" />
+
           </div>
 
           {/* Phone input */}
           <div className="mb-2">
-            <label htmlFor="phone" className="block text-sm text-[12px] text-gray-600">رقم الجوال</label>
-            <input type="" id="phone" name="phone" className=" p-2 w-[35vh] h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px] placeholder:rtl " onChange={(e) => setPhone(e.target.value)}placeholder="ادخل رقم الجوال" />
+
+            <label htmlFor="phone" className="block text-sm text-[12px]  text-gray-600">رقم الجوال</label>
+            <input type="" id="phone" name="phone" className=" p-2 w-[35vh] max-sm:w-[20vh] h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px] placeholder:rtl " onChange={(e) => setPhone(e.target.value)}placeholder="ادخل رقم الجوال" />
+
           </div>
 
           {/* Password input */}
           <div className="mb-3">
             <label htmlFor="password" className="block text-sm text-[12px] text-gray-600">الرقم السري</label>
-            <input type="password" id="password" name="password" className=" p-2 w-[35vh] h-[5vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px] " onChange={(e) => setPassword(e.target.value)}placeholder="ادخل كلمة المرور" />
+
+            <input type="password" id="password" name="password" className=" p-2 w-[35vh] h-[5vh] max-sm:w-[20vh] text-[12px] mt-1  rounded-md border-[1px] shadow-sm placeholder:text-[11px] " onChange={(e) => setPassword(e.target.value)}placeholder="ادخل كلمة المرور" />
+
           </div>
 
           {/*  Submit button */}
-          <div className="flex items-center justify-between mb-2 ">
-           <button type="submit" onClick={showErrorMessage} className="w-[35vh] h-[5vh] rounded-md bg-[#fbf429] font-bold shadow-md text-[12px] transition duration-500 hover:bg-[#faf4509e]">
+          <div className=" max-sm:mb-0 w-auto h-auto flex items-center justify-between mb-2 ">
+           <button type="submit" onClick={showErrorMessage} className="w-[35vh] h-[5vh]  max-sm:w-[100%]  max-sm:h-[4svh] max-sm:p-2  rounded-md bg-[#fbf429] font-bold shadow-md text-[12px] transition duration-500 hover:bg-[#faf4509e]">
               تسجيل الدخول
             </button>
+          </div>
           </div>
         </form>
 
         
 
             {/* Description of registration options */}
-            <div className="w-full flex flex-col justify-center items-center gap-3 ">
-            <div className=" w-full flex items-center justify-center gap-2">
+            <div className=" max-sm:gap-2 w-auto h-auto  flex flex-col justify-center items-center gap-3 ">
+            <div className="w-auto h-auto flex items-center justify-center gap-2">
             <hr className="border-[1px] w-[20%]"></hr>
-            <p className="text-[10px] text-[#5d5b5b]">او</p>
+            <p className="text-[10px] max-sm:text-[12px] text-[#5d5b5b]">او</p>
             <hr className="border-[1px] w-[20%]"></hr>
             </div>
 
             {/*  Submit to registr by googel button */}
              {value? navgetTI("/") :
-         <button onClick={handelgoogel} className=" w-[35vh] h-[5vh] rounded-md border-[1px] font-bold text-[12px] shadow-md flex items-center justify-center gap-2 transition duration-500 hover:bg-[#dedede5d]">
+
+         <button onClick={handelgoogel} className=" w-[35vh] h-[5vh] max-sm:text-[10px] max-sm:w-[100%] max-sm:h-[4vh] rounded-md border-[1px] font-bold text-[12px] shadow-md flex items-center justify-center gap-2 transition duration-500 hover:bg-[#dedede5d]">
+
              <img className="w-[5%]" src={google} alt="" />
-                التسجيل دخول بأستخدام قوقل
+                تسجيل دخول باستخدام قوقل
           </button>
           }
-            <p className="text-[#969696] text-[12px] mt-">لدي حساب لتسجيل ??  <a className="text-blue-400 font-bold" href="/Signin">تسجيل دخول</a></p> 
+            <p className="text-[#969696] text-[12px] mt-"> لديك حساب؟  <a className="text-blue-400 font-bold" href="/Signin">تسجيل دخول</a></p> 
             </div>
         </div>
     </div>
