@@ -38,7 +38,7 @@ https://www.figma.com/file/Z4fNKmNRZc5zZB949cLErf/Untitled?type=design&node-id=0
 * اروى السعدان
 *  https://github.com/Arwa-AlSaadan
   
-www.linkedin.com/in/arwa-alsaadan-7784a1170
+* www.linkedin.com/in/arwa-alsaadan-7784a1170
 
 
 
