@@ -187,7 +187,6 @@ function Signin() {
                   تسجيل الدخول
               </button>
               </div>
-              </div>
         </form>
 
         <div className="w-auto h-auto flex flex-col justify-center items-center gap-4 max-sm:gap-2 ">
